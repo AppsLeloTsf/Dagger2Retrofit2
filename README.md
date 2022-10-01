@@ -1,2 +1,2 @@
-# My Practice Applicatuons
+# My Practice Applications
 
