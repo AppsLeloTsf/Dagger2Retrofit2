@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="verificationViewModel"
+            type="com.molitics.molitician.ui.dashboard.verification.viewModel.VerificationActivityViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/verifyButton">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <com.molitics.molitician.customView.molitics.PoppinsSemiBoldTextView
+                    android:id="@+id/verificationTextView"
+                    style="@style/verificationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dim_25dp"
+                    android:paddingBottom="@dimen/dim_10dp"
+                    android:text="@string/get_verified"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/closeScreenView"
+                    android:layout_width="@dimen/dim_25dp"
+                    android:layout_height="@dimen/dim_25dp"
+                    android:layout_marginTop="@dimen/dim_30dp"
+                    android:layout_marginRight="@dimen/dim_10dp"
+                    android:src="@drawable/ic_cross"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/greyBlankView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:background="@color/verification_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/verificationTextView" />
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/areYouTV"
+                    style="@style/verificationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dim_10dp"
+                    android:text="@string/are_you"
+                    android:textSize="@dimen/short_text_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/greyBlankView" />
+
+                <RadioGroup
+                    android:id="@+id/userStatusRB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dim_5dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dim_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/areYouTV"
+                    tools:ignore="RtlSymmetry">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:text="@string/individual" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/organisation" />
+
+                </RadioGroup>
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/areYouIndian"
+                    style="@style/verificationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dim_20dp"
+                    android:text="@string/are_you_indian"
+                    android:textSize="@dimen/short_text_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/userStatusRB" />
+
+                <RadioGroup
+                    android:id="@+id/citizenRB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dim_5dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dim_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/areYouIndian"
+                    tools:ignore="RtlSymmetry">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/no" />
+
+                </RadioGroup>
+
+                <View
+                    android:id="@+id/documentLine"
+                    style="@style/DividerLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_1dp"
+                    android:layout_marginTop="@dimen/dim_20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/citizenRB" />
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/documentTextView"
+                    style="@style/verificationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dim_20dp"
+                    android:text="@string/documents"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/documentLine" />
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/selectDocumentNameView"
+                    style="@style/verificationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_15dp"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:background="@drawable/edittxt_boundary_white"
+                    android:drawableRight="@drawable/chevron_down"
+                    android:drawablePadding="@dimen/dim_5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/select_documents"
+                    android:textSize="@dimen/short_text_12"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/documentTextView" />
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/documentNameView"
+                    style="@style/verificationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/short_text_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/selectDocumentNameView" />
+
+                <View
+                    android:id="@+id/personalDetailsDivider"
+                    style="@style/DividerLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_1dp"
+                    android:layout_marginTop="@dimen/dim_20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/documentNameView" />
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/personalDetailsTV"
+                    style="@style/verificationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dim_20dp"
+                    android:text="@string/personal_details"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/personalDetailsDivider" />
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/mobileNumberTV"
+                    style="@style/verificationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dim_20dp"
+                    android:text="@string/mobile_number"
+                    android:textSize="@dimen/short_text_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/personalDetailsTV" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/mobileEV"
+                    style="@style/VerifyProfileEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_mobile_number"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:text="@={verificationViewModel.contactNumber}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mobileNumberTV" />
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/emailTV"
+                    style="@style/verificationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:paddingTop="@dimen/dim_20dp"
+                    android:text="@string/email_id"
+                    android:textSize="@dimen/short_text_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mobileEV" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/emailEV"
+                    style="@style/VerifyProfileEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_email_id"
+                    android:text="@={verificationViewModel.userEmail}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/emailTV" />
+
+                <View
+                    android:id="@+id/emailDivider"
+                    style="@style/DividerLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_1dp"
+                    android:layout_marginTop="@dimen/dim_20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/emailEV" />
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/verifyDescriptionTV"
+                    style="@style/verificationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:paddingTop="@dimen/dim_20dp"
+                    android:text="@string/why_should_we_verify_you"
+                    android:textSize="@dimen/short_text_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/emailDivider" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/verifyDescriptionEV"
+                    style="@style/VerifyProfileEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_100dp"
+                    android:gravity="start"
+                    android:hint="@string/why_should_we_verify_you"
+                    android:text="@={verificationViewModel.userDescription}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/verifyDescriptionTV" />
+
+                <View
+                    android:id="@+id/verifyDivider"
+                    style="@style/DividerLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_1dp"
+                    android:layout_marginTop="@dimen/dim_20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/verifyDescriptionEV" />
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/socialTV"
+                    style="@style/verificationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:paddingTop="@dimen/dim_20dp"
+                    android:text="@string/social_icons"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/verifyDivider" />
+
+                <com.molitics.molitician.customView.molitics.VerifyLinkView
+                    android:id="@+id/instagramLinkView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:LinkName="@string/instagram_url"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/socialTV" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/verifyButton"
+            style="@style/SignInButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:onClick="@{() -> verificationViewModel.onVerifyClick()}"
+            android:text="@string/apply_verification" />
+    </RelativeLayout>
+</layout>

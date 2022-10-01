@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.NewsDetailFeatureActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarCat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginEnd="64dp">
+
+            <ImageView
+                android:id="@+id/ivBookmarkDetailImage"
+                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+                app:layout_collapseMode="parallax"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/svActivityBookmarkDetail"
+        android:layout_marginTop="-30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_layout">
+
+            <TextView
+                android:padding="@dimen/dimen_16dp"
+                android:id="@+id/tvBookmarkDetailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dimen_18sp"
+                android:layout_marginBottom="@dimen/dimen_16dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="start"
+                android:text="Title"/>
+            <RelativeLayout
+                android:padding="@dimen/dimen_4dp"
+                android:background="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tvBookmarkDetailDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_4dp"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textColor="@color/white"
+                    android:text="Date"/>
+                <ImageView
+                    android:layout_toStartOf="@+id/ivBookmarkDetailDelete"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:id="@+id/ivBookmarkDetailShare"
+                    android:src="@drawable/ic_menu_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tint="@color/white" />
+                <ImageView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:id="@+id/ivBookmarkDetailDelete"
+                    android:src="@drawable/ic_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tint="@color/white" />
+            </RelativeLayout>
+
+            <TextView
+                android:background="@color/white"
+                android:id="@+id/tvBookmarkDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_8dp"
+                android:textSize="@dimen/dimen_18sp"
+                android:textColor="@color/black"
+                android:text="Detail" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabActivityBookmarkDetail"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_home"
+        app:layout_anchor="@id/svActivityBookmarkDetail"
+        app:layout_anchorGravity="bottom|right|end"
+        android:focusable="true" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

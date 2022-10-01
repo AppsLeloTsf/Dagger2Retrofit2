@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/login_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dim_10dp">
+
+
+            <im.ene.toro.widget.Container
+                android:id="@+id/event_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_0dp"
+                android:layout_weight="1" />
+
+            <include android:id="@+id/include_loading" layout="@layout/include_loader_grid" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/dim_10dp"
+                android:layout_marginRight="@dimen/dim_10dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="@string/raise_issue_against_leader"
+                android:textColor="@color/follow_leader"
+                android:textSize="@dimen/large_text_18"
+                android:textStyle="normal" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

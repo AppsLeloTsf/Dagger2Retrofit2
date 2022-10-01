@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RL_container"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dim_10dp"
+    android:layout_marginLeft="@dimen/dim_10dp"
+    android:layout_marginRight="@dimen/dim_2dp"
+    android:layout_marginTop="@dimen/dim_5dp"
+    android:background="@drawable/round_corner_dark_mode"
+    android:clickable="true"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/sample_image" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_1px"
+            android:background="@color/follow_leader_white" />
+
+        <TextView
+            android:id="@+id/name_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_5dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:lines="1"
+            android:textColor="@color/follow_leader_white"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/party_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:lines="1"
+            android:maxLength="15"
+            android:textColor="@color/follow_leader_white"
+            android:textSize="10sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/votes_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dim_5dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:lines="1"
+            android:textColor="@color/follow_leader_white"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+</RelativeLayout>

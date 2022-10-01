@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.indianjourno.indianjourno.activity.VideoListActivity">
+  <com.google.android.material.appbar.AppBarLayout
+      android:background="@color/white"
+      android:id="@+id/appBarVideoList"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbToolbarStories"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        >
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/ivToolbarLogo"
+            android:src="@mipmap/ic_launcher"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tvToolbarVideo"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/ivToolbarLogo"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:text="Stories News"
+            android:textColor="@color/RED"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+      </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:layout_below="@+id/appBarVideoList"
+      android:id="@+id/rvStoryNewsList"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+</RelativeLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="signInViewModel"
+            type="com.molitics.molitician.ui.dashboard.register.viewModel.SignInViewModel" />
+    </data>
+
+    <com.molitics.molitician.customView.molitics.RegisterConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_20dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.molitics.molitician.customView.molitics.PoppinsSemiBoldTextView
+            android:id="@+id/signInTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_20dp"
+            android:text="@string/sign_in"
+            android:textSize="@dimen/xlarge_txt_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backButton" />
+
+        <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+            android:id="@+id/welcomeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_to_molitics"
+            android:textSize="@dimen/short_text_14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signInTV" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/enterMobileEV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_40dp"
+            android:drawableLeft="@drawable/moli_icon"
+            android:drawablePadding="@dimen/dim_10dp"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/enter_mobile_number"
+            android:inputType="number"
+            android:maxLength="10"
+            android:text="@={signInViewModel.contactNumber}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcomeTv" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/singInButton"
+            style="@style/SignInButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_20dp"
+            android:onClick="@{() -> signInViewModel.signInClick()}"
+            android:text="@string/sign_in_using_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/enterMobileEV" />
+
+        <View
+            android:id="@+id/orDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_1dp"
+            android:layout_marginTop="@dimen/dim_35dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/singInButton" />
+
+        <com.molitics.molitician.customView.molitics.PoppinsMediumtextView
+            android:id="@+id/orTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/hard_white"
+            android:padding="@dimen/dim_10dp"
+            android:text="@string/or"
+            app:layout_constraintBottom_toBottomOf="@+id/orDivider"
+            app:layout_constraintEnd_toEndOf="@+id/orDivider"
+            app:layout_constraintStart_toStartOf="@+id/orDivider"
+            app:layout_constraintTop_toTopOf="@+id/orDivider" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/otpButton"
+            style="@style/OtpButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_35dp"
+            android:onClick="@{() -> signInViewModel.onOtpClick()}"
+            android:text="@string/sign_in_using_otp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orDivider" />
+
+        <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+            android:id="@+id/dontHaveAccTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_70dp"
+            android:text="@string/dont_have_acc"
+            android:textColor="@color/account"
+            android:textSize="@dimen/short_text_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/otpButton" />
+
+        <com.molitics.molitician.customView.molitics.PoppinsSemiBoldTextView
+            android:id="@+id/registerTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_underline"
+            android:textAllCaps="true"
+            android:textColor="@color/register"
+            android:textSize="@dimen/large_text_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dontHaveAccTV" />
+
+    </com.molitics.molitician.customView.molitics.RegisterConstraintLayout>
+</layout>

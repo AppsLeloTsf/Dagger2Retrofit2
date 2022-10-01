@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="newsDetailViewModel"
+            type="com.molitics.molitician.ui.dashboard.newsDetail.viewModel.DetailNewsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/main_coor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/rl_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/expand_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/news_toolbar_shadow"
+                android:elevation="@dimen/dim_2dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dim_10dp"
+                    android:src="@drawable/ic_back_white" />
+
+                <ImageView
+                    android:id="@+id/news_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/dim_10dp"
+                    android:padding="@dimen/dim_10dp"
+                    android:src="@drawable/share_solid_white" />
+
+                <ImageView
+                    android:id="@+id/news_bookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:padding="@dimen/dim_10dp"
+                    android:src="@drawable/ic_bookmark_active_white" />
+
+                <ImageView
+                    android:id="@+id/news_unBookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:padding="@dimen/dim_10dp"
+                    android:src="@drawable/ic_bookmark_white" />
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/leader_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/rl_related_topic"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            <ProgressBar
+
+                android:id="@+id/main_progress_bar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="5dp"
+                android:indeterminate="true"
+                android:indeterminateDrawable="@drawable/progress_spinner"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/rl_related_topic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/source_name"
+                android:background="@color/comment_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dim_10dp"
+                android:layout_alignWithParentIfMissing="true"
+                android:paddingTop="@dimen/dim_5dp"
+                android:paddingRight="@dimen/dim_10dp"
+                android:paddingBottom="@dimen/dim_5dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/hot_topic_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/read_related_news"
+                    android:drawableLeft="@drawable/shape_copy"
+                    android:drawablePadding="@dimen/dim_5dp" />
+
+                <TextView
+                    android:id="@+id/read_related_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_primary"
+                    android:paddingLeft="@dimen/dim_5dp"
+                    android:paddingRight="@dimen/dim_5dp"
+                    android:text="@string/read_related_news"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/source_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/dim_5dp"
+                android:background="@drawable/bg_primary"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:paddingLeft="@dimen/dim_10dp"
+                android:paddingTop="@dimen/dim_5dp"
+                android:paddingRight="@dimen/dim_10dp"
+                android:paddingBottom="@dimen/dim_5dp"
+                android:text="@string/read_more_news"
+                android:textColor="@color/white"
+                android:textSize="@dimen/short_text_14"
+                android:textStyle="normal" />
+        </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/take_survey_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="@dimen/dim_10dp"
+            android:src="@drawable/survey_note"
+            android:visibility="gone"
+            app:backgroundTint="@color/floating_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/hot_topic_float_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="16dp"
+            android:padding="@dimen/dim_10dp"
+            android:src="@drawable/issue"
+            android:visibility="gone"
+            app:backgroundTint="@color/floating_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

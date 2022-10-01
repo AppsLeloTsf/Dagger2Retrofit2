@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vertical_recycler_lay"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dim_5dp"
+        android:layout_marginTop="@dimen/dim_10dp"
+        android:background="@color/slide_background"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/news_vi_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_100dp">
+
+            <com.google.android.youtube.player.YouTubeThumbnailView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/no_thumbnail"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/video_play_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/video_play_button" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/news_tile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dim_5dp"
+            android:layout_marginTop="@dimen/dim_10dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:lines="2"
+            android:textColor="@color/hard_white"
+            android:textSize="@dimen/short_text_14"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/news_headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/dim_5dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:lines="2"
+            android:textColor="@color/hard_white"
+            android:textSize="@dimen/news_headline"
+            android:textStyle="normal" />
+
+        <RelativeLayout
+            android:id="@+id/rl_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dim_5dp"
+            android:layout_marginLeft="@dimen/dim_5dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/sponser_news_post_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/news_survey_view"
+                android:drawableLeft="@drawable/white_clock"
+                android:drawablePadding="@dimen/dim_3dp"
+                android:ellipsize="end"
+                android:ems="3"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:textColor="@color/hard_white"
+                android:textSize="@dimen/news_headline_time"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/news_survey_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableLeft="@drawable/ic_survey"
+                android:drawablePadding="@dimen/dim_3dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/survey"
+                android:textColor="@color/hard_white"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_1px"
+        android:background="#f5f5f5" />
+
+    <TextView
+        android:id="@+id/horizon_line_view"
+        android:layout_width="1px"
+        android:layout_height="130dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="#f5f5f5" />
+</RelativeLayout>

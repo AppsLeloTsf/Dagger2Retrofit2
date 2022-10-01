@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rlMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/eventRLView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_10dp"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/shareEventView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="@dimen/dim_10dp"
+                android:paddingTop="@dimen/dim_10dp"
+                android:paddingRight="@dimen/dim_10dp"
+                android:src="@drawable/ic_vec_share" />
+
+            <LinearLayout
+                android:id="@+id/llEventView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/todayLine"
+                android:layout_marginStart="@dimen/dim_15dp"
+                android:layout_marginEnd="@dimen/dim_15dp"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/todayEventDateView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/upcomingTextView"
+                android:drawableStart="@drawable/ic_calender"
+                android:drawablePadding="@dimen/dim_5dp"
+                android:fontFamily="sans-serif"
+                android:paddingStart="15dp"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/upcomingTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/shareEventView"
+                android:fontFamily="sans-serif"
+                android:paddingStart="15dp"
+                android:paddingTop="@dimen/dim_8dp"
+                android:paddingBottom="@dimen/dim_8dp"
+                android:textColor="@color/follow_txte"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/todayLine"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:layout_below="@+id/todayEventDateView"
+                android:layout_marginTop="@dimen/dim_10dp"
+                android:background="@color/divider_color" />
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventRLView"
+            android:layout_marginTop="@dimen/dim_10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_10dp"
+                android:padding="@dimen/dim_5dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dob_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/follow_leader_white"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+
+                <TextView
+                    android:id="@+id/dobLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_1px"
+                    android:layout_marginTop="@dimen/dim_10dp" />
+
+                <TextView
+                    android:id="@+id/stateView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/follow_leader_white"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/stateLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_1px"
+                    android:layout_marginTop="@dimen/dim_10dp" />
+
+                <TextView
+                    android:id="@+id/assemblyConstituencyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/follow_leader_white"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    android:visibility="gone" />
+
+
+                <TextView
+                    android:id="@+id/lokSabhaView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/follow_leader_white"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/description_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_1px"
+                    android:layout_marginTop="@dimen/dim_10dp" />
+
+                <TextView
+                    android:id="@+id/descriptionView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_5dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Description:"
+                    android:textColor="@color/follow_leader_white"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/descriptionTxtView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="@dimen/dim_3dp"
+                    android:paddingBottom="@dimen/dim_10dp"
+                    android:textColor="@color/follow_txte"
+                    android:textSize="@dimen/short_text_14"
+                    android:textStyle="normal" />
+
+                <include layout="@layout/adapter_status_leader" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

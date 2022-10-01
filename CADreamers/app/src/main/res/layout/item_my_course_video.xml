@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlChapterTopic"
+    android:background="@drawable/button_round_main"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/dimen_8dp"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/dimen_30dp">
+    <TextView
+        style="@style/tv_logo_color"
+        android:drawableStart="@drawable/ic_video"
+        android:id="@+id/tvTopicContentTitle"
+        android:text="Course Title"
+        />
+</RelativeLayout>

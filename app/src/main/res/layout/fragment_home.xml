@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:context=".fragment.FragmentHome">
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ViewFlipper
+        android:visibility="gone"
+        android:id="@+id/vfMain"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:padding="5dp"
+            android:scaleType="fitXY"
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="@color/RED"
+            android:src="@drawable/logo_splash" />
+    </ViewFlipper>
+    <TextView
+        android:id="@+id/tvFeatureTitle"
+        android:background="@color/BLACK"
+        android:paddingStart="@dimen/dimen_16dp"
+        android:paddingEnd="@dimen/dimen_16dp"
+        android:paddingTop="@dimen/dimen_16dp"
+        android:paddingBottom="@dimen/dimen_4dp"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/WHITE"
+        android:text="Feature News" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="@color/white"
+        android:id="@+id/rvHomeFeatureCat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvVideoTitle"
+        android:background="@color/colorPrimaryDark"
+        android:paddingStart="@dimen/dimen_16dp"
+        android:paddingEnd="@dimen/dimen_16dp"
+        android:paddingTop="@dimen/dimen_16dp"
+        android:paddingBottom="@dimen/dimen_4dp"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Video News" />
+    <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvHomeVideoCat"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvTopTitle"
+        android:background="@color/BLACK"
+        android:paddingStart="@dimen/dimen_16dp"
+        android:paddingEnd="@dimen/dimen_16dp"
+        android:paddingTop="@dimen/dimen_16dp"
+        android:paddingBottom="@dimen/dimen_4dp"
+        android:textStyle="bold"
+        android:textColor="@color/WHITE"
+        android:textSize="@dimen/dimen_20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Top News" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHomeNewsCat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <androidx.viewpager.widget.ViewPager
+        android:visibility="gone"
+        android:background="@color/white"
+        android:padding="@dimen/dimen_4dp"
+        android:id="@+id/viewPagerMain"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"/>
+
+
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>

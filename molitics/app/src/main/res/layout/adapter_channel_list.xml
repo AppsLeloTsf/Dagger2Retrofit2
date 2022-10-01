@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/channelMain"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dim_10dp">
+
+
+    <ImageView
+        android:id="@+id/sourceLogo"
+        android:layout_width="@dimen/dim_50dp"
+        android:layout_height="@dimen/dim_50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/sourceName"
+        android:layout_width="@dimen/dim_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/dim_15dp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/followButton"
+        app:layout_constraintStart_toEndOf="@+id/sourceLogo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/followButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/round_corner_txt"
+        android:clickable="true"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dim_10dp"
+        android:paddingTop="@dimen/dim_5dp"
+        android:paddingRight="@dimen/dim_10dp"
+        android:paddingBottom="@dimen/dim_5dp"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/short_text_12"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

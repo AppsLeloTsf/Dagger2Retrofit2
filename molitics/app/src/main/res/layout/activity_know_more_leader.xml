@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_background">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="@dimen/dim_5dp"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/ThemeOverlay.AppCompat"
+        app:subtitleTextColor="@color/white"
+        app:theme="@style/ToolbarStyle"
+        app:titleTextColor="@color/follow_leader">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <RelativeLayout
+            android:id="@+id/RL_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dim_15dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/leader_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:elevation="@dimen/dim_5dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dim_10dp"
+                android:layout_marginTop="75dp"
+                android:layout_marginRight="@dimen/dim_10dp"
+                android:layout_marginBottom="@dimen/dim_10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_90dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dim_5dp">
+
+                    <TextView
+                        android:id="@+id/leader_name_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="#0b446a"
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/leader_position_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_3dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="#131313"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:background="@color/about_male" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10dp">
+
+                        <TextView
+                            android:id="@+id/leader_party_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/party_logo"
+                            android:fontFamily="sans-serif"
+                            android:textColor="#0b446a"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+
+                        <ImageView
+                            android:id="@id/party_logo"
+                            android:layout_width="@dimen/dim_35dp"
+                            android:layout_height="@dimen/dim_25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dim_5dp" />
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dim_1px"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:background="@color/about_male" />
+
+                    <TextView
+                        android:id="@+id/dob_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="#0b446a"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+
+
+                    <TextView
+                        android:id="@+id/dob_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dim_1px"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:background="@color/about_male" />
+
+                    <TextView
+                        android:id="@+id/state_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="#0b446a"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/assembly_constituency_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="#0b446a"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/lok_sabha_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="#0b446a"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dim_1px"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:background="@color/about_male"
+                        android:fontFamily="sans-serif"
+                        android:text="Description:"
+                        android:textColor="#0b446a"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/description_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:fontFamily="sans-serif"
+                        android:text="Description:"
+                        android:textColor="#0b446a"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/description_txt_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:lineSpacingExtra="@dimen/dim_3dp"
+                        android:paddingBottom="@dimen/dim_10dp"
+                        android:textColor="#131313"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/appBarVideoActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_detail"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tvToolbar"
+                    android:text="@string/app_name"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:layout_below="@+id/appBarVideoActivity"
+        android:id="@+id/youtube_view"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:id="@+id/llVideoList"
+        android:layout_below="@+id/youtube_view"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+        <TextView
+            android:id="@+id/tvVideoDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:textSize="@dimen/dimen_12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:textColor="@color/white"
+            android:text="Date"/>
+
+        <TextView
+            android:padding="@dimen/dimen_12dp"
+            android:id="@+id/tvVideoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dimen_12sp"
+            android:textStyle="normal"
+            android:textColor="@color/white"
+            android:gravity="start"
+            android:text="Title"/>
+        <RelativeLayout
+            android:visibility="gone"
+            android:padding="@dimen/dimen_4dp"
+            android:background="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:id="@+id/ivVideoShare"
+                android:src="@drawable/ic_menu_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tint="@color/white" />
+            <ImageView
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/ivVideoBookmarks"
+                android:src="@drawable/ic_bookmark_outline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tint="@color/white" />
+        </RelativeLayout>
+<View
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"/>
+
+        <TextView
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dimen_8dp"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/colorPrimary"
+            android:text="Related Video" />
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/llVideoList"
+        android:background="@color/gray"
+        android:id="@+id/rvVideoPlayerList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:id="@+id/pbVideoActivity"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="2" />
+
+
+</LinearLayout>

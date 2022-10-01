@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_main_light"
+        tools:context=".fragments.offline_files.FragmentOffline">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSavedVideo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvEmptyMyVideo"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            style="@style/et_main"
+            android:text="Your Video gallery is empty\nDownload for offline !"
+            android:textSize="@dimen/dimen_24dp"
+            android:textStyle="bold"
+            android:textColor="@color/grey"
+            android:gravity="center"
+            />
+</RelativeLayout>

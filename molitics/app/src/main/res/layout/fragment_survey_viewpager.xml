@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/survey_detail_bg">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dim_10dp"
+            android:paddingRight="@dimen/dim_10dp"
+            android:paddingBottom="@dimen/dim_10dp"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dim_10dp"
+            android:text="@string/survey"
+            android:textColor="@color/theme"
+            android:textSize="@dimen/large_text_18"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/survey_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl_bottom"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dim_30dp">
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dim_30dp">
+
+        <TextView
+            android:id="@+id/preview"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:lineSpacingExtra="7sp"
+            android:text="@string/previous"
+            android:textColor="@color/preview_inactive"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/next"
+            android:layout_width="120dp"
+            android:layout_height="@dimen/dim_40dp"
+            android:layout_marginLeft="@dimen/dim_40dp"
+            android:layout_toRightOf="@+id/preview"
+            android:background="@color/white"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:lineSpacingExtra="7sp"
+            android:paddingLeft="@dimen/dim_20dp"
+            android:paddingTop="@dimen/dim_10dp"
+            android:paddingRight="@dimen/dim_20dp"
+            android:paddingBottom="@dimen/dim_10dp"
+            android:text="@string/next"
+            android:textColor="@color/create_voice_white_btn"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,165 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+apply plugin: 'realm-android'
+apply plugin: 'com.google.firebase.crashlytics'
+apply from: '../version.gradle'
+
+
+android {
+    useLibrary 'org.apache.http.legacy'
+
+    compileSdkVersion rootProject.ext.androidVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    archivesBaseName = "molitics" // setting apk name molitics.apk
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    defaultConfig {
+        applicationId "com.molitics.molitician"
+        minSdkVersion rootProject.ext.minSupportSDKVersion
+        targetSdkVersion rootProject.ext.androidVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        multiDexEnabled true
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        ndk.abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", 'BASE_URL', "\"https://stagingapi.molitics.in/\""
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", 'BASE_URL', "\"https://stagingapi.molitics.in/\""
+        }
+        staging {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+            buildConfigField "String", 'BASE_URL', "\"https://stagingapi.molitics.in/\""
+        }
+
+        httpStaging {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+            buildConfigField "String", 'BASE_URL', "\"http://stagingapi.molitics.net/v2/\""
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility java_version
+        targetCompatibility java_version
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation "com.jakewharton:butterknife:$rootProject.butterknife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
+    kapt "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.browser:browser:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    implementation "com.google.firebase:firebase-messaging:$rootProject.in_app_messaging"
+    implementation "com.google.android.exoplayer:exoplayer-core:$rootProject.exoplayer"
+    implementation "com.google.android.exoplayer:exoplayer-hls:$rootProject.exoplayer"
+    implementation "com.google.android.exoplayer:exoplayer-ui:$rootProject.exoplayer"
+    implementation 'org.apache.commons:commons-lang3:3.7'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
+    implementation "io.reactivex.rxjava2:rxjava:rootProject.rxjava"
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.twitter.sdk.android:twitter:3.0.0'
+
+    implementation networkDependencies.values()
+    ////implementation 'com.facebook.android:facebook-android-sdk:5.+'
+    implementation 'com.facebook.android:facebook-android-sdk:5.0.1'
+//    implementation('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+//        transitive = true
+//    }
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    implementation files('lib/YouTubeAndroidPlayerApi.jar')
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+    implementation 'com.splitwise:tokenautocomplete:2.0.8@aar'
+
+    implementation 'io.branch.sdk.android:library:2.15.1'
+    implementation 'com.yandex.android:mobmetricalib:2.80'
+    implementation 'jp.wasabeef:richeditor-android:1.2.2'
+    implementation 'com.github.darsh2:MultipleImageSelect:v0.0.4'
+
+    //implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
+
+    implementation "im.ene.toro3:toro:${rootProject.toro_latest_release}"
+    implementation "im.ene.toro3:toro-ext-exoplayer:${rootProject.toro_latest_release}"
+
+    implementation 'net.alhazmy13.MediaPicker:libary:2.4.0'
+    implementation 'androidx.room:room-runtime:2.3.0'
+    annotationProcessor 'androidx.room:room-compiler:2.3.0'
+    kapt 'androidx.room:room-compiler:2.3.0'
+    implementation 'au.com.bytecode:opencsv:2.4'
+    implementation "org.jsoup:jsoup:$rootProject.jsoup"
+    implementation('com.amazonaws:aws-android-sdk-mobile-client:2.7.+@aar') { transitive = true }
+    implementation 'com.amazonaws:aws-android-sdk-s3:2.7.+'
+    implementation 'com.amazonaws:aws-android-sdk-cognito:2.7.+'
+    implementation "com.google.dagger:dagger-android:$rootProject.dagger2Version"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+
+    implementation 'com.github.florent37:camerafragment:1.0.9'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
+    implementation 'com.google.android.material:material:1.2.1'
+    // Recommended: Add the Firebase SDK for Google Analytics.
+    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycle_version"
+
+    // Add the Firebase Crashlytics SDK.
+    implementation "com.google.firebase:firebase-crashlytics:$rootProject.crashlytics"
+    implementation 'io.github.ponnamkarthik:richlinkpreview:1.0.9'
+    implementation 'com.fxn769:pix:1.5.6'
+
+}
+apply plugin: 'com.google.gms.google-services'
+

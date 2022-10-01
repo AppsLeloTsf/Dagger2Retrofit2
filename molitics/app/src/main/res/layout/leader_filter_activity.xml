@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tutorial_background">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/filter_main_header" />
+
+    <ExpandableListView
+        android:id="@+id/expandable_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/apply_btn"
+        android:layout_below="@+id/header"
+        android:background="@color/white"
+        android:choiceMode="singleChoice"
+        android:divider="#d9d2d2"
+        android:dividerHeight="@dimen/dim_1px"
+        android:groupIndicator="@null" />
+
+    <TextView
+        android:id="@+id/apply_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/create_voice_btn"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:padding="@dimen/dim_15dp"
+        android:text="@string/apply"
+        android:textColor="@color/hard_white"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+</RelativeLayout>

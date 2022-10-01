@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rl_no_cons_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ungali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_tap" />
+
+        <TextView
+            android:id="@+id/txt_select_con"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ungali"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dim_5dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="@string/select_constituency"
+            android:textColor="@color/voice_edit_txt"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:id="@+id/rl_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/select_constituency_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dim_30dp"
+                android:layout_marginTop="@dimen/dim_20dp"
+                android:layout_marginRight="@dimen/dim_30dp"
+                android:background="@color/add_issue_bg"
+                android:drawableRight="@drawable/drop_down_selector"
+                android:drawablePadding="@dimen/dim_5dp"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="@dimen/dim_10dp"
+                android:paddingTop="@dimen/dim_5dp"
+                android:paddingRight="@dimen/dim_10dp"
+                android:paddingBottom="@dimen/dim_5dp"
+                android:text="@string/select_constituency_txt"
+                android:textColor="@color/voice_edit_txt"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/line_select"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:layout_below="@+id/select_constituency_view"
+                android:layout_marginTop="@dimen/dim_20dp"
+                android:background="@color/about_male" />
+
+            <LinearLayout
+                android:id="@+id/ll_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/line_select"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dim_10dp"
+                android:paddingBottom="@dimen/dim_10dp"
+                android:visibility="gone">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_1px"
+                    android:layout_marginTop="@dimen/dim_5dp"
+                    android:background="@color/about_male" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/dim_10dp"
+                    android:text="@string/const_banner"
+                    android:textColor="@color/result_declared"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/dim_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/males_tab"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:drawableTop="@drawable/male"
+                            android:drawablePadding="@dimen/dim_5dp"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:text="@string/males"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/males_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/males_tab"
+                            android:layout_centerHorizontal="true"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/dim_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/females_tab"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:drawableTop="@drawable/female"
+                            android:drawablePadding="@dimen/dim_5dp"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:text="@string/females"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/female_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/females_tab"
+                            android:layout_centerHorizontal="true"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/dim_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/voters_tab"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:drawableTop="@drawable/vote"
+                            android:drawablePadding="@dimen/dim_5dp"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:text="@string/voters"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/voters_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/voters_tab"
+                            android:layout_centerHorizontal="true"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_1px"
+                    android:layout_marginTop="@dimen/dim_20dp"
+                    android:background="@color/view" />
+
+                <TextView
+                    android:id="@+id/election_result_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_15dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:textColor="@color/result_declared"
+                    android:textSize="@dimen/short_text_14"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/winner_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_15dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="@string/winner"
+                    android:textColor="@color/follow_leader_white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/winner_image"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:src="@mipmap/sample_image"
+                    app:civ_border_color="#ca4040"
+                    app:civ_border_width="2dp" />
+
+                <TextView
+                    android:id="@+id/winner_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/dim_5dp"
+                    android:textColor="@color/result_declared"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/winner_party_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:textColor="@color/result_declared"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/winner_vote_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="@string/winner"
+                    android:textColor="@color/follow_leader_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_15dp"
+                    android:background="@color/other_candidates"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/other_candidate_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dim_10dp"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:drawableLeft="@drawable/leader"
+                        android:drawablePadding="@dimen/dim_5dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/other_candidates"
+                        android:textAllCaps="false"
+                        android:textColor="@color/follow_txte"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dim_1px"
+                        android:layout_marginTop="@dimen/dim_5dp"
+                        android:background="@color/follow_txte" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/other_candidate_recycle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ll_main"
+                        android:clickable="true"
+                        android:paddingTop="@dimen/dim_10dp"
+                        android:scrollbars="none" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/constituency_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp" />
+
+</RelativeLayout>

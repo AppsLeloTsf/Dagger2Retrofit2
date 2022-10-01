@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="312dp"
+    android:layout_height="444dp">
+    <ImageView
+        android:layout_width="312dp"
+        android:layout_height="444dp"
+
+        android:scaleType="fitXY"/>
+    <LinearLayout
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="115dp">
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="Hi ! seems like we have no data to show here"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

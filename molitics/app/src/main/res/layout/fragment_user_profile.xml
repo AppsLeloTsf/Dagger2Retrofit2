@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="@dimen/dim_15dp"
+            android:elevation="@dimen/dim_2dp"
+            app:civ_border_color="@color/theme"
+            app:civ_border_width="@dimen/dim_2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sample_image" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/dim_20dp" />
+
+        <ImageView
+            android:id="@+id/shareView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dim_10dp"
+            android:elevation="@dimen/dim_2dp"
+            android:src="@drawable/ic_share"
+            app:layout_constraintRight_toLeftOf="@+id/profileThreeDotView"
+            app:layout_constraintTop_toBottomOf="@+id/guideline" />
+
+        <ImageView
+            android:id="@+id/profileThreeDotView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dim_10dp"
+            android:elevation="@dimen/dim_2dp"
+            android:src="@drawable/ic_threeedot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profileHeaderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_35dp"
+            android:background="@color/profile_top_bg"
+            android:paddingLeft="@dimen/dim_15dp"
+            android:paddingRight="@dimen/dim_15dp"
+            android:paddingBottom="@dimen/dim_20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/user_name_txt"
+                style="@style/UserProfileName"
+                android:layout_width="@dimen/dim_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_45dp"
+                app:layout_constraintEnd_toStartOf="@+id/follow_user_txt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/userUniqueNameView"
+                style="@style/UniqueName"
+                android:layout_width="@dimen/dim_0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/follow_user_txt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_name_txt" />
+
+            <TextView
+                android:id="@+id/follow_user_txt"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:paddingTop="@dimen/dim_5dp"
+                android:paddingBottom="@dimen/dim_5dp"
+                android:textColor="@color/follow_txte"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/user_name_txt" />
+
+            <TextView
+                android:id="@+id/locationTextView"
+                style="@style/ProfileDetailsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_15dp"
+                android:drawableLeft="@drawable/nearby_location"
+                android:drawablePadding="@dimen/dim_5dp"
+                android:text="Delhi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userUniqueNameView" />
+
+            <View
+                android:id="@+id/locationDivider"
+                style="@style/DividerLine"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:layout_marginTop="@dimen/dim_5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/locationTextView" />
+            <TextView
+                android:id="@+id/emailTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_5dp"
+                android:drawableLeft="@drawable/ic_mail_normal"
+                android:drawablePadding="@dimen/dim_3dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/voice_edit_txt"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/locationDivider" />
+
+            <TextView
+                android:id="@+id/contact_number_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/phone_receiver"
+                android:drawablePadding="@dimen/dim_3dp"
+                android:fontFamily="sans-serif"
+                android:paddingLeft="@dimen/dim_5dp"
+                android:paddingRight="@dimen/dim_10dp"
+                android:textColor="@color/voice_edit_txt"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@+id/emailTxtView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/emailTxtView"
+                app:layout_constraintTop_toTopOf="@+id/emailTxtView" />
+
+            <TextView
+                android:id="@+id/bioTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dim_20dp"
+                android:paddingBottom="@dimen/dim_20dp"
+                android:textColor="@color/login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contact_number_txt" />
+
+            <ImageView
+                android:id="@+id/male_female_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/female_icon"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/following_count_txt"
+                style="@style/ProfileActionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@+id/following_txt"
+                app:layout_constraintTop_toBottomOf="@+id/bioTextView" />
+
+            <TextView
+                android:id="@+id/following_txt"
+                android:layout_width="@dimen/dim_70dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/following"
+                android:textColor="@color/voice_edit_txt"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/following_count_txt" />
+
+            <View
+                android:id="@+id/followingDivider"
+                style="@style/DividerLine"
+                android:layout_width="@dimen/dim_1dp"
+                android:layout_height="@dimen/dim_55dp"
+                android:layout_marginLeft="@dimen/dim_10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/following_txt"
+                app:layout_constraintLeft_toRightOf="@+id/following_txt"
+                app:layout_constraintTop_toTopOf="@+id/following_count_txt" />
+
+            <TextView
+                android:id="@+id/followers_count_txt"
+                style="@style/ProfileActionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/followingDivider"
+                app:layout_constraintRight_toRightOf="@+id/followers_txt"
+                app:layout_constraintTop_toBottomOf="@+id/bioTextView" />
+
+            <TextView
+                android:id="@+id/followers_txt"
+                android:layout_width="@dimen/dim_70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dim_10dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/followers"
+                android:textColor="@color/voice_edit_txt"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/followingDivider"
+                app:layout_constraintTop_toBottomOf="@+id/followers_count_txt" />
+
+            <View
+                android:id="@+id/followDivider"
+                style="@style/DividerLine"
+                android:layout_width="@dimen/dim_1dp"
+                android:layout_height="@dimen/dim_55dp"
+                android:layout_marginLeft="@dimen/dim_10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/followers_txt"
+                app:layout_constraintLeft_toRightOf="@+id/followers_txt"
+                app:layout_constraintTop_toTopOf="@+id/followers_count_txt" />
+
+            <TextView
+                android:id="@+id/issues_count_txt"
+                style="@style/ProfileActionText"
+                android:layout_width="@dimen/dim_80dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/followDivider"
+                app:layout_constraintTop_toBottomOf="@+id/bioTextView" />
+
+            <TextView
+                android:id="@+id/issues_txt"
+                android:layout_width="@dimen/dim_70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dim_10dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/issues"
+                android:textColor="@color/voice_edit_txt"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/followDivider"
+                app:layout_constraintTop_toBottomOf="@+id/issues_count_txt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:id="@+id/no_issue_layout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dim_100dp"
+            android:layout_marginTop="@dimen/dim_40dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/issue_raised_txt">
+
+            <TextView
+                android:id="@+id/no_issue_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/no_issue_create" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/m_verified_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/user_image"
+            app:layout_constraintTop_toTopOf="@+id/user_image"
+            app:srcCompat="@drawable/m_verified" />
+
+        <TextView
+            android:id="@+id/issue_raised_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:padding="@dimen/dim_10dp"
+            android:textColor="@color/follow_leader_white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileHeaderView" />
+
+        <View
+            android:id="@+id/issueDivider"
+            style="@style/DividerLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/issue_raised_txt" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

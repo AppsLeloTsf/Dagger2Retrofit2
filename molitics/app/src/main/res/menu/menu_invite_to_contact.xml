@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/search_menu"
+        android:icon="@drawable/filter_search"
+        android:orderInCategory="93"
+        android:title="search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+
+    <item
+        android:id="@+id/refresh_menu"
+        android:icon="@drawable/sync_data"
+        android:orderInCategory="95"
+        android:title="Sync Data"
+        app:showAsAction="ifRoom|collapseActionView" />
+
+</menu>

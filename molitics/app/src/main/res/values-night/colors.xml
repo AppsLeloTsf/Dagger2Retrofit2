@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#131C21</color>
+    <color name="colorPrimaryLight">#ffffff</color>
+
+    <color name="white">#131C21</color>
+    <color name="login_background">#323739</color>
+
+    <color name="dark">#4a7373</color>
+    <color name="accent_blue">#3be3fb</color>
+    <color name="theme">#ffffff</color>
+    <color name="red">#990000</color>
+    <color name="button_red">#990000</color>
+
+    <color name="divider">#d3d3d3</color>
+    <color name="blue_text">#4C8AAF</color>
+    <color name="view">#e1dada</color>
+    <color name="text_color">#ffffff</color>
+    <color name="lightgray">#808080</color>
+    <color name="read_notification">#f2f0f0</color>
+
+    <!--shree-->
+    <color name="leader_post">#6F7477</color>
+    <color name="about_male">#d8d8d8</color>
+    <color name="about_pop_no">#ffffff</color>
+
+    <!--shubham main xml   tool bar-->
+
+
+    <color name="toolbar_color">#ffffff</color>
+    <color name="gray_2">#AFAFAF</color>
+    <color name="black">#ffffff</color>
+    <color name="selector_color_material">#b5b5b5</color>
+
+    <color name="neutral">#e89445</color>
+    <color name="no_color">#AFDCEC</color>
+    <color name="share_voice_background">#323739</color>
+    <color name="filter_key_background">#F2F2F2</color>
+
+    <!--Sambhav-->
+    <color name="tutorial_background">#131C21</color>
+
+    <color name="preview_inactive">#d9d9d9</color>
+    <color name="following_leader">#3f3f3f</color>
+    <color name="follow_leader">#6F7477</color>
+    <color name="leader_tab_bck">#d50044</color>
+    <color name="floating_button">#e10a4e</color>
+    <color name="filter_child_bg">#323739</color>
+    <color name="article_bg">#323739</color>
+    <color name="slide_background">#2c3333</color>
+    <color name="leader_placeholder_bg2">#eeeeee</color>
+    <color name="comment_bg">#323739</color>
+    <color name="add_issue_bg">#323739</color>
+    <color name="follow_txte">#ffffff</color>
+    <color name="source_news_background">#cec8c8</color>
+
+    <!--custom-->
+    <color name="trending_bg">#e5e5e5</color>
+    <!--<color name="survey_progress_default">#d2d5dc</color>-->
+    <color name="survey_progress_default">#808080</color>
+    <color name="survey_taken">#48cfb7</color>
+    <color name="downvote_color">#c5110f</color>
+    <color name="downvote_light_color">#EC1714</color>
+    <color name="more_videoBg">#343434</color>
+    <color name="survey_bg">#363636</color>
+    <color name="header_selection">#d51f44</color>
+    <color name="header_deselection">#323739</color>
+    <color name="header_text_bg">#4D000000</color>
+    <color name="leader_unfollow">#323232</color>
+    <color name="time">#9b9b9b</color>
+    <color name="dashboard_bottom_unselected">#ffffff</color>
+    <color name="dashboard_bottom_selected">#d51f44</color>
+    <color name="trending_news_bg">#131C21</color>
+    <color name="survey_home">#676767</color>
+    <color name="facebook">#3b5998</color>
+    <color name="gmail">#D44638</color>
+    <color name="light_grey">#323739</color>
+    <color name="news_txt">#ffffff</color>
+    <color name="home_bg">#c1c1c1</color>
+    <color name="news_detail_bg">#e4e4e4</color>
+    <color name="red_trend">#ff2758</color>
+    <color name="very_light_pink">#D4eaeaea</color>
+    <color name="header_bg">#323739</color>
+    <color name="new_header">#323739</color>
+    <color name="trending_topic_bg">#131C21</color>
+    <color name="detail_news_desc">#ffffff</color>
+    <color name="event_name">#ffffff</color>
+    <color name="divider_color">#1E000000</color>
+    <color name="light_bg">#000000</color>
+    <color name="hard_white">#ffffff</color>
+    <color name="follow_leader_white">#ffffff</color>
+    <color name="hard_black">#000000</color>
+    <color name="voice_comment">#ffffff</color>
+    <color name="create_voice_btn">#000000</color>
+    <color name="create_voice_white_btn">#ffffff</color>
+    <color name="voice_edit_txt">#ffffff</color>
+    <color name="issue_raised_bg">#000000</color>
+    <color name="progress_txt">#ffffff</color>
+    <color name="icon_color">#CCCCCC</color>
+    <color name="search_box">#323739</color>
+    <color name="result_declared">#6F7477</color>
+    <color name="other_candidates">#6F7477</color>
+    <color name="login_txt">#6F7477</color>
+    <color name="share_icon">#ffffff</color>
+    <color name="globe_icon">#ffffff</color>
+    <color name="comment_txt">#ffffff</color>
+    <color name="voice_time">#cccccc</color>
+
+</resources>

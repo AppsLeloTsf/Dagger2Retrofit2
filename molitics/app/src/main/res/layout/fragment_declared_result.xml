@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/con"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tutorial_background">
+
+        <include layout="@layout/progress_bar_layout" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/ll_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/state_name_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_20dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:textColor="@color/follow_leader_white"
+                    android:textSize="24sp"
+                    android:textStyle="normal" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dim_10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dim_5dp"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dim_10dp">
+
+                            <TextView
+                                android:id="@+id/total_seats_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:textColor="@color/follow_txte"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/election_date_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:drawableLeft="@drawable/calender"
+                                android:drawablePadding="@dimen/dim_5dp"
+                                android:fontFamily="sans-serif"
+                                android:gravity="right"
+                                android:textColor="@color/follow_txte"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dim_1px"
+                            android:layout_marginTop="@dimen/dim_5dp"
+                            android:background="@color/about_male" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dim_5dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/result_declared"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/governor_image_view"
+                    android:layout_width="@dimen/dim_70dp"
+                    android:layout_height="@dimen/dim_70dp"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:src="@mipmap/sample_image"
+                    app:civ_border_color="@color/theme"
+                    app:civ_border_width="2dp" />
+
+                <TextView
+                    android:id="@+id/governor_name_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_5dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/result_declared"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/governor_position_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/result_declared"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/governor_party_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/result_declared"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dim_10dp"
+                    android:paddingRight="@dimen/dim_10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll_cm"
+                        android:layout_width="@dimen/dim_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/dim_10dp"
+                        android:paddingRight="@dimen/dim_10dp">
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/dim_70dp"
+                            android:layout_height="@dimen/dim_70dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/state_winner_image_v"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/dim_5dp"
+                                android:src="@mipmap/sample_image"
+                                app:civ_border_color="@color/theme"
+                                app:civ_border_width="2dp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="@dimen/dim_50dp"
+                                android:src="@drawable/ic_trophy" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/state_winner_name_v"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_3dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
+                            android:textColor="@color/result_declared"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/state_winner_position_v"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/state_winner_party_v"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_opp"
+                        android:layout_width="@dimen/dim_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/state_opposition_image"
+                            android:layout_width="@dimen/dim_70dp"
+                            android:layout_height="@dimen/dim_70dp"
+                            android:layout_marginTop="@dimen/dim_5dp"
+                            android:src="@mipmap/sample_image"
+                            app:civ_border_color="@color/theme"
+                            app:civ_border_width="2dp" />
+
+                        <TextView
+                            android:id="@+id/state_opposition_name_v"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_3dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
+                            android:textColor="@color/result_declared"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/state_opposition_position_v"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/state_opposition_party_v"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/result_declared"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_15dp"
+                    android:background="@color/other_candidates"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:paddingLeft="@dimen/dim_10dp"
+                        android:text="@string/participated_parties"
+                        android:textAllCaps="false"
+                        android:textColor="@color/follow_txte"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dim_1px"
+                        android:layout_marginTop="@dimen/dim_5dp"
+                        android:background="@color/about_male" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/other_candidate_recycle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10dp" />
+
+                </LinearLayout>
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/result_pie_chart"
+                    android:layout_width="300dp"
+                    android:layout_height="350dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dim_10dp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RL_handler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+    </RelativeLayout>
+</FrameLayout>
+

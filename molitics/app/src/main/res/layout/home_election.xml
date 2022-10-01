@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/survey_bg"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dim_15dp"
+    android:paddingTop="@dimen/dim_10dp"
+    android:paddingRight="@dimen/dim_15dp"
+    android:paddingBottom="@dimen/dim_10dp">
+
+    <TextView
+        android:id="@+id/electionTitle"
+        android:layout_width="@dimen/dim_0dp"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="1sp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/election_vote"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/electionDateView"
+        android:layout_width="@dimen/dim_0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#9b9b9b"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/electionTitle" />
+
+    <Button
+        android:id="@+id/seeElectionResult"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/dim_30dp"
+        android:layout_marginTop="@dimen/dim_10dp"
+        android:background="@drawable/capsule_button"
+        android:gravity="center"
+        android:text="See Results"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/mid_text_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/electionDateView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

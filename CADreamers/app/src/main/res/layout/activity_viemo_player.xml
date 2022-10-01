@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view"
+    android:background="@drawable/bg_main_light"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
+        android:id="@+id/vimeoPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/transparent_50_black"
+        app:autoPlay="true"
+        app:loop="false"
+        app:muted="false"
+        app:showMenuOption="false"
+        app:showOriginalControls="true"
+        app:showTitle="true"
+        app:showFullscreenOption="true"
+        android:animateLayoutChanges="true"
+        app:topicColor="@color/colorPrimary" />
+
+    <com.ca_dreamers.cadreamers.views.CustomTextView
+        android:id="@+id/tvWaterMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/dimen_14sp" />
+
+</FrameLayout>

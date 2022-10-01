@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_main_light"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.side_nav.contact_us.ContactUsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_margin="@dimen/dimen_16dp"
+            android:padding="@dimen/dimen_16dp"
+            android:gravity="center"
+            android:background="@drawable/edit_text_round"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/log_rect"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100dp"/>
+    <TextView
+        android:layout_marginTop="@dimen/dimen_32dp"
+        android:id="@+id/tvContactMobileTag"
+        android:layout_width="match_parent"
+        android:drawableStart="@drawable/ic_phone"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/dimen_18sp"
+        android:paddingStart="@dimen/dimen_8dp"
+        android:paddingEnd="@dimen/dimen_8dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:text="Call Us" />
+    <TextView
+        android:layout_marginTop="@dimen/dimen_2dp"
+        android:id="@+id/tvContactMobile"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/dimen_18sp"
+        android:paddingStart="@dimen/dimen_8dp"
+        android:paddingEnd="@dimen/dimen_8dp"
+        android:textStyle="bold"
+        android:background="@drawable/edit_text_round"
+        android:textColor="@color/black"
+        android:text="+91" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:id="@+id/tvContactEmailTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:paddingStart="@dimen/dimen_8dp"
+        android:paddingEnd="@dimen/dimen_8dp"
+        android:drawableStart="@drawable/ic_mail"
+        android:text="Email Us" />
+    <TextView
+        android:layout_marginTop="@dimen/dimen_2dp"
+        android:id="@+id/tvContactEmail"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_18sp"
+        android:paddingStart="@dimen/dimen_8dp"
+        android:paddingEnd="@dimen/dimen_8dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/edit_text_round"
+        android:layout_height="@dimen/dimen_50dp"
+        android:text="Email" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

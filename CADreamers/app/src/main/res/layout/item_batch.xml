@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="@dimen/dimen_16dp"
+    android:padding="@dimen/_8dp"
+    android:layout_marginStart="@dimen/dimen_8dp"
+    android:layout_marginEnd="@dimen/dimen_8dp"
+    android:layout_marginBottom="@dimen/dimen_8dp"
+    android:layout_marginTop="@dimen/dimen_0dp"
+    app:cardCornerRadius="@dimen/dimen_8dp"
+    android:layout_width="@dimen/dimen_200dp"
+    android:layout_height="@dimen/dimen_120dp">
+<RelativeLayout
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:id="@+id/llComboPackage"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivComboIcon"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <TextView
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentEnd="true"
+        android:paddingStart="@dimen/dimen_8dp"
+        android:paddingEnd="@dimen/dimen_8dp"
+        android:id="@+id/tvComboPackagePrice"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@color/transparent_50_black"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_12sp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:text="₹ 18000"/>
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/tvComboTitle"
+        android:textColor="@color/white"
+        android:padding="@dimen/dimen_4dp"
+        android:background="@color/transparent_70_black"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_10sp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="Combo Title"/>
+
+    <TextView
+        android:id="@+id/tvComboDesc"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_12sp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="Desc"/>
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rvComboProductType"-->
+<!--            android:layout_marginTop="@dimen/dimen_4dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+</RelativeLayout>
+</androidx.cardview.widget.CardView>

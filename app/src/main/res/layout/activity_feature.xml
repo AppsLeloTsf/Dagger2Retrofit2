@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CategoryActivity">
+   <com.google.android.material.appbar.AppBarLayout
+       android:id="@+id/appBarMainFeature"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:theme="@style/AppTheme.AppBarOverlay">
+      <androidx.appcompat.widget.Toolbar
+          android:id="@+id/toolbarMainFeature"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          app:popupTheme="@style/AppTheme.PopupOverlay">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvToolbarFeature"
+                android:layout_centerVertical="true"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+         </RelativeLayout>
+      </androidx.appcompat.widget.Toolbar>
+
+   </com.google.android.material.appbar.AppBarLayout>
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:layout_below="@+id/appBarMainFeature"
+       android:id="@+id/rvMainFeature"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+</RelativeLayout>

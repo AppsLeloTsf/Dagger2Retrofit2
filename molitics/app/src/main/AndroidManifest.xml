@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.molitics.molitician">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <permission
+        android:name="com.molitics.molitician.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.molitics.molitician.permission.C2D_MESSAGE" />
+
+    <application
+        android:name=".MolticsApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Molitics"
+        tools:replace="android:theme">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <meta-data
+            android:name="asset_statements"
+            android:resource="@string/asset_statements" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <!--
+
+                <activity
+                    android:name=".ui.dashboard.splash.SplashScreenActivity"
+                    android:launchMode="singleTop"
+                    android:screenOrientation="portrait">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
+                </activity>
+        -->
+
+        <activity
+            android:name=".ui.dashboard.splash.SplashActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".BasicAcivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.tutorial.TutorialActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.voice.voiceDetail.VoiceDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.DashBoardActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter android:autoVerify="true">
+                <!-- Sets the intent action to view the activity -->
+                <action android:name="android.intent.action.VIEW" />
+                <!-- Allows the link to be opened from a web browser -->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Allows the deep link to be used without specifying the app name -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="www.molitics.in"
+                    android:pathPrefix="/"
+                    android:scheme="https" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+
+            <!-- Branch URI Scheme -->
+            <intent-filter>
+                <data android:scheme="moliticsandroid" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <activity
+            android:name=".ui.dashboard.survey.SurveyDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.leader.newleaderprofile.NewLeaderProfileActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.filter.LeaderFilterActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.newsBookmark.NewsBookMarkView"
+            android:screenOrientation="portrait" />
+
+        <!--     <activity
+                 android:name=".ui.dashboard.userProfile.issue_following.IssueFollowingActivity"
+                 android:screenOrientation="portrait" />-->
+
+        <activity
+            android:name=".ui.dashboard.articles.ArticleActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.articles.ArticleDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.leader.newleaderprofile.KnowMoreLeaderActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.leader.newleaderprofile.contactLeader.ContactLeaderActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.election.past_election.past_states.PartListView"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.newsDetail.DetailNewsActivity"
+            android:label="@string/process_text_action_name"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden">
+
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".ui.dashboard.login.FbLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.login.SignUpActivity"
+            android:configChanges="uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.nationalNews.YoutubePlayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.election.past_election.past_states.ElectionResultDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.election.upcoming_election.upcomig_parties.UpcomingPartyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.userProfile.EditUserProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.notification.NotificationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.video.VideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.termCondition.TermConditionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.voice.createVoice.CreateVoiceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="image/*" />
+                <data android:mimeType="video/mp4" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.dashboard.hotTopics.HotTopicActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.hotTopics.hotTopicDetail.HotTopicDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.voice.VoiceCreatorProfile"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.voice.voiceComment.CommentFragment"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+
+        <activity
+            android:name=".ui.dashboard.articles.feedArticle.CreateArticleActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+
+        <activity
+            android:name=".customView.VideoRecordingCustomActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.voice.createVoice.TagLeaderFragment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.survey.SurveyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.voice.video_module.VoiceVideoActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.darsh.multipleimageselect.activities.AlbumSelectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MultipleImageSelectTheme">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.dashboard.more.InviteToContactActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".customView.CameraFragmentMainActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dashboard.youtubeMoreDetail.YoutubeMoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.ActivityFragment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.language.LanguageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.channels.ChannelListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.channels.ChannelBankActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.cartoon.detail.CartoonDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.leader.searchLeader.SearchLeaderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.Search">
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.dashboard.verification.VerificationActivity" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider557310577810873"
+            android:exported="true" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.molitics.molitician" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="key_live_ebDH9HhdyxVvHIcjS6CbOocjBCcj0l1H" />
+        <meta-data
+            android:name="io.branch.sdk.BranchKey.test"
+            android:value="key_test_hmwP8IfnssUyJOkcT3EcKoahDAjp7l2u" />
+
+        <meta-data
+            android:name="io.branch.sdk.TestMode"
+            android:value="false" />
+
+        <receiver
+            android:name="io.branch.referral.InstallListener"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".gcm.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".gcm.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service android:name=".gcm.RegistrationIntentService" />
+
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.molitics.molitician.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <receiver
+            android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.google.android.gms.analytics.CampaignTrackingService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name=".ui.dashboard.login.broadcast.MySMSBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

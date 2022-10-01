@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/parent_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/smooth_app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                app:contentScrim="@color/white"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_marginTop="?attr/actionBarSize"
+                    android:layout_marginRight="@dimen/dim_10dp"
+                    android:paddingTop="@dimen/dim_10dp"
+                    android:layout_marginBottom="@dimen/dim_10dp"
+                    app:layout_collapseMode="parallax">
+
+                    <LinearLayout
+                        android:id="@+id/ll_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/round_bg"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_left"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_margin="@dimen/dim_10dp">
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/circle_image"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/sample_image" />
+
+                                <TextView
+                                    android:id="@+id/upcoming_event_view"
+                                    android:layout_width="@dimen/dim_100dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="85dp"
+                                    android:background="#d50044"
+                                    android:fontFamily="sans-serif"
+                                    android:gravity="center"
+                                    android:text="Upcoming Event"
+                                    android:textColor="#ffffff"
+                                    android:textSize="10sp"
+                                    android:textStyle="normal"
+                                    android:visibility="gone" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/RL_main_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_toRightOf="@+id/rl_left">
+
+                                <LinearLayout
+                                    android:id="@+id/ll_child"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toLeftOf="@+id/followButton"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="@dimen/dim_5dp">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <TextView
+                                            android:id="@+id/name_view"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="end"
+                                            android:fontFamily="sans-serif-medium"
+                                            android:lines="1"
+                                            android:textColor="#0b446a"
+                                            android:textSize="14sp"
+                                            android:textStyle="normal" />
+
+                                        <ImageView
+                                            android:id="@+id/leader_verified_view"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/dim_5dp"
+                                            android:layout_toRightOf="@+id/name_view"
+                                            android:src="@drawable/ic_green_tick"
+                                            android:layout_centerVertical="true"
+                                            android:visibility="gone" />
+
+                                    </RelativeLayout>
+
+
+                                    <TextView
+                                        android:id="@+id/leader_constituency_view"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:fontFamily="sans-serif"
+                                        android:lines="1"
+                                        android:textColor="#131313"
+                                        android:textSize="12sp"
+                                        android:textStyle="normal" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:visibility="gone"
+                                    android:id="@+id/followButton"
+                                    android:layout_width="100dp"
+                                    android:layout_height="@dimen/dim_30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="@dimen/dim_5dp"
+                                    android:layout_marginRight="@dimen/dim_10dp"
+                                    android:gravity="center"
+                                    android:onClick="onFollow"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/mid_text_16"
+                                    android:textStyle="normal" />
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/line"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/black" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dim_10dp"
+                            android:layout_marginTop="@dimen/dim_10dp"
+                            android:layout_marginRight="@dimen/dim_10dp">
+
+                            <TextView
+                                android:id="@+id/pos_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@+id/party_logo"
+                                android:fontFamily="sans-serif"
+                                android:textColor="@color/leader_post"
+                                android:textSize="14sp"
+                                android:textStyle="normal" />
+
+                            <ImageView
+                                android:id="@+id/party_logo"
+                                android:layout_width="@dimen/dim_20dp"
+                                android:layout_height="@dimen/dim_20dp"
+                                android:layout_toLeftOf="@+id/leader_party_view" />
+
+                            <TextView
+                                android:id="@+id/leader_party_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="sans-serif"
+                                android:paddingLeft="@dimen/dim_3dp"
+                                android:text=""
+                                android:textColor="#131313"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+                        </RelativeLayout>
+
+                        <ProgressBar
+                            android:id="@+id/vote_progress_bar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_marginTop="@dimen/dim_10dp"
+
+                            android:progressDrawable="@drawable/gray_progress_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="@dimen/dim_5dp"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <TextView
+                                android:id="@+id/candidate_like_view"
+                                android:layout_width="@dimen/dim_0dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:layout_weight="1.1"
+                                android:drawablePadding="@dimen/dim_3dp"
+                                android:fontFamily="sans-serif"
+                                android:gravity="center_vertical"
+                                android:onClick="onUpvoteClick"
+                                android:textColor="#131313"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+
+                            <TextView
+                                android:id="@+id/candidate_dislike_view"
+                                android:layout_width="@dimen/dim_0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.1"
+                                android:drawablePadding="@dimen/dim_3dp"
+                                android:fontFamily="sans-serif"
+                                android:gravity="center_vertical"
+                                android:onClick="onDownVoteClick"
+                                android:textColor="#131313"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+
+                                android:id="@+id/issueCountView"
+                                android:layout_width="@dimen/dim_0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".8"
+                                android:fontFamily="sans-serif"
+                                android:gravity="center"
+                                android:onClick="onDownVoteClick"
+                                android:text="Issue"
+                                android:textColor="#131313"
+                                android:textSize="12sp"
+                                android:textStyle="normal"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/white"
+                    android:elevation="@dimen/dim_5dp"
+                    android:fitsSystemWindows="false"
+                    android:title=""
+                    android:visibility="visible"
+                    app:layout_collapseMode="pin"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat"
+                    app:subtitleTextColor="@color/white"
+                    app:theme="@style/ToolbarStyle"
+                    app:titleTextColor="@color/white" />
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!--    <android.support.v4.widget.NestedScrollView
+                android:id="@+id/nestedScroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:visibility="visible"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+            </android.support.v4.widget.NestedScrollView>-->
+        <include
+            android:id="@+id/include_viewpager"
+            layout="@layout/include_new_leader_profile_view" />
+
+        <!--   <FrameLayout
+               android:id="@+id/home_container"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent" />-->
+
+        <include
+            android:id="@+id/include_floating"
+            layout="@layout/include_voice_floating_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="@dimen/dim_10dp"
+            android:padding="@dimen/dim_10dp" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

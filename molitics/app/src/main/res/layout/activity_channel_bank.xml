@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="channelBankViewModel"
+            type="com.molitics.molitician.ui.dashboard.channels.viewModel.ChannelBankViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/channelToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:elevation="@dimen/dim_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat"
+            app:subtitleTextColor="@color/white"
+            app:theme="@style/ToolbarStyle"
+            app:titleTextColor="@color/toolbar_color" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/channelTopView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dim_10dp"
+            app:cardCornerRadius="@dimen/dim_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/channelToolBar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/search_box"
+                android:padding="@dimen/dim_5dp"
+               >
+
+                <ImageView
+                    android:id="@+id/sourceImageView"
+                    android:layout_width="@dimen/dim_50dp"
+                    android:layout_height="@dimen/dim_50dp" />
+
+                <TextView
+                    android:id="@+id/channelNameView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/followButton"
+                    android:layout_toRightOf="@+id/sourceImageView"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="@dimen/dim_10dp"
+                    android:textColor="@color/about_pop_no"
+                    android:textSize="@dimen/xlarge_txt_20"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/followButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="-18dp"
+                    android:background="@drawable/round_corner_txt"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:onClick="@{(v)->channelBankViewModel.onFollowChannelClick(v)}"
+                    android:paddingLeft="@dimen/dim_10dp"
+                    android:paddingTop="@dimen/dim_5dp"
+                    android:paddingRight="@dimen/dim_10dp"
+                    android:paddingBottom="@dimen/dim_5dp"
+                    android:text="@{channelBankViewModel.isFollowing ? @string/following : @string/follow_tag}"
+                    android:textColor="@color/hard_white"
+                    android:textSize="@dimen/short_text_12"
+                    android:textStyle="normal" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/channelNewsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/channelTopView" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_0dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@{channelBankViewModel.errorText}"
+            android:textColor="@color/about_pop_no"
+            android:textSize="@dimen/mid_text_16"
+            android:textStyle="bold"
+            android:visibility="@{TextUtils.isEmpty(channelBankViewModel.errorText) ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/channelTopView" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="@{channelBankViewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

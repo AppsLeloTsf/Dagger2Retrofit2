@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nestedScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:visibility="visible"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/dim_40dp">
+
+        <Button
+            android:id="@+id/ivMessageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_corner"
+            android:paddingLeft="@dimen/dim_10dp"
+            android:paddingRight="@dimen/dim_10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large_text_18" />
+
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_10dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="No Data available"
+            android:textColor="#040404"
+            android:textSize="16sp"
+            android:textStyle="normal" />-->
+
+        <TextView
+            android:id="@+id/no_result_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_10dp"
+            android:gravity="center"
+            android:textColor="#040404"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

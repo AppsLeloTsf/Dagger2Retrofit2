@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/article_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/voice_main_layout"
+        android:layout_width="@dimen/trending_video_width"
+        android:layout_height="wrap_content"
+        android:background="@color/article_bg"
+        android:paddingBottom="@dimen/dim_3dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/creator_image"
+            android:layout_width="@dimen/dim_60dp"
+            android:layout_height="@dimen/dim_60dp"
+            android:layout_marginTop="10dp"
+            app:civ_border_color="@color/theme"
+            app:civ_border_width="@dimen/dim_2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:paddingLeft="@dimen/dim_5dp"
+            android:paddingRight="@dimen/dim_2dp"
+            android:textColor="@color/follow_leader_white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/creator_image" />
+
+        <TextView
+            android:id="@+id/followUserView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dim_10dp"
+            android:paddingEnd="@dimen/dim_10dp"
+            android:paddingTop="@dimen/dim_5dp"
+            android:paddingBottom="@dimen/dim_5dp"
+            android:textColor="@color/white"
+            android:background="@color/facebook"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="@string/follow_tag"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

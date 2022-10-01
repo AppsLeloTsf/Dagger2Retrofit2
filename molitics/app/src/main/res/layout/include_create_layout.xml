@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tag_title"
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_issue_title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/add_issue_bg"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dim_10dp"
+        android:paddingTop="@dimen/dim_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tag_title">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_image_view"
+            android:layout_width="@dimen/dim_40dp"
+            android:layout_height="@dimen/dim_40dp"
+            android:layout_margin="@dimen/dim_5dp"
+            android:src="@mipmap/sample_image" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <EditText
+                android:id="@+id/edt_issue_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif-light"
+                android:gravity="left"
+                android:hint="@string/type_issue"
+                android:inputType="textMultiLine"
+                android:minLines="7"
+                android:nestedScrollingEnabled="true"
+                android:padding="@dimen/dim_5dp"
+                android:textColor="@color/voice_edit_txt"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+    <!--
+
+                    <com.molitics.molitician.customView.ContactsCompletionView
+                        android:id="@+id/edit_tag_leader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/know_more_bg"
+                        android:ems="10"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="left"
+                        android:hint="@string/leader_tag"
+                        android:imeOptions="actionDone"
+                        android:inputType="text|textNoSuggestions|textMultiLine"
+                        android:lineSpacingExtra="1dp"
+                        android:minLines="3"
+                        android:nextFocusDown="@+id/editText"
+                        android:padding="@dimen/dim_5dp"
+                        android:paddingLeft="@dimen/dim_5dp"
+                        android:paddingRight="@dimen/dim_5dp"
+                        android:textColor="#040404"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edt_issue_detail" />
+    -->
+
+    <!--    <ImageView
+        android:id="@+id/clear_edit_tag_leader"
+        android:layout_width="19dp"
+        android:layout_height="27dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edit_tag_leader"
+        app:srcCompat="@drawable/clear" />-->
+
+    <RelativeLayout
+        android:id="@+id/url_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dim_5dp"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_issue_title">
+
+
+        <LinearLayout
+            android:id="@+id/ll_url_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dim_5dp"
+            android:layout_marginTop="4dp"
+            android:elevation="@dimen/dim_1dp"
+            android:orientation="vertical" />
+
+        <ProgressBar
+            android:id="@+id/url_card_progress"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_tag_leader_list"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dim_5dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/url_rl" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

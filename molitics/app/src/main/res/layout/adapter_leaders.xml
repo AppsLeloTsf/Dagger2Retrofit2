@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LL_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dim_5dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_left"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/dim_10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circle_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/sample_image" />
+
+            <TextView
+                android:id="@+id/upcoming_event_view"
+                android:layout_width="@dimen/dim_100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="85dp"
+                android:background="#d50044"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/upcoming_event"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/RL_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/rl_left">
+
+            <LinearLayout
+                android:id="@+id/ll_child"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/follow_button"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dim_5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/leader_verified_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dim_5dp"
+                        android:layout_toRightOf="@+id/name_view"
+                        android:src="@drawable/ic_green_tick"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/name_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-medium"
+                        android:lines="1"
+                        android:textColor="@color/follow_leader_white"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/leader_constituency_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:lines="1"
+                    android:textColor="@color/follow_txte"
+                    android:textSize="12sp"
+                    android:textStyle="normal" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/follow_button"
+                android:visibility="gone"
+                android:layout_width="100dp"
+                android:layout_height="@dimen/dim_30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/dim_5dp"
+                android:layout_marginRight="@dimen/dim_10dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/mid_text_16"
+                android:textStyle="normal" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dim_10dp"
+        android:layout_marginTop="@dimen/dim_10dp"
+        android:layout_marginRight="@dimen/dim_10dp">
+
+        <TextView
+            android:id="@+id/pos_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/party_logo"
+            android:textColor="@color/leader_post" />
+
+        <ImageView
+            android:id="@+id/party_logo"
+            android:layout_width="@dimen/dim_20dp"
+            android:layout_height="@dimen/dim_20dp"
+            android:layout_marginRight="@dimen/dim_5dp"
+            android:layout_toLeftOf="@+id/leader_party_view" />
+
+        <TextView
+            android:id="@+id/leader_party_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@color/follow_txte"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/vote_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="@dimen/dim_10dp"
+
+        android:progressDrawable="@drawable/gray_progress_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="@dimen/dim_10dp"
+        android:layout_marginTop="@dimen/dim_5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/candidate_like_view"
+            android:layout_width="@dimen/dim_0dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_weight="1.2"
+            android:drawablePadding="@dimen/dim_3dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:textColor="@color/follow_txte"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/candidate_dislike_view"
+            android:layout_width="@dimen/dim_0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:layout_marginLeft="@dimen/dim_5dp"
+            android:drawablePadding="@dimen/dim_3dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:textColor="@color/follow_txte"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+
+    </LinearLayout>
+</LinearLayout>

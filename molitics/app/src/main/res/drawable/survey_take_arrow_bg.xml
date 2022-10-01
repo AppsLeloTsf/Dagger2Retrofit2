@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:width="160dp"
+        android:height="30dp"
+        android:right="6dp">
+        <shape>
+            <solid android:color="@color/dashboard_bottom_selected" />
+
+        </shape>
+    </item>
+
+    <item
+        android:width="22dp"
+        android:height="21dp"
+        android:left="160dp">
+        <rotate
+            android:fromDegrees="45"
+            android:pivotX="0"
+            android:pivotY="0">
+            <shape>
+                <solid android:color="@color/dashboard_bottom_selected" />
+            </shape>
+        </rotate>
+    </item>
+
+</layer-list>

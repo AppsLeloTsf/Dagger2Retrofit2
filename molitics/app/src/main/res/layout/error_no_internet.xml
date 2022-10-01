@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dim_10dp">
+
+
+    <ImageView
+        android:id="@+id/no_internet_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/no_internet_view"
+        android:src="@mipmap/no_internet" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dim_10dp"
+        android:id="@+id/no_internet_view"
+        android:layout_marginTop="@dimen/dim_5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/no_internet"
+        android:textSize="@dimen/mid_text_16" />
+
+</RelativeLayout>

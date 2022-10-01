@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.molitics.molitician.ui.dashboard.voice.model.VoiceViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dim_50dp"
+
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include layout="@layout/my_toolbar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/voice_detail_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/dim_10dp"
+            android:paddingBottom="@dimen/dim_5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <EditText
+                android:id="@+id/comment_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/dim_10dp"
+                android:layout_toLeftOf="@+id/post_comment_icon"
+                android:background="@drawable/add_issue_bg"
+                android:focusable="true"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:hint="@string/type_your_comment_here"
+                android:inputType="textCapSentences|textMultiLine"
+                android:lineSpacingExtra="5sp"
+                android:maxLines="5"
+                android:minLines="2"
+                android:paddingLeft="@dimen/dim_10dp"
+                android:textColor="#121212"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+            <ImageView
+                android:id="@+id/post_comment_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dim_10dp"
+                android:layout_marginRight="@dimen/dim_10dp"
+                android:src="@drawable/comment_post" />
+
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

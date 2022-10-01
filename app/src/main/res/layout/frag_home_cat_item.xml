@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="@dimen/dimen_16dp"
+    android:layout_margin="@dimen/dimen_8dp"
+    app:cardCornerRadius="@dimen/dimen_8dp"
+    android:background="@color/color_white"
+    android:layout_width="match_parent"
+    android:layout_height="110dp">
+<RelativeLayout
+    android:id="@+id/llFragMainItem"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivFragHomeCat"
+            android:scaleType="fitXY"
+            android:background="@mipmap/ic_launcher"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <TextView
+        android:background="@drawable/bg_gradient"
+        android:id="@+id/tvFragHomeCat"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:padding="6dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:text="News Title"/>
+</RelativeLayout>
+</androidx.cardview.widget.CardView>

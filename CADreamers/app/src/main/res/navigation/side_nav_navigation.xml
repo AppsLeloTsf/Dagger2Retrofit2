@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/bottom_courses">
+
+    <fragment
+        android:id="@+id/bottom_courses"
+        android:name="com.ca_dreamers.cadreamers.ui.courses.CoursesFragment"
+        android:label="@string/menu_courses"
+        tools:layout="@layout/fragment_course" >
+        <action
+            android:id="@+id/action_bottom_courses_to_nav_course_detail"
+            app:destination="@id/nav_course_detail"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/bottom_top_20"
+        android:name="com.ca_dreamers.cadreamers.ui.top_20.Top20Fragment"
+        android:label="@string/menu_top_20"
+        tools:layout="@layout/fragment_top_20" />
+
+    <fragment
+        android:id="@+id/bottom_free_videos"
+        android:name="com.ca_dreamers.cadreamers.ui.free_videos.FreeVideosFragment"
+        android:label="@string/menu_free_videos"
+        tools:layout="@layout/fragment_free_videos" />
+
+    <fragment
+        android:id="@+id/bottom_books"
+        android:name="com.ca_dreamers.cadreamers.ui.books.BooksFragment"
+        android:label="@string/menu_books"
+        tools:layout="@layout/fragment_books" />
+    <fragment
+        android:id="@+id/nav_course_detail"
+        android:name="com.ca_dreamers.cadreamers.fragment.FragmentCourseDetails"
+        android:label="@string/course_detail"
+        tools:layout="@layout/fragment_course_details" />
+    <fragment
+        android:id="@+id/nav_books_detail"
+        android:name="com.ca_dreamers.cadreamers.ui.books.FragmentBooksDetails"
+        android:label="@string/books_detail"
+        tools:layout="@layout/fragment_course_details" />
+</navigation>

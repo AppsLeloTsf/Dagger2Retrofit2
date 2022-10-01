@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.courses.CoursesFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_40dp">
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main_switch"
+            android:id="@+id/btnBrowsCourseBrows"
+            android:text="Browse Course"
+          />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_white_switch"
+            android:id="@+id/btnMyCourseBrows"
+            android:text="My Course"
+          />
+    </LinearLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_marginBottom="-2dp"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_banner_height">
+    <com.ca_dreamers.cadreamers.utils.AutoScrollViewPager
+        android:layout_margin="@dimen/dimen_8dp"
+        android:id="@+id/sliderCourses"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <com.google.android.material.tabs.TabLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/tabsCourses"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:background="@color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sliderCourses"
+        app:tabBackground="@drawable/viewpager_tab_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
+        />
+</RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCourseList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvComboHeader"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/dimen_16sp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:padding="@dimen/dimen_4dp"
+            android:paddingStart="@dimen/_12dp"
+            android:drawableStart="@drawable/juspay_button_arrow"
+            android:text="Combo Package"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimen_16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvComboPackage"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tutorial_background">
+
+    <ScrollView
+        android:id="@+id/main_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/saveButton"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dim_15dp"
+            android:layout_marginRight="@dimen/dim_15dp"
+            android:layout_marginBottom="@dimen/dim_10dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dim_10dp">
+
+            <RelativeLayout
+                android:layout_width="130dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dim_10dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/user_image_view"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/sample_image"
+                    app:civ_border_color="@color/header_deselection"
+                    app:civ_border_overlay="true"
+                    app:civ_border_width="@dimen/dim_2dp" />
+
+                <ImageView
+                    android:id="@+id/select_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/dim_15dp"
+                    android:src="@drawable/profile_camera" />
+
+            </RelativeLayout>
+
+
+            <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                android:id="@+id/userNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_30dp"
+                android:text="@string/name"
+                android:textSize="@dimen/short_text_12" />
+
+            <EditText
+                android:id="@+id/user_name_edit"
+                style="@style/ProfileEditTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_name"
+                android:inputType="textPersonName|textCapSentences" />
+
+
+            <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                android:id="@+id/contactTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_30dp"
+                android:text="@string/mobile_number"
+                android:textSize="@dimen/short_text_12" />
+
+            <EditText
+                android:id="@+id/user_contact_edit"
+                style="@style/ProfileEditTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mobile_number"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingBottom="@dimen/dim_5dp" />
+
+            <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                android:id="@+id/bioTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_30dp"
+                android:text="@string/bio"
+                android:textSize="@dimen/short_text_12" />
+
+            <EditText
+                android:id="@+id/user_bio_edit"
+                style="@style/ProfileEditTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/bio"
+                android:inputType="textMultiLine"
+                android:paddingBottom="@dimen/dim_5dp" />
+
+            <TextView
+                android:id="@+id/user_email_edit"
+                style="@style/ProfileEditTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="@string/email"
+                android:paddingBottom="@dimen/dim_5dp"
+                android:visibility="gone" />
+
+            <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                android:id="@+id/gender_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dim_10dp"
+                android:layout_marginTop="@dimen/dim_30dp"
+                android:text="@string/gender_asterisk"
+                android:textColor="@color/voice_edit_txt"
+                android:textSize="@dimen/mid_text_16"
+                android:textStyle="normal" />
+
+            <RadioGroup
+                android:id="@+id/gender_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dim_10dp"
+                android:layout_marginTop="@dimen/dim_5dp"
+                android:layout_toRightOf="@+id/gender_txt"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/male" />
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/female" />
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/other" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/user_profession_edit"
+                style="@style/ProfileLocationEditTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_down_arrow"
+                android:focusable="false"
+                android:hint="@string/select_profession" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_5dp"
+                android:layout_marginTop="@dimen/dim_20dp"
+                android:background="@color/login_background" />
+
+            <TextView
+                style="@style/ProfileTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/state_name" />
+
+            <TextView
+                android:id="@+id/user_state_edit"
+                style="@style/ProfileLocationEditTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_5dp"
+                android:drawableRight="@drawable/ic_down_arrow"
+                android:focusable="false"
+                android:hint="@string/enter_your_state_name"
+                android:padding="@dimen/dim_10dp" />
+
+            <TextView
+                style="@style/ProfileTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/district_name" />
+
+            <TextView
+                android:id="@+id/user_district_edit"
+                style="@style/ProfileLocationEditTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_5dp"
+                android:drawableRight="@drawable/ic_down_arrow"
+                android:focusable="false"
+                android:hint="@string/enter_your_district_name" />
+
+            <TextView
+                style="@style/ProfileTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lok_sabha" />
+
+            <TextView
+                android:id="@+id/user_lok_sabha_edit"
+                style="@style/ProfileLocationEditTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_10dp"
+                android:drawableRight="@drawable/ic_down_arrow"
+                android:focusable="false"
+                android:hint="@string/enter_your_lok_sabha_constituency" />
+
+            <TextView
+                style="@style/ProfileTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/assembly_constituency" />
+
+            <TextView
+                android:id="@+id/user_assembly_edit"
+                style="@style/ProfileLocationEditTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_5dp"
+                android:drawableRight="@drawable/ic_down_arrow"
+                android:focusable="false"
+                android:hint="@string/enter_your_assembly_constituency" />
+
+            <TextView
+                style="@style/ProfileTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/political_orientation" />
+
+            <TextView
+                android:id="@+id/user_party_edit"
+                style="@style/ProfileLocationEditTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_5dp"
+                android:drawableRight="@drawable/ic_down_arrow"
+                android:focusable="false"
+                android:hint="@string/enter_your_political_orientation" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveButton"
+        style="@style/SignInButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/child_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:visibility="gone" />
+</RelativeLayout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_background">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="@dimen/dim_5dp"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/ThemeOverlay.AppCompat"
+        app:subtitleTextColor="@color/white"
+        app:theme="@style/ToolbarStyle"
+        app:titleTextColor="@color/follow_leader">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/submit_issue"
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dim_15dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/leader_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:elevation="@dimen/dim_5dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dim_10dp"
+                android:layout_marginTop="75dp"
+                android:layout_marginRight="@dimen/dim_10dp"
+                android:layout_marginBottom="@dimen/dim_10dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_90dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dim_5dp">
+
+                    <TextView
+                        android:id="@+id/leader_name_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/follow_leader_white"
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/leader_position_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/follow_txte"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:background="@color/about_male" />
+
+                    <EditText
+                        android:id="@+id/name_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dim_10dp"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:background="@color/add_issue_bg"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="@string/full_name"
+                        android:inputType="textPersonName"
+                        android:lineSpacingExtra="4sp"
+                        android:padding="@dimen/dim_10dp"
+                        android:textColor="@color/voice_edit_txt"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+
+                    <EditText
+                        android:id="@+id/contact_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dim_10dp"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:background="@color/add_issue_bg"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="@string/enter_contact_leader"
+                        android:inputType="phone"
+                        android:lineSpacingExtra="4sp"
+                        android:padding="@dimen/dim_10dp"
+                        android:textColor="@color/voice_edit_txt"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+
+                    <EditText
+                        android:id="@+id/topic_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dim_10dp"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:background="@color/add_issue_bg"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="@string/topic"
+                        android:inputType="text"
+                        android:lineSpacingExtra="4sp"
+                        android:padding="@dimen/dim_10dp"
+                        android:textColor="@color/voice_edit_txt"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+
+                    <EditText
+                        android:id="@+id/description_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dim_10dp"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:background="@color/add_issue_bg"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:hint="@string/description"
+                        android:lineSpacingExtra="4sp"
+                        android:minLines="4"
+                        android:padding="@dimen/dim_10dp"
+                        android:textColor="@color/voice_edit_txt"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+
+
+    <TextView
+        android:id="@+id/submit_issue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/follow_leader"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:padding="@dimen/dim_10dp"
+        android:text="@string/submit"
+        android:textColor="@color/hard_white"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+    <FrameLayout
+        android:id="@+id/base_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:visibility="gone" />
+</RelativeLayout>

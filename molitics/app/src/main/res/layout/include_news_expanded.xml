@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pofile_semi_lay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/headline_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_grey"
+        android:fontFamily="sans-serif-medium"
+        android:paddingLeft="@dimen/dim_20dp"
+        android:paddingTop="@dimen/dim_30dp"
+        android:paddingRight="@dimen/dim_20dp"
+        android:textColor="#082f49"
+        android:textSize="@dimen/xlarge_txt_20"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/time_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/light_grey"
+        android:drawablePadding="@dimen/dim_5dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="5sp"
+        android:paddingLeft="@dimen/dim_20dp"
+        android:paddingTop="@dimen/dim_5dp"
+        android:paddingRight="@dimen/dim_20dp"
+        android:paddingBottom="@dimen/dim_5dp"
+        android:textColor="#0b446a"
+        android:textSize="@dimen/short_text_12"
+
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/location_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/light_grey"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="5sp"
+        android:paddingLeft="@dimen/dim_20dp"
+        android:paddingTop="@dimen/dim_5dp"
+        android:paddingRight="@dimen/dim_20dp"
+        android:textColor="#0b446a"
+        android:textSize="@dimen/news_headline_time"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/author_name_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/light_grey"
+        android:fontFamily="sans-serif"
+        android:paddingLeft="@dimen/dim_20dp"
+        android:paddingTop="@dimen/dim_5dp"
+        android:paddingRight="@dimen/dim_20dp"
+        android:paddingBottom="@dimen/dim_5dp"
+        android:textColor="#0b446a"
+        android:textSize="10sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/article_content_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_10dp"
+        android:fontFamily="sans-serif"
+        android:paddingBottom="@dimen/dim_5dp"
+        android:textColor="#0b446a"
+        android:textSize="@dimen/short_text_14"
+        android:textStyle="normal"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/news_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:fontFamily="sans-serif"
+        android:linksClickable="true"
+        android:paddingLeft="@dimen/dim_20dp"
+        android:paddingTop="@dimen/dim_5dp"
+        android:paddingRight="@dimen/dim_20dp"
+        android:paddingBottom="@dimen/dim_10dp"
+        android:textColor="#040404"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+</LinearLayout>

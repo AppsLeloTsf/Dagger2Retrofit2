@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="contactModel"
+            type="com.molitics.molitician.ui.dashboard.more.model.MyContactListModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dim_10dp"
+        android:background="@drawable/contact_bg"
+        android:onClick="@{(v)->contactModel.onUserClick(v)}"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="@dimen/dim_10dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/sample_image"
+            app:civ_border_color="@color/gray_2"
+            app:civ_border_width="@dimen/dim_1dp"
+            app:imageBinding="@{contactModel.image}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/contactName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_10dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@{contactModel.name}"
+            android:textColor="@color/about_pop_no"
+            android:textSize="@dimen/mid_text_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image" />
+
+
+        <TextView
+            android:id="@+id/ContactNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="@dimen/dim_3dp"
+            android:gravity="center"
+            android:text="@{contactModel.contact1}"
+            android:textColor="@color/follow_txte"
+            android:textSize="@dimen/short_text_12"
+            app:contactVisibility="@{contactModel.contact1}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactName" />
+
+        <TextView
+            android:id="@+id/userLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@{contactModel.location}"
+            android:textColor="@color/follow_txte"
+            android:textSize="@dimen/short_text_12"
+            app:contactVisibility="@{contactModel.location}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ContactNumber" />
+
+        <Button
+            android:id="@+id/inviteButton"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/dim_10dp"
+            android:layout_marginBottom="@dimen/dim_10dp"
+            android:background="@drawable/leader_downvote_bg"
+            android:onClick="@{(v)->contactModel.getContactFromServer()}"
+            android:textColor="@color/hard_white"
+            app:followBackground="@{contactModel.invite}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userLocation"
+            app:setVisibility="@{contactModel.invite}" />
+
+        <Button
+            android:id="@+id/followButton"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/dim_15dp"
+            android:layout_marginBottom="@dimen/dim_25dp"
+            android:background="@drawable/leader_downvote_bg"
+            android:onClick="@{(v)->contactModel.userAction()}"
+            android:textColor="@color/hard_white"
+            app:followBackground="@{contactModel.follow}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userLocation"
+            app:setVisibility="@{contactModel.follow}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

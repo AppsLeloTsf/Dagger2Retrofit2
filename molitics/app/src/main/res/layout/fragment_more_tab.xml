@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="moreTabViewModel"
+            type="com.molitics.molitician.ui.dashboard.more.viewModel.MoreTabViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="3"
+                android:background="@color/header_deselection"
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dim_105dp"
+                    android:layout_marginStart="@dimen/dim_14dp"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+                    <RelativeLayout
+                        style="@style/MoreTabView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/local_news_icon"
+                            android:layout_width="@dimen/dim_20dp"
+                            android:layout_height="@dimen/dim_20dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/local_news_icon" />
+
+                        <TextView
+                            android:id="@+id/localNewsView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
+                            android:layout_below="@+id/local_news_icon"
+                            android:text="Local \n News"
+                            android:textStyle="bold"
+                            android:textColor="#404040" />
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dim_105dp"
+                    android:layout_marginStart="@dimen/dim_14dp"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+                    <RelativeLayout
+                        style="@style/MoreTabView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/molitics_news_icon"
+                            android:layout_width="@dimen/dim_20dp"
+                            android:layout_height="@dimen/dim_20dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/local_news_icon" />
+
+                        <TextView
+                            android:id="@+id/moliticsNewsView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
+                            android:layout_below="@+id/molitics_news_icon"
+                            android:text="Molitics \n News"
+                            android:textStyle="bold"
+                            android:textColor="#404040" />
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dim_105dp"
+                    android:layout_marginStart="@dimen/dim_14dp"
+                    android:layout_marginEnd="@dimen/dim_14dp"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+                    <RelativeLayout
+                        style="@style/MoreTabView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/election_result_icon"
+                            android:layout_width="@dimen/dim_20dp"
+                            android:layout_height="@dimen/dim_20dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/local_news_icon" />
+
+                        <TextView
+                            android:id="@+id/electionResultView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
+                            android:layout_below="@+id/election_result_icon"
+                            android:text="Election Results"
+                            android:textStyle="bold"
+                            android:textColor="#404040" />
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_60dp"
+                android:background="@color/header_deselection"
+                android:gravity="bottom"
+                android:paddingLeft="@dimen/dim_20dp"
+                android:paddingBottom="@dimen/dim_10dp"
+                android:text="@string/molitics_options"
+                android:textColor="#404040"
+                android:textSize="@dimen/mid_text_16" />
+
+            <RelativeLayout
+                android:id="@+id/rl_profile"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profile_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/ic_profile" />
+
+                <TextView
+                    android:id="@+id/userProfileView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/profile_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/my_profile"
+                    android:textColor="#404040" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_change_language"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/change_language_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/ic_change_language" />
+
+                <TextView
+                    android:id="@+id/changeLanguageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/change_language_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="Change Language"
+                    android:textColor="#404040" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_survey"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/survey_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/ic_survey_setting" />
+
+                <TextView
+                    android:id="@+id/survey_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/survey_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/survey"
+                    android:textColor="#404040" />
+
+            </RelativeLayout>
+
+ <!--           <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_invite_contact"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/invite_contact_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/invite_app" />
+
+                <TextView
+                    android:id="@+id/inviteContactView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/invite_contact_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/invite_contact"
+                    android:textColor="#404040" />
+
+            </RelativeLayout>-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_favourite"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/fav_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/ic_fav_leaders" />
+
+                <TextView
+                    android:id="@+id/favourite_leaders_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/fav_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/favourite_leaders"
+                    android:textColor="#404040" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_bookmark"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/bookmark_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/ic_bookmark" />
+
+                <TextView
+                    android:id="@+id/bookmarksView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/bookmark_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="Bookmarks"
+                    android:textColor="#404040" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_invite"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/invite_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/share" />
+
+                <TextView
+                    android:id="@+id/invite_to_molitics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/invite_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="Share App "
+                    android:textColor="#404040" />
+
+            </RelativeLayout>
+
+   <!--         <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_election"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/election_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/voting_gray" />
+
+                <TextView
+                    android:id="@+id/electionResultView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/election_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/election_results"
+                    android:textColor="#404040" />
+            </RelativeLayout>-->
+
+  <!--          <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_video"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/video_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/video_app" />
+
+                <TextView
+                    android:id="@+id/video_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/video_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/videos"
+                    android:textColor="#404040" />
+            </RelativeLayout>-->
+
+ <!--           <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_article"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/article_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/local_news_deactive" />
+
+                <TextView
+                    android:id="@+id/article_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/article_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/articles"
+                    android:textColor="#404040" />
+            </RelativeLayout>-->
+
+  <!--          <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_plus"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/plus_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/molitics_plus_logo" />
+
+                <TextView
+                    android:id="@+id/moliticsPlusView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/plus_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/are_you_leader"
+                    android:textColor="#404040" />
+            </RelativeLayout>-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_60dp"
+                android:background="@color/header_deselection"
+                android:gravity="bottom"
+                android:paddingLeft="@dimen/dim_20dp"
+                android:paddingBottom="@dimen/dim_10dp"
+                android:text="@string/setting"
+                android:textColor="#404040"
+                android:textSize="@dimen/mid_text_16" />
+
+            <RelativeLayout
+                android:id="@+id/rl_notification"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/notification_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/ic_notifications" />
+
+                <TextView
+                    android:id="@+id/notificationView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toLeftOf="@+id/switch_button"
+                    android:layout_toRightOf="@+id/notification_icon"
+                    android:text="@string/notifications"
+                    android:textColor="#404040" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="true"
+                    android:theme="@style/SCBSwitch" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_rate"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/rate_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/ic_rate_app" />
+
+
+                <TextView
+                    android:id="@+id/rateAppView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+
+                    android:layout_toRightOf="@+id/rate_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/rate_app"
+                    android:textColor="#404040" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_term"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/term_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/ic_terms_conditions" />
+
+
+                <TextView
+                    android:id="@+id/term_condition_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/term_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/terms_condition"
+                    android:textColor="#404040" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_about_us"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/about_us_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/ic_circle" />
+                <ImageView
+                    android:layout_width="@dimen/dim_11dp"
+                    android:layout_height="@dimen/dim_10dp"
+                    android:layout_marginStart="@dimen/dim_4dp"
+                    android:layout_marginTop="@dimen/dim_5dp"
+                    android:src="@drawable/ic_molitics_icon" />
+                <TextView
+                    android:id="@+id/about_us_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/about_us_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/about_us"
+                    android:textColor="#404040" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+            <RelativeLayout
+                android:id="@+id/rl_logout"
+                style="@style/MoreTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/logout_icon"
+                    android:layout_width="@dimen/dim_20dp"
+                    android:layout_height="@dimen/dim_20dp"
+                    android:src="@drawable/ic_logout" />
+
+                <TextView
+                    android:id="@+id/logoutView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_10dp"
+                    android:layout_toRightOf="@+id/logout_icon"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/logout"
+                    android:textColor="#404040" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1dp"
+                android:background="@color/gray_2" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

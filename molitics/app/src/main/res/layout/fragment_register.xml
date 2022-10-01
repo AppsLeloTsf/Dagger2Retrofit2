@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="registerViewModel"
+            type="com.molitics.molitician.ui.dashboard.register.register.viewModel.RegisterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/dim_20dp"
+        android:paddingRight="@dimen/dim_20dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_20dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.molitics.molitician.customView.molitics.PoppinsSemiBoldTextView
+            android:id="@+id/createHeaderTV"
+            android:layout_width="@dimen/dim_0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dim_20dp"
+            android:text="@string/create_account"
+            android:textSize="@dimen/xlarge_txt_20"
+            app:layout_constraintBottom_toBottomOf="@+id/backButton"
+            app:layout_constraintLeft_toRightOf="@+id/backButton"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backButton" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/nextButton"
+            app:layout_constraintTop_toBottomOf="@+id/createHeaderTV">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/nameEV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_40dp"
+                    android:drawableRight="@drawable/ic_name"
+                    android:drawablePadding="@dimen/dim_10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/enter_your_full_name"
+                    android:text="@={registerViewModel.userName}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/uniqNameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_40dp"
+                    android:drawableRight="@drawable/ic_name"
+                    android:drawablePadding="@dimen/dim_10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/enter_name"
+                    android:text="@={registerViewModel.userUniqueName}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameEV" />
+
+                <ImageView
+                    android:id="@+id/validUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dim_30dp"
+                    android:src="@drawable/ic_green_tick"
+                    android:visibility="@{registerViewModel.uniqueUserNameValid ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/uniqNameET"
+                    app:layout_constraintEnd_toEndOf="@+id/uniqNameET"
+                    app:layout_constraintTop_toTopOf="@+id/uniqNameET" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/emailET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_40dp"
+                    android:drawableRight="@drawable/ic_mail"
+                    android:drawablePadding="@dimen/dim_10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/email_id"
+                    android:text="@={registerViewModel.userEmail}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/uniqNameET" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/dobET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_40dp"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:drawablePadding="@dimen/dim_10dp"
+                    android:focusable="false"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/dob"
+                    android:text="@={registerViewModel.dateOfBirth}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/emailET" />
+
+                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                    android:id="@+id/genderTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_30dp"
+                    android:text="@string/gender_asterisk"
+                    android:textSize="@dimen/short_text_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dobET" />
+
+                <RadioGroup
+                    android:id="@+id/gender_radio_group"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:orientation="horizontal"
+                    android:checkedButton="@={registerViewModel.genderRadioChecked}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/genderTV">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/male" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/female" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/other" />
+
+                </RadioGroup>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/passwordET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_40dp"
+                    android:drawableRight="@drawable/ic_password"
+                    android:drawablePadding="@dimen/dim_10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/password"
+                    android:text="@={registerViewModel.userPassword}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gender_radio_group" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/confirmPasswordET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_40dp"
+                    android:drawableRight="@drawable/ic_password"
+                    android:drawablePadding="@dimen/dim_10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/confirm_password"
+                    android:text="@={registerViewModel.userConfirmPassword}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/passwordET" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nextButton"
+            style="@style/SignInButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dim_10dp"
+            android:onClick="@{() -> registerViewModel.onRegisterNextClick()}"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

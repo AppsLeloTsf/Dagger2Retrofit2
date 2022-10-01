@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/dim_20dp">
+
+    <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+        android:id="@+id/platformTV"
+        style="@style/verificationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/dim_0dp"
+        android:text="@string/platform"
+        android:textSize="@dimen/short_text_12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry" />
+
+    <ImageView
+        android:id="@+id/platformIconView"
+        android:layout_width="@dimen/dim_50dp"
+        android:layout_height="@dimen/dim_50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/platformTV" />
+
+    <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+        android:id="@+id/platformUrlTV"
+        style="@style/verificationText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/short_text_12"
+        app:layout_constraintLeft_toRightOf="@+id/platformTV"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/mobileEV"
+        style="@style/VerifyProfileEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_url"
+        app:layout_constraintLeft_toRightOf="@+id/platformTV"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/platformUrlTV" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

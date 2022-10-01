@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/RL_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dim_10dp"
+    android:paddingLeft="@dimen/dim_15dp"
+    android:paddingRight="@dimen/dim_10dp"
+    android:paddingTop="@dimen/dim_20dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/state_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/dim_10dp"
+        app:civ_border_color="#ca4040"
+        app:civ_border_width="2dp" />
+
+    <LinearLayout
+        android:id="@+id/state_name_semi_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/state_image"
+        android:orientation="vertical"
+        android:padding="@dimen/dim_10dp">
+
+        <TextView
+            android:id="@+id/party_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/large_text_18" />
+
+        <TextView
+            android:id="@+id/state_candidate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_blue"
+            android:textSize="@dimen/mid_text_16" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_1px"
+        android:layout_below="@+id/state_name_semi_lay"
+        android:layout_marginTop="@dimen/dim_15dp"
+        android:background="@color/view" />
+
+</RelativeLayout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/CL_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+
+    <TextView
+        android:id="@+id/create_issue"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/describe_your_issue"
+        android:textColor="@color/voice_comment"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/issue_creator_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintStart_toEndOf="@+id/issue_creator_image"
+        app:layout_constraintTop_toTopOf="@+id/create_issue" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/issue_creator_image"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="@dimen/dim_20dp"
+        android:src="@drawable/sample_image"
+        app:civ_border_color="@color/theme"
+        app:civ_border_width="@dimen/dim_2dp"
+        app:layout_constraintStart_toStartOf="@+id/create_issue"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/divideLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_1dp"
+        android:layout_marginTop="@dimen/dim_30dp"
+        android:background="@color/light_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <RelativeLayout
+        android:id="@+id/imageRl"
+        android:layout_width="0dp"
+
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/videoRl"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divideLine">
+
+        <TextView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@drawable/icc_image"
+            android:drawablePadding="@dimen/dim_10dp"
+            android:gravity="center"
+            android:text="@string/image"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/short_text_14"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="@dimen/dim_1dp"
+            android:layout_height="@dimen/dim_40dp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/videoRl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/tagLeaderView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageRl"
+        app:layout_constraintTop_toBottomOf="@+id/divideLine">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@drawable/icc_play_button"
+            android:drawablePadding="@dimen/dim_10dp"
+            android:gravity="center"
+            android:text="@string/video"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/short_text_14"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="@dimen/dim_1dp"
+            android:layout_height="@dimen/dim_40dp"
+            android:background="@drawable/divide_line" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/tagLeaderView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/videoRl"
+        app:layout_constraintTop_toBottomOf="@+id/divideLine">
+
+        <TextView
+            android:layout_width="@dimen/dim_1dp"
+            android:layout_height="@dimen/dim_40dp"
+            android:background="@drawable/divide_line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@drawable/icc_leader"
+            android:drawablePadding="@dimen/dim_10dp"
+            android:gravity="center"
+            android:text="@string/tag_leader"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/short_text_14"
+            android:textStyle="normal" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

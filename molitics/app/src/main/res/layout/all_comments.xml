@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dim_2dp"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/dim_5dp">
+
+    <TextView
+        android:id="@+id/reply_dummy_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:padding="@dimen/dim_5dp"
+        android:textColor="@color/create_voice_white_btn"
+        android:textSize="10sp"
+        android:textStyle="normal"
+        android:visibility="gone"
+        tools:text="#Repy from Leader" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reply_dummy_txt">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_image"
+            android:layout_width="@dimen/dim_40dp"
+            android:layout_height="@dimen/dim_40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dim_10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/leader_star_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dim_10dp"
+            android:layout_marginTop="@dimen/dim_8dp"
+            android:src="@drawable/star"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ll_main"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dim_10dp"
+            android:layout_marginTop="@dimen/dim_5dp"
+            android:layout_marginRight="@dimen/dim_5dp"
+            android:layout_toRightOf="@id/user_image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dim_5dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/create_voice_white_btn"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/user_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/follow_txte"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/is_edited_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dim_10dp"
+                    android:layout_toLeftOf="@+id/time_txt"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/edited"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/time_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/follow_txte"
+                    android:textSize="10sp"
+                    android:textStyle="normal" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

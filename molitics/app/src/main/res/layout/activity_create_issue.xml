@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.molitics.molitician.ui.dashboard.voice.model.VoiceViewModel" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                android:elevation="@dimen/dim_5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:subtitleTextColor="@color/toolbar_color"
+                app:theme="@style/ToolbarStyle"
+                app:titleTextColor="@color/toolbar_color" />
+
+            <com.molitics.molitician.customView.NestedRecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="@dimen/dim_0dp"
+                android:layout_height="@dimen/dim_0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/LL_post"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                tools:context=".ui.dashboard.voice.createVoice.CreateVoiceActivity" />
+
+            <LinearLayout
+                android:id="@+id/LL_post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dim_10dp"
+                android:weightSum="3"
+                app:layout_constraintBottom_toTopOf="@+id/voice_post"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/image_icon"
+
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icc_image" />
+
+                    <TextView
+                        android:id="@+id/add_image_view"
+                        style="@style/ThemeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/image_icon"
+                        android:text="@string/add_image" />
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/DividerLine"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent" />
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dim_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/video_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icc_play_button" />
+
+                    <TextView
+                        android:id="@+id/add_video_view"
+                        style="@style/ThemeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/video_icon"
+                        android:text="@string/add_video" />
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/DividerLine"
+                    android:layout_width="@dimen/dim_1dp"
+                    android:layout_height="match_parent" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_10dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/leader_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icc_leader" />
+
+                    <TextView
+                        android:id="@+id/tag_leader_view"
+                        style="@style/ThemeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/leader_icon"
+                        android:text="@string/tag_leader" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/voice_post"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/create_voice_btn"
+                android:clickable="true"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="@string/post"
+                android:textColor="@color/hard_white"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/image_compress_progressbar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/voice_post" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/inner_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:background="@color/white"
+            android:visibility="gone" />
+    </RelativeLayout>
+</layout>

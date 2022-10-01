@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dim_15dp"
+        card_view:cardCornerRadius="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/dim_5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/event_heading_txt"
+                    android:layout_width="@dimen/dim_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".85"
+
+                    android:drawablePadding="@dimen/dim_10dp"
+                    android:padding="@dimen/dim_5dp"
+                    android:textSize="@dimen/mid_text_16" />
+                <!--  android:drawableLeft="@mipmap/event_type"-->
+
+                <ImageView
+                    android:id="@+id/share_event"
+                    android:layout_width="@dimen/dim_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".15"
+                    android:padding="@dimen/dim_5dp"
+                    android:src="@android:drawable/ic_menu_share" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/event_time_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_10dp"
+
+                android:drawablePadding="@dimen/dim_10dp"
+                android:padding="@dimen/dim_5dp"
+                android:textSize="@dimen/mid_text_16" />
+            <!-- android:drawableLeft="@mipmap/date"-->
+
+
+            <TextView
+                android:id="@+id/event_location_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_10dp"
+
+                android:drawablePadding="@dimen/dim_10dp"
+                android:padding="@dimen/dim_5dp"
+                android:textSize="@dimen/mid_text_16" />
+            <!-- android:drawableLeft="@mipmap/address"-->
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+

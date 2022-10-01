@@ -1,0 +1,1 @@
+include ':app', ':libary', ':videocompressor', ':library_sgv'

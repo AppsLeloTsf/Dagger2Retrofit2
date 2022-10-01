@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/noti_adapter_parent_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dim_5dp"
+        android:layout_marginLeft="@dimen/dim_10dp"
+        android:layout_marginRight="@dimen/dim_10dp"
+        android:layout_marginTop="@dimen/dim_10dp"
+        android:background="@color/white"
+        card_view:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image"
+                android:layout_width="@dimen/dim_50dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/sample_image"
+                android:visibility="gone"
+                app:civ_border_color="#ca4040"
+                app:civ_border_width="2dp" />
+
+            <LinearLayout
+                android:id="@+id/notification_semi_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/image"
+                android:orientation="vertical"
+                android:padding="@dimen/dim_10dp">
+
+                <TextView
+                    android:id="@+id/notification_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:ems="3"
+                    android:fontFamily="sans-serif-medium"
+                    android:lineSpacingExtra="10sp"
+                    android:maxLines="3"
+                    android:textColor="#0b446a"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/notification_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_5dp"
+                    android:textSize="@dimen/short_text_14"
+                    android:visibility="gone" />
+
+
+                <TextView
+                    android:id="@+id/notification_created_at"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="right"
+                    android:lineSpacingExtra="2sp"
+                    android:textColor="#cccccc"
+                    android:textSize="10sp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

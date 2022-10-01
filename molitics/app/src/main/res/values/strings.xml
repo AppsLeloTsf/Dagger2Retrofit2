@@ -1,0 +1,492 @@
+<resources>
+
+
+    <plurals name="plural_issue_tag">
+        <item quantity="zero">Issue</item>
+        <item quantity="one"> Issue</item>
+        <item quantity="other"> Issues</item>
+    </plurals>
+    <plurals name="plural_upvote_tag">
+        <item quantity="zero">%1$d Upvote</item>
+        <item quantity="one">%1$d Upvote</item>
+        <item quantity="other">%1$d Upvotes</item>
+    </plurals>
+    <plurals name="plural_downvote_tag">
+        <item quantity="zero">%1$d Downvote</item>
+        <item quantity="one">%1$d Downvote</item>
+        <item quantity="other">%1$d Downvotes</item>
+    </plurals>
+    <plurals name="plural_follower_tag">
+        <item quantity="zero">Follower</item>
+        <item quantity="one"> Follower</item>
+        <item quantity="other"> Followers</item>
+        <!-- use %d for int to print value with text  <item quantity="other">%d Issues</item>-->
+    </plurals>
+    <plurals name="plural_issue_raise_tag">
+        <item quantity="zero">Issue Raised</item>
+        <item quantity="one"> Issue Raised</item>
+        <item quantity="other"> Issues Raised</item>
+        <!-- use %d for int to print value with text  <item quantity="other">%d Issues</item>-->
+    </plurals>
+
+    // previous key
+    <plurals name="plural_view_count">
+
+        <item quantity="zero">%1$d </item>
+
+        <item quantity="one">%1$d </item>
+
+        <item quantity="other">%1$d </item>
+
+    </plurals>
+
+    <string name="key">AKIAIKEUC2YSVO54FTTQ</string>
+
+    <string name="access">VCuSROBBfXOQJy6e0rUZX5scAPp4D4Yz3ce+szbG</string>
+    <string name="app_matrica_key">27d73e2f-95d5-47da-ab15-ff865a82b73c</string>
+
+    <string name="default_notification_channel_id">molit2016</string>
+    <string name="about_us_url">https://m.molitics.in/political/news/app</string>
+    <string name="facebook_app_id">315754702207952</string>
+    <string name="app_name">Molitics</string>
+    <string name="navigation_drawer_open">Drawer Open</string>
+    <string name="navigation_drawer_close">Drawer Closed</string>
+    <string name="loading">loading</string>
+    <string name="contact_leader_header">Contact your Leader</string>
+    <string name="know_more_header">Know more</string>
+    <string name="notification_header">Notifications</string>
+
+    <string name="Leaders_Followed">Leaders Followed</string>
+    <string name="candidates_header">Candidates</string>
+    <string name="bookmarked_header">Bookmarks</string>
+    <string name="bookmark"> Bookmark </string>
+    <string name="cartoon">Cartoon Corner</string>
+    <string name="election_results_header">Election Results</string>
+    <string name="survey_take">Take Survey</string>
+    <string name="otp"> A One Time Password (OTP) will be sent via SMS to verify your number </string>
+    <string name="district_display">District</string>
+    <string name="resend_otp">If you don\'t receive verification code in\n </string>
+    <string name="error_player">There was an error initializing the YouTubePlayer %1$s</string>
+    <string name="survey">Survey</string>
+    <string name="articles">Articles</string>
+    <string name="notification_txt">Notification</string>
+    <string name="media_of_politics">"Media of Politics \n"</string>
+    <string name="no_internet">No Internet</string>
+    <string name="network_error">No Network</string>
+    <string name="participated_parties">Participated Parties</string>
+    <string name="mla_constituency">MLA Constituency</string>
+    <string name="mp_constituency">MP Constituency</string>
+    <string name="const_banner">Electors as per previous Election</string>
+    <string name="election_year">Election Year </string>
+    <string name="political_party">Political Party</string>
+    <string name="sure_exit">You can choose only one among District, MP Constituency &amp; MLA Constituency</string>
+    <string name="exit">OK</string>
+    <!--  <string name="like_dis_txt">Like/Dislike Leaders Related to Above News</string> -->
+    <string name="cancel">Cancel</string>
+    <string name="exit_dialog">Exit Dialog</string>
+    <string name="otp_not_enter">Please enter OTP.</string>
+    <string name="termNcond">By signing up I agree to Terms &amp; Conditions</string>
+    <string name="verify_text">Please type the verification code sent to +91 </string>
+    <string name="select_state_txt">Please select your State, So we can customise your News feed</string>
+    <string name="like_dis_txt">Related Parties/Leaders</string>
+    <string name="select_constituency">Select your MP Constituency \n to View Election Results</string>
+    <string name="profile_save">Profile successfully saved</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="m_politicsl_leader">I am a Political Leader \n Register to Mplus \n</string>
+    <string name="molitics_videos">Politics Live</string>
+    <string name="follow">Follow %d</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="cant_follow_own_issue">You can\'t follow your own issue.</string>
+    <string name="issues_following">Issues Following</string>
+    <string name="issue_following"> Issue Following</string>
+    <string name="type_issue">Describe your issue briefly or paste any link</string>
+    <string name="trending">Trending</string>
+    <string name="trendings">Trendings</string>
+    <string name="user_suggestion">User Suggestion</string>
+
+    <!--use sting.formate to asign value into this file-->
+
+    <string name="no_issue_create">Currently, No issue created.</string>
+    <string name="trending_leaders_txt">Trending Leaders</string>
+    <string name="logout_confirm_txt">Are you sure you want to Logout. </string>
+    <string name="lok_sabha_constituency">Lok Sabha Constituency : </string>
+    <string name="delete_comment">Are you sure you want to delete it?</string>
+    <string name="edit">Edit</string>
+    <string name="hash_tag">#  %1$d</string>
+    <string name="anonymous_tag">Anonymous</string>
+    <string name="more_tag">More</string>
+    <string name="less_tag">Less</string>
+
+    <string name="issue_tag">Issue</string>
+    <string name="follower_tag">Followers</string>
+    <!--dynamically change text depend on value-->
+    <string name="issue_raised_tag">Issue Raised</string>
+
+    <string name="follow_tag">Follow</string>
+
+    <string name="following_tag">Following %d</string>
+
+
+    <string name="process_text_action_name">Process Text</string>
+
+    <string name="upvote_string_percent"> %1$d Upvote</string>
+
+    <string name="downvote_string_percent"> %1$d Downvote</string>
+
+    <string name="asset_statements" translatable="false">[{\n  \"relation\": [\"delegate_permission/common.handle_all_urls\"],\n  \"target\": {\n    \"namespace\": \"web\",\n    \"site\": \"https://molitics.in\",\n  }\n}]</string>
+    <string name="retry_select_constituency">To know your local Leader click here.</string>
+    <string name="update_app_title">Update Available</string>
+    <string name="update_message_txt">You are using an older version of our app. Kindly Update your app for a better experience.</string>
+    <string name="force_update">Please update your version of Application to continue using Molitics.</string>
+
+    <!-- <string name="prefix_upvote_string">%d Upvote</string>
+     <string name="prefix_downvote_string">%d Downvote</string>-->
+
+    <string name="dob_string">DOB :  %s </string>
+    <string name="state_string">State :  %s </string>
+    <string name="mla_string">Mla Constituency :  %s </string>
+    <string name="mp_string">MP Constituency :  %s </string>
+
+    <string name="upvote_string">Upvote  %s </string>
+    <string name="downvote_string">Downvote  %s </string>
+
+    <string name="add_to_post_voice">Add To Your Post</string>
+    <string name="add_image">Add Photo</string>
+    <string name="add_video">Add Video</string>
+    <string name="tag_leader">Tag Leader</string>
+    <string name="like_txt">Like</string>
+    <string name="comment_txt">Comment</string>
+    <string name="share_txt">Share</string>
+
+    <string name="record">Record</string>
+    <string name="stop">Stop</string>
+    <string name="submit_video">Submit Video</string>
+    <string name="close_video">Close Video</string>
+    <string name="permission_request">This sample needs permission for camera and audio recording.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+
+    <string name="exo_controls_volume_up_description">Volume Up</string>
+    <string name="exo_controls_volume_off_description">Volume Off</string>
+    <string name="no_article_submitted">You haven\'t submitted any article yet.</string>
+    <string name="video_uploading_failed">Video uploading failed!! try again</string>
+    <string name="video_size">Video size must not be greater than 150 MB.</string>
+    <string name="image_video_limit">You can upload maximum 5 images or videos.</string>
+    <string name="term_condition_url">http://api.molitics.net/terms</string>
+    <string name="share_to">Share to</string>
+    <string name="log_out">Log Out</string>
+    <string name="news_source">Source :  %s </string>
+    <string name="video_downloaded">Video has been downloaded.</string>
+    <string name="state_list_fetching">Fetching data</string>
+    <string name="article_description_m">Please add Article Title Description</string>
+    <string name="article_tilte_m">Please add Article Title</string>
+    <string name="article_image_m">Please select Image</string>
+
+    <string name="raise_issue_against_leader">Be the First one to Raise the issue against this Leader</string>
+    <string name="seek_news_req_response">Your request to seek News for this Leader has been Submitted. Follow this Leader to be Notified.</string>
+    <string name="select_state_first">Please select state first.</string>
+    <string name="next_survey">Next Survey</string>
+    <string name="take_survey">Take Survey</string>
+    <string name="type_your_comment_here">Type your comment here…</string>
+    <string name="read_more">...Read more</string>
+    <string name="cannot_empty">This field cann\'t be empty</string>
+    <string name="upvote">Upvote</string>
+    <string name="downvote">Downvote</string>
+    <string name="no_data_available">No Data Available</string>
+    <string name="status">Status :</string>
+    <string name="anonymous">Anonymous</string>
+    <string name="select_survey_option">Please select one of the options</string>
+    <string name="terms_condition"><![CDATA[Terms & Conditions]]></string>
+    <string name="click_back_to_exit">Please click BACK again to exit</string>
+    <string name="invite_to_app">invite to app</string>
+    <string name="more">More</string>
+    <string name="setting">Settings</string>
+    <string name="notifications">Notifications</string>
+    <string name="logout">Logout</string>
+    <string name="rate_app">Rate App</string>
+    <string name="nearby_users">Nearby Users</string>
+    <string name="invite_contact">Invite your friends</string>
+    <string name="my_profile">My Profile</string>
+    <string name="profile">Profile</string>
+    <string name="election_results">Election Results</string>
+    <string name="switch_to_molitics_plus">Switch to Molitics Plus</string>
+    <string name="issue_detail">Issue Detail</string>
+    <string name="total_seats">Total Seats : </string>
+    <string name="no_token_access">No Token Access</string>
+    <string name="want_to_delete_article">Do you want to delete this Article ?</string>
+    <string name="want_to_delete_issue">Do you want to delete this Issue ?</string>
+    <string name="share_image">Share Image</string>
+    <string name="article_detail">Article Detail</string>
+    <string name="leader_followed">Leader Followed</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="participating_parties">Participating Parties</string>
+    <string name="publish_by_user">(Published by leader)</string>
+    <string name="select_your_state">Select Your State</string>
+    <string name="data_fetching">Data fetching please wait</string>
+    <string name="no_notification_right_now">You don\'t have any notifications right now</string>
+    <string name="select_one_option">Please select one option</string>
+    <string name="tag_leaders">Tag Leaders</string>
+    <string name="download_started">Download Started.</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="term_condition"><![CDATA[Terms & Conditions]]></string>
+    <string name="submit">Submit</string>
+    <string name="change_opinion">Change Opinion</string>
+    <string name="leaders">Leaders</string>
+    <string name="cannt_sync_contact">Can\'t sync contact with out permission</string>
+    <string name="invite">Invite</string>
+    <string name="invited">Invited</string>
+    <string name="near_by_user">Nearby Users</string>
+    <string name="hindi">Hindi</string>
+    <string name="english">English</string>
+    <string name="videos">Molitics Videos</string>
+    <string name="select_language">Select Language</string>
+    <string name="select_near_by">Select Location</string>
+    <string name="select_state">Select State</string>
+
+    <string name="are_you_leader">Are you a political leader? \n Register to Mplus \n</string>
+    <string name="upload_in_progress">Upload in progress, please wait.</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="no_access_provided">No access provided please try other login method</string>
+    <string name="fb_response">fb_response</string>
+    <string name="caricature">Caricature</string>
+    <string name="election_result">Election Result</string>
+    <string name="near_by">Nearby User</string>
+    <string name="dialog_fragment">Dialog Fragment</string>
+    <string name="permission_granted_now">Permission granted now you can read the storage</string>
+    <string name="denied_permission">Oops you just denied the permission</string>
+    <string name="ignore">Ignore</string>
+    <string name="update">Update</string>
+    <string name="install">install</string>
+    <string name="progress">progress</string>
+    <string name="sucess">Success !!</string>
+    <string name="aeticle_description">Article Description ...</string>
+    <string name="image_saved_to_sd_card">Image Saved to SD Card</string>
+    <string name="votes">VOTES -</string>
+    <string name="won">Won %1$d</string>
+    <string name="other">other</string>
+    <string name="vote_shate">Vote Share</string>
+    <string name="opposition_leader">Opposition Leader</string>
+    <string name="from">from</string>
+    <string name="back">BACK</string>
+    <string name="no_of_seat">No. of seats %s</string>
+    <string name="data_loading">Data loading</string>
+    <string name="want_to_delete">Do you want to delete this Issue ?</string>
+    <string name="check_internet_connection">Check your internet connection</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="share">Share</string>
+    <string name="save">Save</string>
+    <string name="enter_first_name">Please enter name first</string>
+    <string name="enter_contact">Please enter contact first</string>
+    <string name="enter_subject">Please enter subject first</string>
+    <string name="enter_description">Please enter description first</string>
+    <string name="fail_please_try_again">Fail please try again.</string>
+    <string name="following_event_added">Following event has been added.</string>
+    <string name="following_event_has_been">Following event has been added.</string>
+    <string name="enter_detail_first">Please fill the details first</string>
+    <string name="this_field_can_not_be_emty">This field can not be empty</string>
+    <string name="number_should_digits">Number should be of 10 digits</string>
+    <string name="no_permission">No Permission provided.</string>
+    <string name="you_can_only_tag_five">You can only Tag up to 5 Leaders</string>
+    <string name="delete">Delete</string>
+    <string name="internet_not_connected">Internet not connected.</string>
+    <string name="successfully_deleted">Successfully Deleted!!</string>
+    <string name="issue_deleted">Issue has been deleted.</string>
+    <string name="please_wait">Please Wait....</string>
+    <string name="national_leaders">National Leaders</string>
+    <string name="local_leaders">Local Leaders</string>
+    <string name="state_leaders">State Leaders</string>
+    <string name="national">National</string>
+    <string name="local_news">Local News</string>
+    <string name="skip">Skip</string>
+    <string name="sign_up_to_continue">Sign Up to Continue</string>
+    <string name="facebook">Facebook</string>
+    <string name="gmail">Gmail</string>
+
+    <string name="election">Election</string>
+    <string name="leader_following">Following Leader</string>
+    <string name="news_bookmark">News Bookmark</string>
+    <string name="comment_count">%d Comment</string>
+    <string name="comments_count">%d Comments</string>
+
+    <string name="browse_by_category">Browse by category</string>
+    <string name="invite_to_molitics">Invite to Molitics</string>
+    <string name="describe_your_issue">Describe your issue……</string>
+    <string name="image">Image</string>
+    <string name="video">Video</string>
+    <string name="trending_news">Trending News</string>
+    <string name="national_live_video">National Live Tv</string>
+    <string name="local_live_tv">Local Live Tv</string>
+    <string name="molitics_tv">Molitics Videos</string>
+    <string name="hindi_hindi">हिंदी</string>
+    <string name="done">Done</string>
+    <string name="choose_your_preferred_language">Choose your preferred Language</string>
+    <string name="news_channels">Media</string>
+    <string name="favourite_leaders">Favourite Leaders</string>
+    <string name="see_all">See All</string>
+    <string name="no_video_available">No video available</string>
+    <string name="change_language">Change Language</string>
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="news_feed">News Feed</string>
+    <string name="home">Home</string>
+    <string name="leader">Leader</string>
+    <string name="public_issue">Public Issue</string>
+    <string name="post">POST</string>
+    <string name="raise_voice_title">Raise your Voice</string>
+    <string name="next">NEXT</string>
+    <string name="previous">PREVIOUS</string>
+    <string name="sign_up_login">Sign Up / Login</string>
+
+    <string name="select_district">Select District</string>
+    <string name="select_mla">Select MLA</string>
+    <string name="select_mp">Select MP</string>
+    <string name="select_party">Select Party</string>
+    <string name="select_post">Select Post</string>
+
+    <string name="rest_done">Reset successfully done</string>
+    <string name="apply">APPLY</string>
+    <string name="filter_by">FILTER BY</string>
+    <string name="reset">Reset</string>
+    <string name="search_leaders">Search Leaders</string>
+    <string name="overall_result">Overall Results</string>
+    <string name="select_constituency_txt">Select  Constituency</string>
+    <string name="gender">Gender</string>
+    <string name="profession">Profession</string>
+    <string name="select_profession">Select Profession</string>
+    <string name="user_name">Name</string>
+    <string name="contact">Contact</string>
+    <string name="email">Email</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="state_name">State Name</string>
+    <string name="enter_your_state_name">Enter your State Name</string>
+    <string name="district_name">District Name</string>
+    <string name="enter_your_district_name">Enter your District Name</string>
+    <string name="lok_sabha">Lok Sabha</string>
+    <string name="enter_your_lok_sabha_constituency">Enter your Lok Sabha Constituency</string>
+    <string name="assembly_constituency">Assembly Constituency</string>
+    <string name="enter_your_assembly_constituency">Enter your Assembly Constituency</string>
+    <string name="political_orientation">Political Orientation</string>
+    <string name="enter_your_political_orientation">Enter your Political Orientation</string>
+    <string name="result_declared">Result Declared</string>
+    <string name="state">State</string>
+    <string name="click_here"><font color='black'><u> Click here </u></font></string>
+    <string name="ke_baad">.</string>
+    <string name="total_response">Total Response</string>
+
+    <string name="enter_name_of_media">Enter name of media</string>
+    <string name="publics">Public</string>
+    <string name="about">About</string>
+    <string name="news">News</string>
+
+    <string name="read_more_news">Read Full Story</string>
+    <string name="read_related_news">Read Related News</string>
+    <string name="enter_name_of_state">Enter name of state</string>
+    <string name="image_src_text">Img :  %s</string>
+    <string name="continue_reading">continue reading</string>
+    <string name="summary">Summary</string>
+    <string name="males">MALES</string>
+    <string name="females">FEMALES</string>
+    <string name="voters">VOTERS</string>
+    <string name="winner">WINNER</string>
+    <string name="other_candidates">OTHER CANDIDATES</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="full_name">Full Name*</string>
+    <string name="enter_contact_leader">Enter Contact*</string>
+    <string name="topic">Topic*</string>
+    <string name="description">Description*</string>
+    <string name="response">Response</string>
+    <string name="upcoming_event">Upcoming Event</string>
+    <string name="edited">Edited</string>
+    <string name="enter_your_mobile_number">Enter Your Mobile Number</string>
+    <string name="do_you_want_to_delete_issue">Do you want to delete this Issue ?</string>
+    <string name="issue">Issue</string>
+    <string name="about_us">About us</string>
+    <string name="welcome_to_molitics">Welcome to Molitics</string>
+    <string name="related_news">Related News</string>
+    <string name="sign_in_using_password">Sign in using password</string>
+    <string name="or">OR</string>
+    <string name="dont_have_acc">Don\'t have an Account?</string>
+    <string name="register_underline"><u>Register</u></string>
+    <string name="sign_in_using_otp">Sign in using Otp</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="enter_current_password">Enter Current Password</string>
+    <string name="re_enter_current_password">Re-Enter New Password</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_acc">Already have an Account?</string>
+    <string name="signin_underline"><u>Sign in</u></string>
+    <string name="next_small">Next</string>
+    <string name="by_registering">By registering I agree to \n</string>
+    <string name="and">and</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="verification">Verification</string>
+    <string name="verify">Verify</string>
+    <string name="not_recevied_otp">Didn\'t receive OTP?</string>
+    <string name="resend_otp_underline"><u>Resend OTP</u></string>
+    <string name="password">Password</string>
+    <string name="enter_password_to_sign_in">Enter Password to Sign In</string>
+    <string name="forgot_password_underline"><u>Forgot Password</u></string>
+    <string name="enter_password">Enter Password</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="please_enter_mobile_number">Please enter your mobile number to \nchange your password.</string>
+    <string name="create_account">Create Account</string>
+    <string name="enter_your_full_name">Enter your full name*</string>
+    <string name="create_name">Create username</string>
+    <string name="dob">DD-MM-YYYY</string>
+    <string name="gender_asterisk">Gender*</string>
+    <string name="set_password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="otp_enter">Enter OTP</string>
+    <string name="email_id">Email Id</string>
+    <string name="password_is_not_same">Password and Confirm password is not same</string>
+    <string name="password_must_be_eight_char">The password must be at least 8 characters</string>
+    <string name="select_gender">Please select gender</string>
+    <string name="email_invalid">Your Email Id is Invalid.</string>
+    <string name="user_name_not_available">User name is not available</string>
+    <string name="get_verified">Get Verified</string>
+    <string name="are_you">Are you?</string>
+    <string name="individual">Individual</string>
+    <string name="organisation">Organisation</string>
+    <string name="are_you_indian">Are you an Indian Citizen?</string>
+    <string name="documents">Documents</string>
+    <string name="documents_name">Documents Name</string>
+    <string name="select_documents">Select Document</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="enter_email_id">Enter email id</string>
+    <string name="why_should_we_verify_you">Why should we verify you?</string>
+    <string name="social_icons">Social Icons</string>
+    <string name="apply_verification">Apply Verification</string>
+    <string name="platform">Platform</string>
+    <string name="enter_url">Enter URL</string>
+    <string name="instagram_url">Instagram URL</string>
+    <string name="followers">Followers</string>
+    <string name="issues">Issues</string>
+    <string name="following">Following</string>
+    <string name="change_password">Change Password</string>
+    <string name="verification_description_should_not_be_null">Description should not be Empty</string>
+    <string name="verification_form_submit_message">Your form is successfully submitted. Our team will look into it and do the needful.
+You may get a call from our team.</string>
+    <string name="password_has_changed">Password has been changed</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="report_dialog" translatable="false">Report Dialog</string>
+    <string name="feed" translatable="false">Feed</string>
+    <string name="user" translatable="false">User</string>
+    <string name="report" translatable="false">Report</string>
+    <string name="are_you_sure_report">Are you sure you want to Report </string>
+    <string name="successfully_reported">We have received your Request</string>
+    <string name="agree_updated_term_condition">Dear users \n\nAs per the legal directions, in order to use the application, you need to agree to the terms and conditions. \n\n<a href="http://api.molitics.net/terms">Terms and Conditions</a> \nDo not post anything that is intended to hurt religious or personal sentiments. Do not post anything which supports racism or casteism. Fake information, false information, misinformation should also not be posted. Abusive and foul language should not be used while posting on the application.</string>
+    <string name="agree">Agree</string>
+    <string name="please_agree_term_condition"><![CDATA[Please agree Term & Conditions]]></string>
+    <string name="copy_profile_link">Copy Profile Link</string>
+    <string name="name">Name</string>
+    <string name="bio">Bio</string>
+    <string name="user_name_field_cannt_be_empty">User name field cann\'t be empty</string>
+    <string name="set_a_new_password">Set New Password</string>
+    <string name="please_set_a_new_password">Please set a new password</string>
+    <string name="user_bio_title">Bio:</string>
+    <string name="molitics_options">Molitics Options</string>
+</resources>

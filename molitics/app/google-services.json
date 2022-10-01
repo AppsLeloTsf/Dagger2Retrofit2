@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "1044478789891",
+    "firebase_url": "https://molitician.firebaseio.com",
+    "project_id": "molitician",
+    "storage_bucket": "molitician.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044478789891:android:da2e026535b38410",
+        "android_client_info": {
+          "package_name": "com.molitics.molitician"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044478789891-v48v68n8fbb6i7ri0ldpo2l72ik66vpv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.molitics.molitician",
+            "certificate_hash": "67c8f687dc6b53c48fb39ae2ad054c99ad6922dc"
+          }
+        },
+        {
+          "client_id": "1044478789891-oe4erh792ki9sb21d3r0fi24eggbi9mj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.molitics.molitician",
+            "certificate_hash": "7ce560e3aabf1b0493e04110e2b0312ffa0b093d"
+          }
+        },
+        {
+          "client_id": "1044478789891-fjep8b66j3j85ahkf6tc9o5h347abmmo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.molitics.molitician",
+            "certificate_hash": "675d64eeee5e84a3a64308c60127c708ad701305"
+          }
+        },
+        {
+          "client_id": "1044478789891-spaqau24k1fkm14ld7ou2b5m3nfr3nso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbaW7vpRdmATGWPz9MLv1gizx-7u3JmjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044478789891-spaqau24k1fkm14ld7ou2b5m3nfr3nso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1044478789891-pgv30s44h8ihb5v087r8vh9j9ioqfha8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.xeine.Molitic"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.android.toolbartest.MainActivity">
+
+    <!--  <item
+          android:id="@+id/action_profile"
+          android:orderInCategory="98"
+          android:title="@string/profile_txt"
+          app:showAsAction="never" />
+
+      <item
+          android:id="@+id/term_condition"
+          android:orderInCategory="100"
+          android:title="Terms &amp; Conditions"
+          app:showAsAction="never" />
+
+      <item
+          android:id="@+id/action_leader_message"
+          android:orderInCategory="99"
+          android:title="@string/leaders_message"
+          app:showAsAction="never" />-->
+
+    <item
+        android:id="@+id/notification_menu"
+        android:orderInCategory="96"
+        android:title="@string/notification_txt"
+        app:actionLayout="@layout/notification_badge_layout"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/search_menu"
+        android:orderInCategory="95"
+        android:title=""
+        android:icon="@drawable/ic_search"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/language_menu"
+        android:orderInCategory="94"
+        android:title="@string/change_language"
+        android:visible="false"
+        app:actionLayout="@layout/menu_change_language"
+        app:showAsAction="always" />
+</menu>

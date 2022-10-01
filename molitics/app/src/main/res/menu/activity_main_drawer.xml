@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--    <group
+            android:id="@+id/group_1"
+            android:checkableBehavior="single">-->
+
+    <item
+        android:id="@+id/userProfileView"
+        android:title="@string/my_profile" />
+
+    <item
+        android:id="@+id/changeLanguage"
+        android:title="@string/change_language" />
+
+    <item
+        android:id="@+id/nav_day_night_mode"
+        android:title="@string/dark_mode"
+        app:actionLayout="@layout/toogle_button" />
+
+    <item
+        android:id="@+id/action_survey"
+        android:title="@string/survey"
+        app:actionLayout="@layout/drawer_noti_layout" />
+
+ <!--   <item
+        android:id="@+id/videosDraw"
+        android:title="@string/videos" />-->
+
+    <item
+        android:id="@+id/article"
+        android:title="@string/articles" />
+
+    <item
+        android:id="@+id/action_channel"
+        android:title="@string/news_channels" />
+    <item
+        android:id="@+id/news_bookmark"
+        android:title="@string/news_bookmark" />
+
+
+    <item
+        android:id="@+id/inviteContact"
+        android:title="@string/invite_contact" />
+
+    <item
+        android:id="@+id/about_us"
+        android:title="@string/about_us" />
+    <item
+        android:id="@+id/term_condition"
+        android:title="@string/terms_amp_conditions" />
+
+
+    <item
+        android:id="@+id/nav_notification"
+        android:title="@string/notification_txt"
+        app:actionLayout="@layout/toogle_button" />
+
+    <item
+        android:id="@+id/nav_invite"
+        android:title="@string/invite_to_molitics" />
+
+    <item
+        android:id="@+id/log"
+        android:title="@string/logout" />
+
+    <item
+        android:id="@+id/nav_mPlus_signup"
+        android:title=""
+        app:actionLayout="@layout/drawer_molitics_plus_signup" />
+
+
+</menu>

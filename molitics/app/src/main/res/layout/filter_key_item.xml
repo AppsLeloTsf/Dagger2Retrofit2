@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rlKeyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F2F2F2"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dim_10dp"
+        android:paddingLeft="@dimen/dim_5dp"
+        android:paddingRight="@dimen/dim_5dp"
+        android:paddingTop="@dimen/dim_10dp">
+
+        <TextView
+            android:id="@+id/dotView"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/fiter_dot_view" />
+
+        <TextView
+            android:id="@+id/txtKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/dotView"
+            android:gravity="center"
+            android:textColor="#808080"
+            android:textSize="14sp" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/rlKeyLayout"
+        android:background="#e1e1e1" />
+</RelativeLayout>

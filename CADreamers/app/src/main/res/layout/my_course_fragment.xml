@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/bg_main_light"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dimen_16dp"
+    tools:context=".fragments.side_nav.my_course.MyCourseFragment">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<TextView
+    android:id="@+id/tvMyOrdersCourseTag"
+    android:text="My Ordered Courses"
+    android:background="@drawable/et_black_transparent"
+    android:textColor="@color/white"
+    style="@style/tv_title"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMyOrdersCourses"
+        tools:listitem="@layout/item_course"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvMyOrdersBooksTag"
+        android:layout_marginTop="@dimen/dimen_32dp"
+        android:text="My Ordered Books"
+        android:background="@drawable/et_black_transparent"
+        android:textColor="@color/white"
+        style="@style/tv_title"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMyOrdersBooks"
+        tools:listitem="@layout/item_course"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

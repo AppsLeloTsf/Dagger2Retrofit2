@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:elevation="@dimen/dim_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat"
+            app:subtitleTextColor="@color/white"
+            app:theme="@style/ToolbarStyle"
+            app:titleTextColor="@color/follow_leader" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/search_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dim_10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="@dimen/dim_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <EditText
+                android:id="@+id/leader_search_field"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_40dp"
+                android:background="@drawable/edittxt_boundary_white"
+                android:drawableLeft="@drawable/ic_search_24"
+                android:drawablePadding="@dimen/dim_15dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:hint="Enter Leader's Name"
+                android:paddingLeft="@dimen/dim_10dp"
+                android:paddingTop="@dimen/dim_10dp"
+                android:paddingRight="@dimen/dim_10dp"
+                android:paddingBottom="@dimen/dim_10dp"
+                android:textColorHint="#e5e5e5"
+                android:textSize="@dimen/large_text_18"
+                android:textStyle="normal" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/leader_list_recycler"
+            android:layout_width="@dimen/dim_0dp"
+            android:layout_height="@dimen/dim_0dp"
+            android:layout_marginTop="@dimen/dim_10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_card" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</RelativeLayout>

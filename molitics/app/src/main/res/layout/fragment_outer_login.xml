@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frame_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- <android.support.v7.widget.RecyclerView
+         android:id="@+id/leaders_recycler_main"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:scrollbars="none" />-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tutorial_background"
+        android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dim_20dp"
+            android:paddingRight="@dimen/dim_20dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_20dp"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/dim_10dp"
+                android:text="@string/sign_up_login"
+                android:textColor="@color/create_voice_white_btn"
+                android:textSize="24sp"
+                android:textStyle="normal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_30dp"
+                android:background="@color/add_issue_bg"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="@dimen/dim_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim_5dp"
+                    android:layout_weight=".15"
+                    android:gravity="center"
+                    android:text="+91"
+                    android:textColor="@color/text_color"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/mobile_number_view"
+                    android:layout_width="@dimen/dim_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".85"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/enter_your_mobile_number"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:padding="@dimen/dim_10dp"
+                    android:textColorHint="@color/login_txt"
+                    android:textSize="@dimen/mid_text_16" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/otp_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_20dp"
+                android:gravity="center"
+                android:text="@string/otp"
+                android:textSize="@dimen/short_text_14" />
+
+            <TextView
+                android:id="@+id/contact_login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dim_20dp"
+                android:background="@drawable/fb_login_bg"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:padding="13dp"
+                android:text="@string/sign_up"
+                android:textColor="@color/hard_white"
+                android:textSize="@dimen/mid_text_16"
+                android:textStyle="normal" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_40dp"
+                android:layout_marginBottom="@dimen/dim_40dp"
+                android:src="@drawable/or" />
+
+            <TextView
+                android:id="@+id/fb_login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dim_10dp"
+                android:background="@drawable/fb" />
+
+            <TextView
+                android:id="@+id/google_login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_10dp"
+                android:background="@drawable/btn_gmail" />
+
+            <!--<TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_20dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="-8sp"
+                android:text="@string/termNcond"
+                android:textColor="#040404"
+                android:textSize="14sp"
+                android:textStyle="normal" />-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_20dp">
+
+                <CheckBox
+                    android:id="@+id/termCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/term_condition_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dim_5dp"
+                    android:layout_toRightOf="@+id/termCheckBox" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/skipView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dim_30dp"
+            android:text="@string/skip"
+            android:textColor="@color/black"
+            android:textSize="@dimen/mid_text_16"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</FrameLayout>

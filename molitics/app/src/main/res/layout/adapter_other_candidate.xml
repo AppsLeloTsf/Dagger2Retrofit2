@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/RL_container"
+    android:layout_width="90dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dim_10dp"
+    android:layout_marginLeft="13dp"
+    android:layout_marginRight="@dimen/dim_2dp"
+    android:layout_marginTop="@dimen/dim_5dp"
+    android:background="@drawable/round_bg"
+    android:clickable="true"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dim_5dp"
+        android:layout_marginTop="@dimen/dim_5dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="@dimen/dim_70dp"
+            android:layout_height="@dimen/dim_40dp"
+            android:layout_marginTop="@dimen/dim_5dp"
+            android:src="@mipmap/sample_image" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_1px"
+                android:layout_centerVertical="true"
+                android:background="@color/follow_leader_white" />
+
+            <ImageView
+                android:id="@+id/trophy_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_trophy"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/party_name_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_5dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:lines="1"
+            android:textColor="@color/follow_leader_white"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/votes_win_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:lines="1"
+            android:maxLength="15"
+            android:textColor="@color/follow_leader_white"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+</RelativeLayout>

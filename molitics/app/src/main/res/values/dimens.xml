@@ -1,0 +1,78 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="min_video_height">300dp</dimen>
+    <dimen name="trending_video_width">140dp</dimen>
+    <dimen name="trending_video_height">30dp</dimen>
+
+    <!--text -->
+    <dimen name="news_headline">15sp</dimen>
+    <dimen name="news_headline_time">10sp</dimen>
+    <dimen name="sp_9">9sp</dimen>
+    <dimen name="short_text_12">12sp</dimen>
+    <dimen name="short_text_14">14sp</dimen>
+    <dimen name="mid_text_16">16sp</dimen>
+    <dimen name="large_text_18">18sp</dimen>
+
+    <dimen name="xlarge_txt_20">20sp</dimen>
+    <dimen name="xlarge_txt_24">24sp</dimen>
+    <dimen name="header_text_size">18sp</dimen>
+    <dimen name="expiry_item_margin">10dp</dimen>
+
+    <dimen name="dim_0dp">0dp</dimen>
+    <dimen name="dim_1dp">1dp</dimen>
+    <dimen name="dim_2dp">2dp</dimen>
+    <dimen name="dim_3dp">3dp</dimen>
+    <dimen name="dim_4dp">4dp</dimen>
+    <dimen name="dim_5dp">5dp</dimen>
+    <dimen name="dim_8dp">8dp</dimen>
+    <dimen name="dim_10dp">10dp</dimen>
+    <dimen name="dim_11dp">11dp</dimen>
+    <dimen name="dim_13dp">13dp</dimen>
+    <dimen name="dim_14dp">14dp</dimen>
+    <dimen name="dim_15dp">15dp</dimen>
+    <dimen name="dim_16dp">16dp</dimen>
+    <dimen name="dim_18dp">18dp</dimen>
+    <dimen name="dim_19dp">19dp</dimen>
+    <dimen name="dim_20dp">20dp</dimen>
+    <dimen name="dim_25dp">25dp</dimen>
+    <dimen name="dim_28dp">28dp</dimen>
+    <dimen name="dim_29dp">29dp</dimen>
+    <dimen name="dim_30dp">30dp</dimen>
+    <dimen name="dim_35dp">35dp</dimen>
+    <dimen name="dim_36dp">36dp</dimen>
+    <dimen name="dim_40dp">40dp</dimen>
+    <dimen name="dim_45dp">45dp</dimen>
+    <dimen name="dim_50dp">50dp</dimen>
+    <dimen name="dim_52dp">52dp</dimen>
+    <dimen name="dim_55dp">55dp</dimen>
+    <dimen name="dim_60dp">60dp</dimen>
+    <dimen name="dim_70dp">70dp</dimen>
+    <dimen name="dim_80dp">80dp</dimen>
+    <dimen name="dim_86dp">86dp</dimen>
+    <dimen name="dim_90dp">90dp</dimen>
+    <dimen name="dim_100dp">100dp</dimen>
+    <dimen name="dim_105dp">105dp</dimen>
+    <dimen name="dim_120dp">120dp</dimen>
+    <dimen name="dim_135dp">135dp</dimen>
+    <dimen name="dim_150dp">150dp</dimen>
+
+    <dimen name="dim_1px">1px</dimen>
+    <dimen name="small_12sp">12sp</dimen>
+    <dimen name="dim_100">100dp</dimen>
+
+
+    <!--fb dimen-->
+    <!-- <dimen name="video_min_height">231dp</dimen>-->
+    <dimen name="video_min_height">230dp</dimen>
+    <dimen name="toro_media_button_height">48dp</dimen>
+    <dimen name="toro_media_button_width">65dp</dimen>
+    <dimen name="labeled_default_width">72dp</dimen>
+    <dimen name="labeled_default_height">32dp</dimen>
+    <dimen name="home_slider">310dp</dimen>
+    <dimen name="live_video">120dp</dimen>
+    <dimen name="dim_500dp">500dp</dimen>
+    <dimen name="dim_800dp">800dp</dimen>
+
+</resources>

@@ -1,0 +1,14 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/app/build
+/captures
+app/app-release.apk
+app/lib/com.google.api.translate-1.0.jar
+library_sgv/
+.idea/
+ app/release

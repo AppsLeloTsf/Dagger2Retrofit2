@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/hot_topics_bg">
+
+    <TextView
+        android:id="@+id/hot_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableLeft="@drawable/hot_topic"
+        android:drawablePadding="@dimen/dim_5dp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingBottom="@dimen/dim_5dp"
+        android:paddingLeft="@dimen/dim_20dp"
+        android:paddingRight="@dimen/dim_20dp"
+        android:paddingTop="@dimen/dim_5dp"
+        android:text="@string/trending"
+        android:textColor="@color/hard_white"
+        android:textSize="12sp"
+        android:textStyle="normal" />
+
+    <!--  <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="@dimen/dim_10dp" />-->
+
+</RelativeLayout>
