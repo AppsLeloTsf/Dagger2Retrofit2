@@ -1,2 +1,2 @@
-# JanataSuddiNews
-NewsAppByTousifBhai
+# My Practice Applicatuons
+
