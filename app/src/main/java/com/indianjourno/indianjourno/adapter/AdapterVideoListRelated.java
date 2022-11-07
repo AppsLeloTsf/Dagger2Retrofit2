@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import com.indianjourno.indianjourno.activity.VideoActivity;
-import com.indianjourno.indianjourno.model.videos.Video;
+import com.indianjourno.indianjourno.model.ij_video.ModelVideo;
+import com.indianjourno.indianjourno.model.ij_video.Video;
+
 import com.indianjourno.indianjourno.utils.Constant;
 
 import java.util.List;
@@ -30,7 +33,7 @@ public class AdapterVideoListRelated extends RecyclerView.Adapter<AdapterVideoLi
     private List<Video> tModels;
     private String strCatId;
 
-    public AdapterVideoListRelated(List<Video> tModels, String strCatId) {
+    public AdapterVideoListRelated(List<Video> tModels) {
         this.tModels = tModels;
         this.strCatId = strCatId;
     }
@@ -46,15 +49,14 @@ public class AdapterVideoListRelated extends RecyclerView.Adapter<AdapterVideoLi
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, final int i) {
         final Video tModel = tModels.get(i);
-        final String strVideoId = tModel.getVId();
-        final String strVideoTitle = tModel.getTitle();
-        final String strVideoDate = tModel.getCreatedDate();
-        final String strVideoUrl = tModel.getVCode();
-        final String strVideoImage = tModel.getVideoImage();
+        final String strVideoId = tModel.getVideoId();
+        final String strVideoTitle = tModel.getVideoTitle();
+        final String strVideoUrl = tModel.getVideoLink();
+        final String strVideoImage = Constant.IMAGE_VIDEO_IJ+tModel.getVideoThumbnail();
 
             categoryViewHolder.tvNewsTitleDetail.setText(strVideoTitle);
         Glide.with(tContext)
-                .load(Constant.VIDEO_IMG_URL+strVideoImage)
+                .load(strVideoImage)
                 .skipMemoryCache(true)
                 .into(categoryViewHolder.ivNewsImageDetail);
             categoryViewHolder.llFragMainItemDetail.setOnClickListener(v -> {
@@ -62,7 +64,6 @@ public class AdapterVideoListRelated extends RecyclerView.Adapter<AdapterVideoLi
                 tIntent.putExtra(Constant.CAT_ID, strCatId);
                 tIntent.putExtra(Constant.VIDEO_ID, strVideoId);
                 tIntent.putExtra(Constant.VIDEO_TITLE, strVideoTitle);
-                tIntent.putExtra(Constant.VIDEO_DATE, strVideoDate);
                 tIntent.putExtra(Constant.VIDEO_URL, strVideoUrl);
                 tIntent.putExtra(Constant.VIDEO_IMAGE, strVideoImage);
                 tContext.startActivity(tIntent);
@@ -80,8 +81,8 @@ public class AdapterVideoListRelated extends RecyclerView.Adapter<AdapterVideoLi
         protected TextView tvNewsTitleDetail;
         @BindView(R.id.ivNewsImageDetail)
         protected ImageView ivNewsImageDetail;
-        @BindView(R.id.llFragMainItemDetail)
-        protected LinearLayout llFragMainItemDetail;
+        @BindView(R.id.rlFragMainItemDetail)
+        protected RelativeLayout llFragMainItemDetail;
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

@@ -1,4 +1,4 @@
-package com.indainjourno.indianjourno.activity;
+package com.indianjourno.indianjourno.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,16 +10,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.janatasuddi.janatasuddinews.R;
-import com.janatasuddi.janatasuddinews.adapter.AdapterBookmarkShow;
-import com.janatasuddi.janatasuddinews.api.RetrofitClient;
-import com.janatasuddi.janatasuddinews.model.bookmarks.BookmarksMessage;
-import com.janatasuddi.janatasuddinews.storage.SharedPrefManager;
+import com.indianjourno.indianjourno.adapter.AdapterBookmarkShow;
+import com.indianjourno.indianjourno.api.RetrofitClient;
+import com.indianjourno.indianjourno.model.bookmarks.BookmarksMessage;
+import com.indianjourno.indianjourno.storage.SharedPrefManager;
 
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import indianjourno.indianjourno.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

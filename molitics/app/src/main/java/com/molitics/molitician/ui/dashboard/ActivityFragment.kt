@@ -1,6 +1,7 @@
 package com.molitics.molitician.ui.dashboard
 
 import android.os.Bundle
+import android.util.Log
 import com.molitics.molitician.BaseActivity
 import com.molitics.molitician.R
 import com.molitics.molitician.databinding.ActivityFragmentLayoutBinding
@@ -11,12 +12,7 @@ import com.molitics.molitician.ui.dashboard.more.NearbyUserFragment
 import com.molitics.molitician.ui.dashboard.register.SignInFragment
 import com.molitics.molitician.ui.dashboard.register.SignUpFragment
 import com.molitics.molitician.util.Constant
-import com.molitics.molitician.util.Constant.From.ACTIVITY_CHANGE_PASSWORD_FRAGMENT
-import com.molitics.molitician.util.Constant.From.ACTIVITY_SIGN_IN_FRAGMENT
-import com.molitics.molitician.util.Constant.From.ACTIVITY_SIGN_UP_FRAGMENT
-import com.molitics.molitician.util.Constant.From.FROM_CARICATURE
-import com.molitics.molitician.util.Constant.From.FROM_ELECTION_RESULT
-import com.molitics.molitician.util.Constant.From.FROM_NEARBY_USER
+import com.molitics.molitician.util.Constant.From.*
 import com.molitics.molitician.util.PrefUtil
 import javax.inject.Inject
 
@@ -32,13 +28,18 @@ class ActivityFragment : BaseActivity<ActivityFragmentLayoutBinding, ActivityFra
     override fun getViewModel(): ActivityFragmentViewModel = activityFragmentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         PrefUtil.putBoolean(Constant.PreferenceKey.IS_FIRST_TIME, true)
         setFragment(intent.getIntExtra(Constant.INTENT_FROM, 0))
+        Log.d("TSF_APPS", "Activity: "+Constant.INTENT_FROM)
     }
 
     private fun setFragment(type: Int) {
+        Log.d("TSF_APPS", "Activity: $type")
+
         when (type) {
+
             FROM_CARICATURE -> replaceFragment(CartoonFragment(), Bundle(), true, false)
             FROM_ELECTION_RESULT -> replaceFragment(ElectionResultFragment(), Bundle(), true, false)
             FROM_NEARBY_USER -> replaceFragment(NearbyUserFragment(), Bundle(), true, false)

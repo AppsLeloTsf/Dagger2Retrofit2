@@ -1,4 +1,4 @@
-package com.vikram.vikramapps.models;
+package com.vikram.vikramapps.models.courses;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

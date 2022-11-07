@@ -1,13 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SellFragment">
+    tools:context=".ui.sell.SellFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:theme="@style/Theme.VikramShop.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.VikramShop.PopupOverlay" >
+            <TextView
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:id="@+id/tvDeliverTo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Deliver To" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:fillViewport="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etPickupAddress"
+                style="@style/TextInputLayout_main">
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/et_main"
+                android:drawableRight="@drawable/ic_search"
+                android:drawableTint="@color/grey"
+                android:hint="Pickup Address" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etDeliveryAddress"
+                style="@style/TextInputLayout_main">
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/et_main"
+                android:drawableRight="@drawable/ic_search"
+                android:drawableTint="@color/grey"
+                android:hint="Delivery Address" />
+            </com.google.android.material.textfield.TextInputLayout>
+<TextView
+    android:id="@+id/tvDistance"
+    style="@style/tv_main"
+    android:text="Total Distance" />
+<TextView
+    android:id="@+id/tvPackageType"
+    style="@style/tv_main"
+    android:text="Package Type" />
+<TextView
+    android:id="@+id/tvUploadProductPicture"
+    style="@style/tv_main"
+    android:drawableEnd="@drawable/ic_menu_camera"
+    android:drawableTint="@color/grey"
+    android:text="Upload Product Picture" />
+            <TextView
+                android:id="@+id/tvDeliveryTiming"
+                style="@style/tv_main"
+                android:text="Delivery Timing" />
+            <TextView
+                android:id="@+id/tvProductWeight"
+                style="@style/tv_main"
+                android:text="Product Weight" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etInstruction"
+                android:minHeight="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayout_main">
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/et_main"
+                    android:gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_instruction"
+                    android:hint="Any Instruction? "
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
-</FrameLayout>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:text="No contact Delivery"
+                style="@style/cb_main"/>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:text="OTP Verification at Delivery"
+                style="@style/cb_main"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

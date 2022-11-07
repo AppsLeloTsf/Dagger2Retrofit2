@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.fragments.cart.fetch_cart;
+package com.ca_dreamers.cadreamers.models.cart.fetch_cart;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,6 +15,9 @@ public class Data {
     @SerializedName("mrp")
     @Expose
     private Integer mrp;
+    @SerializedName("p_mode")
+    @Expose
+    private String pMode;
     @SerializedName("products")
     @Expose
     private List<Product> products = null;
@@ -41,6 +44,14 @@ public class Data {
 
     public void setMrp(Integer mrp) {
         this.mrp = mrp;
+    }
+
+    public String getpMode() {
+        return pMode;
+    }
+
+    public void setpMode(String pMode) {
+        this.pMode = pMode;
     }
 
     public List<Product> getProducts() {

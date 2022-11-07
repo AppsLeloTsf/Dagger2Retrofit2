@@ -9,21 +9,31 @@
     android:layout_height="match_parent">
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_100dp"
+        android:layout_height="@dimen/dimen_80dp"
         android:src="@drawable/log_rect" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/etForgotPassword"
-        style="@style/TextInputLayout_main">
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/et_main"
-            android:drawableRight="@drawable/ic_user"
-            android:drawableTint="@color/colorPrimaryDark"
-            android:hint="Enter your email id" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvUpdateNote"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_14sp"
+        android:gravity="center"
+        android:text="Update Note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<LinearLayout
+    android:orientation="horizontal"
+    android:gravity="end"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnForgotPass"
+        android:id="@+id/btnCancelUpdate"
+        android:text="Cancel"
         style="@style/button_main" />
-
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUpdateApp"
+        style="@style/button_main"
+        android:text="Update"/>
+</LinearLayout>
 
 </LinearLayout>

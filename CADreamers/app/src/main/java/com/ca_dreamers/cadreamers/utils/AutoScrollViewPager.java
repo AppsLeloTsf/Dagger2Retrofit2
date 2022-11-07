@@ -1,4 +1,4 @@
-package com.janatasuddi.janatasuddinews.utils;
+package com.ca_dreamers.cadreamers.utils;
 
 import android.content.Context;
 import android.os.Handler;
@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
+
 public class AutoScrollViewPager extends ViewPager {
     public static final int DEFAULT_INTERVAL = 1500;
     public static final int LEFT = 0;

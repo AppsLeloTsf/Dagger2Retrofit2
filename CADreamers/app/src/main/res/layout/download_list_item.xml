@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -30,9 +31,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:tint="#ffffff"
                 android:padding="22dp"
-                android:src="@mipmap/ic_start" />
+                android:src="@mipmap/ic_start"
+                app:tint="#ffffff" />
 
             <!--<com.pnikosis.materialishprogress.ProgressWheel
                 android:id="@+id/progress_wheel"
@@ -86,21 +87,22 @@
             android:layout_below="@+id/tv_name"
             android:layout_alignParentRight="true"
             android:layout_marginTop="0dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@+id/btn_delete"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/btn_delete"
             android:gravity="right"
             android:maxLines="1"
             android:paddingLeft="0dp"
             android:paddingRight="10dp"
             android:textColor="#888"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            tools:ignore="RtlHardcoded" />
 
         <RelativeLayout
             android:id="@+id/btn_delete"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_margin="3dp">
 
             <ImageView
@@ -109,7 +111,8 @@
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:padding="10dp"
-                android:src="@mipmap/ic_more_menu" />
+                android:src="@mipmap/ic_more_menu"
+                tools:ignore="ContentDescription" />
 
         </RelativeLayout>
 
@@ -117,9 +120,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="12dp"
-            android:layout_toRightOf="@+id/btn_action"
+            android:layout_toEndOf="@+id/btn_action"
             android:gravity="center_vertical">
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
@@ -127,8 +130,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@+id/tv_percent"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/tv_percent"
                 app:rcBackgroundColor="#CCCCCC"
                 app:rcBackgroundPadding="0dp"
                 app:rcMax="100"
@@ -144,8 +147,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@+id/tv_percent"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/tv_percent"
                 app:rcAnimationSpeedScale="3"
                 app:rcBackgroundColor="#CCCCCC"
                 android:visibility="gone"

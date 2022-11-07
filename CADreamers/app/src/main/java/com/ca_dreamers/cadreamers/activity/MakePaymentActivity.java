@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.activity.payment;
+package com.ca_dreamers.cadreamers.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

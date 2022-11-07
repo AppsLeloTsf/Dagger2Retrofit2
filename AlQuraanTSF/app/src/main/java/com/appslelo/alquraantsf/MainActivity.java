@@ -18,15 +18,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         webView = findViewById(R.id.webView);
+
+
+        webView.setWebViewClient(new MyWebViewClient());
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-
-        WebViewClientImpl webViewClient = new WebViewClientImpl(this);
-        webView.setWebViewClient(webViewClient);
-
         webView.loadUrl("https://quranwbw.com/");
+//       webView.canGoBack();
+//       webView.canGoForward();
     }
-
+    private static class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
+    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && this.webView.canGoBack()) {

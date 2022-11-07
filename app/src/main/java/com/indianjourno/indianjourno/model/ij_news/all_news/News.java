@@ -1,7 +1,8 @@
-package com.indianjourno.indianjourno.model.news;
+package com.indianjourno.indianjourno.model.ij_news.all_news;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.indianjourno.indianjourno.utils.DateUtils;
 
 public class News {
     @SerializedName("news_id")
@@ -89,7 +90,9 @@ public class News {
     }
 
     public String getNewsDate() {
-        return newsDate;
+        return DateUtils.convertYyyyToDd(newsDate);
+
+
     }
 
     public void setNewsDate(String newsDate) {

@@ -75,4 +75,9 @@
     <string name="Rs">\u20B9</string>
     <string name="RupeeSymbol">₹</string>
 
+    <string name="popup_menu_cancel">Cancel</string>
+    <string name="popup_menu_delete">Delete</string>
+    <string name="popup_menu_details">Details</string>
+    <string name="my_saved_courses">My Saved Courses</string>
+    <string name="my_saved_books">My Saved Books</string>
 </resources>

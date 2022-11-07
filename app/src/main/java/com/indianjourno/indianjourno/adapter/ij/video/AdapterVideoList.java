@@ -23,12 +23,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import indianjourno.indianjourno.R;
 
-public class AdapterVideoAll extends RecyclerView.Adapter<AdapterVideoAll.CategoryViewHolder> {
+public class AdapterVideoList extends RecyclerView.Adapter<AdapterVideoList.CategoryViewHolder> {
 
     private Context tContext;
     private List<Video> tModels;
 
-    public AdapterVideoAll(List<Video> tVideo) {
+    public AdapterVideoList(List<Video> tVideo) {
         this.tModels = tVideo;
     }
 
@@ -66,7 +66,7 @@ public class AdapterVideoAll extends RecyclerView.Adapter<AdapterVideoAll.Catego
 
     @Override
     public int getItemCount() {
-        return tModels.size();
+        return Math.min(tModels.size(), 5);
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder{

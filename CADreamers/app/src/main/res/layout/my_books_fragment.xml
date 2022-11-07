@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.side_nav.my_books.MyBooksFragment">
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="@dimen/dimen_40dp">
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_white_switch"
+            android:id="@+id/btnBrowsBooksMy"
+            android:text="Browse Books"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main_switch"
+            android:id="@+id/btnMyBooksMy"
+            android:text="My Books"
+            />
+    </LinearLayout>
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMyOrdersBooks"
+        tools:listitem="@layout/item_course"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

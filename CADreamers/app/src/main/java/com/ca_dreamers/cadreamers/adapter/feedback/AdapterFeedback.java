@@ -1,47 +1,30 @@
-package com.ca_dreamers.cadreamers.adapter.notification;
+package com.ca_dreamers.cadreamers.adapter.feedback;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.ca_dreamers.cadreamers.R;
-import com.ca_dreamers.cadreamers.api.Api;
-import com.ca_dreamers.cadreamers.api.RetrofitClient;
-import com.ca_dreamers.cadreamers.models.notification.Datum;
-import com.ca_dreamers.cadreamers.models.address.delete_address.ModelDeleteAddress;
+import com.ca_dreamers.cadreamers.models.feedback.Datum;
 import com.ca_dreamers.cadreamers.storage.SharedPrefManager;
-import com.ca_dreamers.cadreamers.utils.Constant;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-import static com.ca_dreamers.cadreamers.utils.Constant.TAG;
 
 
-public class AdapterNotification extends RecyclerView.Adapter<AdapterNotification.NotificationViewHolder> {
+public class AdapterFeedback extends RecyclerView.Adapter<AdapterFeedback.FeedbackHolder> {
 
     private SharedPrefManager sharedPrefManager;
     private String strUserId;
@@ -52,7 +35,7 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
     private List<Datum> tModels;
     private String strCatId;
 
-    public AdapterNotification(List<Datum> tModels, Context tContext) {
+    public AdapterFeedback(List<Datum> tModels, Context tContext) {
         this.tModels = tModels;
         this.tContext = tContext;
         this.strCatId = strCatId;
@@ -60,37 +43,27 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
 
     @NonNull
     @Override
-    public NotificationViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_notification, viewGroup, false);
+    public FeedbackHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_feedback, viewGroup, false);
 
         sharedPrefManager = new SharedPrefManager(tContext);
         strUserId = sharedPrefManager.getUserId();
         builder = new AlertDialog.Builder(view.getContext());
 
-        return new NotificationViewHolder(view);
+        return new FeedbackHolder(view);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull NotificationViewHolder notificationViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull FeedbackHolder feedbackHolder, final int i) {
         final Datum tModel = tModels.get(i);
-        strAddId = tModel.getId();
 
-            notificationViewHolder.tvNotificationTitle.setText(tModel.getTitle());
-            notificationViewHolder.tvNotification.setText(tModel.getNotification()+"...");
-            notificationViewHolder.tvNotificationDate.setText(tModel.getCreatedAt());
-            notificationViewHolder.rlNotification.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString(Constant.NOTIFICATION_ID, tModel.getId());
-                    bundle.putString(Constant.NOTIFICATION_TITLE, tModel.getTitle());
-                    bundle.putString(Constant.NOTIFICATION_CONTENT, tModel.getNotification());
-                    bundle.putString(Constant.NOTIFICATION_DATE, tModel.getCreatedAt());
-                    Navigation.findNavController(notificationViewHolder.itemView).navigate(R.id.menu_notification_read, bundle);
+            feedbackHolder.tvFeedbackTitle.setText(tModel.getName());
+            feedbackHolder.tvFeedbackDescription.setText(Html.fromHtml(tModel.getDescription()));
+        Glide.with(tContext)
+                .load(tModel.getImage())
+                .into(feedbackHolder.ivFeedbackIcon);
 
-                }
-            });
 
     }
 
@@ -99,17 +72,15 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
         return tModels.size();
     }
 
-    public class NotificationViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.tvNotificationTitle)
-        protected TextView tvNotificationTitle;
-        @BindView(R.id.tvNotification)
-        protected TextView tvNotification;
-        @BindView(R.id.tvNotificationDate)
-        protected TextView tvNotificationDate;
-        @BindView(R.id.rlNotification)
-        protected RelativeLayout rlNotification;
+    public class FeedbackHolder extends RecyclerView.ViewHolder{
+        @BindView(R.id.tvFeedbackTitle)
+        protected TextView tvFeedbackTitle;
+        @BindView(R.id.tvFeedbackDescription)
+        protected TextView tvFeedbackDescription;
+        @BindView(R.id.ivFeedbackIcon)
+        protected ImageView ivFeedbackIcon;
 
-        public NotificationViewHolder(@NonNull View itemView) {
+        public FeedbackHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }

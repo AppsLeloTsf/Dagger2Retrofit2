@@ -29,7 +29,7 @@ class DistrictLocationAdapter(private val adapterOnClick: LocationAdapterOnClick
         mView.locationTextView.setOnClickListener { view ->
             locationList.map { loc -> loc.isCheck = false }
             val constantModel = mView.locationTextView.tag as ConstantModel
-            adapterOnClick.onClick(constantModel.value)
+            adapterOnClick.onClick(constantModel.value, constantModel.key)
             notifyDataSetChanged()
             val tempRadio = view as RadioButton
 

@@ -6,33 +6,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_main_light"
-    tools:context=".ui.books.BooksFragment"
+    tools:context=".fragments.books.BooksFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <RelativeLayout
-        android:layout_marginBottom="-2dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_220dp">
-        <com.ca_dreamers.cadreamers.utils.AutoScrollViewPager
-            android:layout_margin="@dimen/dimen_8dp"
-            android:id="@+id/sliderBooks"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        android:layout_height="@dimen/dimen_40dp">
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main_switch"
+            android:id="@+id/btnBrowsBooksBrows"
+            android:text="Browse Books"
             />
-        <com.google.android.material.tabs.TabLayout
-            android:layout_alignParentBottom="true"
-            android:id="@+id/tabsBooks"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:background="@color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sliderCourses"
-            app:tabBackground="@drawable/viewpager_tab_selector"
-            app:tabGravity="center"
-            app:tabIndicatorHeight="0dp"
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_white_switch"
+            android:id="@+id/btnMyBooksBrows"
+            android:text="My Books"
             />
-    </RelativeLayout>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_marginBottom="-2dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_banner_height">
+                <com.ca_dreamers.cadreamers.utils.AutoScrollViewPager
+                    android:layout_margin="@dimen/dimen_8dp"
+                    android:id="@+id/sliderBooks"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/tabsBooks"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:background="@color/transparent"
+                    app:tabBackground="@drawable/viewpager_tab_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp"
+                    />
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBooksList"
+                tools:listitem="@layout/item_course"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
 
 </LinearLayout>

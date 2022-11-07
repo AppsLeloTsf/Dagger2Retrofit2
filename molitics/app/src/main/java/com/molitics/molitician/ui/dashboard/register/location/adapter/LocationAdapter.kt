@@ -1,5 +1,6 @@
 package com.molitics.molitician.ui.dashboard.register.location.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +13,7 @@ class LocationAdapter(private val adapterOnClick: LocationAdapterOnClick) : Recy
 
     private var locationList: MutableList<ConstantModel> = mutableListOf()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addData(locationList: List<ConstantModel>) {
         this.locationList.addAll(locationList)
         notifyDataSetChanged()
@@ -22,7 +24,7 @@ class LocationAdapter(private val adapterOnClick: LocationAdapterOnClick) : Recy
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val mView = AdapterLocationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         mView.locationTextView.setOnClickListener {
-            adapterOnClick.onClick(mView.locationTextView.tag as Int)
+            adapterOnClick.onClick(mView.locationTextView.tag as Int, mView.locationTextView.text as String)
         }
         return LocationViewHolder(mView)
     }

@@ -1,4 +1,4 @@
-package com.indainjourno.indianjourno.activity;
+package com.indianjourno.indianjourno.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -17,20 +17,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.janatasuddi.janatasuddinews.R;
-import com.janatasuddi.janatasuddinews.adapter.AdapterNewsListByFeatureDetail;
-import com.janatasuddi.janatasuddinews.api.RetrofitClient;
-import com.janatasuddi.janatasuddinews.model.ModelFeatureIdNews;
-import com.janatasuddi.janatasuddinews.model.bookmarks.BookmarkInsertion;
-import com.janatasuddi.janatasuddinews.model.feature.FeatureNews;
-import com.janatasuddi.janatasuddinews.storage.SharedPrefManager;
-import com.janatasuddi.janatasuddinews.utils.Constant;
+
+import com.indianjourno.indianjourno.adapter.AdapterNewsListByFeatureDetail;
+import com.indianjourno.indianjourno.api.RetrofitClient;
+import com.indianjourno.indianjourno.model.ModelFeatureIdNews;
+import com.indianjourno.indianjourno.model.bookmarks.BookmarkInsertion;
+import com.indianjourno.indianjourno.model.feature.FeatureNews;
+import com.indianjourno.indianjourno.storage.SharedPrefManager;
+import com.indianjourno.indianjourno.utils.Constant;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import indianjourno.indianjourno.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -68,6 +69,9 @@ public class  NewsDetailFeatureActivity extends AppCompatActivity {
     private void initActivity() {
         tSharedPrefManager = new SharedPrefManager(this);
         strUserId = tSharedPrefManager.getUserId();
+
+
+
         strNewsId = getIntent().getStringExtra(Constant.NEWS_ID);
         strCatId = getIntent().getStringExtra(Constant.CAT_ID);
         strTitle = getIntent().getStringExtra(Constant.NEWS_TITLE);
@@ -76,7 +80,7 @@ public class  NewsDetailFeatureActivity extends AppCompatActivity {
         String strImgUrl = getIntent().getStringExtra(Constant.NEWS_IMAGE);
         Context tContext = getApplicationContext();
         Glide.with(tContext)
-                .load(Constant.IMG_URL + strImgUrl)
+                .load(strImgUrl)
                 .skipMemoryCache(true)
                 .into(ivNewsDetailCat);
         tvDietDetailTitleCat.setText(strTitle);

@@ -19,12 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <RelativeLayout
-        android:id="@+id/llCourseDetailsView"
+        android:id="@+id/llComboDetailsView"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/ivCourseDetailsView"
+            android:id="@+id/ivComboDetailsView"
             android:scaleType="fitXY"
             android:background="@mipmap/ic_launcher"
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/tvMrpCourseTag"
+            android:id="@+id/tvMrpComboTag"
             android:textStyle="bold"
             android:text="MRP: Rs. "
             android:layout_marginStart="@dimen/dimen_8dp"
@@ -46,9 +46,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:id="@+id/tvMrpCourse"
+            android:id="@+id/tvMrpCombo"
             android:textStyle="italic"
-            android:layout_toEndOf="@+id/tvMrpCourseTag"
+            android:layout_toEndOf="@+id/tvMrpComboTag"
             android:text="10000"
             android:textColor="@color/transparent_70_black"
             android:background="@drawable/cross_line"
@@ -56,8 +56,8 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:textColor="@color/black"
-            android:id="@+id/tvPriceCourseTag"
-            android:layout_below="@+id/tvMrpCourseTag"
+            android:id="@+id/tvPriceComboTag"
+            android:layout_below="@+id/tvMrpComboTag"
             android:layout_marginStart="@dimen/dimen_8dp"
             android:textStyle="bold"
             android:text="Price: Rs. "
@@ -65,18 +65,18 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:textColor="@color/black"
-            android:id="@+id/tvPriceCourse"
-            android:layout_below="@+id/tvMrpCourse"
-            android:layout_toEndOf="@+id/tvPriceCourseTag"
+            android:id="@+id/tvPriceCombo"
+            android:layout_below="@+id/tvMrpCombo"
+            android:layout_toEndOf="@+id/tvPriceComboTag"
             android:textStyle="italic"
             android:text="3000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:textColor="@color/colorPrimaryDark"
-            android:id="@+id/tvDiscountCourse"
-            android:layout_toEndOf="@+id/tvPriceCourse"
-            android:layout_below="@+id/tvMrpCourse"
+            android:id="@+id/tvDiscountCombo"
+            android:layout_toEndOf="@+id/tvPriceCombo"
+            android:layout_below="@+id/tvMrpCombo"
             android:layout_marginStart="@dimen/dimen_8dp"
             android:textStyle="italic"
             android:text="70"
@@ -84,16 +84,16 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:textColor="@color/colorPrimaryDark"
-            android:id="@+id/tvDiscountCourseTag"
-            android:layout_toEndOf="@+id/tvDiscountCourse"
-            android:layout_below="@+id/tvMrpCourse"
+            android:id="@+id/tvDiscountComboTag"
+            android:layout_toEndOf="@+id/tvDiscountCombo"
+            android:layout_below="@+id/tvMrpCombo"
             android:textStyle="italic"
             android:text="% off"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <androidx.appcompat.widget.AppCompatButton
             android:visibility="visible"
-            android:id="@+id/btnBuyCourse"
+            android:id="@+id/btnBuyCombo"
             android:layout_alignParentEnd="true"
             style="@style/button_main_"
             android:text="Buy Now"
@@ -101,7 +101,7 @@
             />
         <androidx.appcompat.widget.AppCompatButton
             android:visibility="gone"
-            android:id="@+id/btnViewCourse"
+            android:id="@+id/btnViewCombo"
             android:layout_alignParentEnd="true"
             style="@style/button_main_"
             android:text="View Course"
@@ -110,6 +110,7 @@
     </RelativeLayout>
 
             <TextView
+                android:id="@+id/tvComboDescriptionTag"
                 android:textSize="@dimen/dimen_14sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -117,13 +118,13 @@
                 android:layout_marginEnd="@dimen/dimen_8dp"
                 android:layout_marginTop="@dimen/dimen_8dp"
 
-                android:text="Course Description"
+                android:text="Description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <TextView
                     android:layout_centerVertical="true"
-                    android:id="@+id/tvCourseDescriptionShort"
+                    android:id="@+id/tvComboDescriptionShort"
                     android:layout_marginStart="@dimen/dimen_8dp"
                     android:textSize="@dimen/dimen_12sp"
                     android:textColor="@color/logo"
@@ -138,7 +139,7 @@
                   />
             <TextView
 
-                android:id="@+id/tvCourseDescription"
+                android:id="@+id/tvComboDescription"
                 android:textSize="@dimen/dimen_12sp"
                 android:textColor="@color/black"
                 android:layout_marginStart="@dimen/dimen_8dp"
@@ -156,6 +157,7 @@
                 />
 
 <androidx.recyclerview.widget.RecyclerView
+    android:visibility="gone"
     android:id="@+id/rvChapter"
     tools:listitem="@layout/item_chapter"
     android:layout_width="match_parent"

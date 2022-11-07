@@ -21,18 +21,18 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="Course Name"
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimaryDark"
+            app:drawableStartCompat="@drawable/ic_video"
+            app:drawableTint="@color/colorPrimaryDark"
             android:textSize="18sp" />
-
-        <!--text view for our course description-->
-        <TextView
-            android:id="@+id/idTVCourseDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idTVCourseName"
-            android:padding="5dp"
-            android:text="COurse Description"
-            android:textColor="@color/black" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDeleteFile"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_delete"
+            android:layout_width="@dimen/dimen_24dp"
+            android:layout_height="@dimen/dimen_24dp"/>
 
     </RelativeLayout>
 

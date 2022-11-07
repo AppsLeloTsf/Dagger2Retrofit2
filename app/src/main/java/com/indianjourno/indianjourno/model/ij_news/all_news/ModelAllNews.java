@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.model.news;
+package com.indianjourno.indianjourno.model.ij_news.all_news;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

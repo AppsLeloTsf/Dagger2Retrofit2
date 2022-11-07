@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
-    android:layout_marginTop="@dimen/dimen_8dp"
+    android:layout_margin="@dimen/dimen_8dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/llFragMainItem"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@drawable/edit_text_round"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvFreeVideos"
+        android:id="@+id/tvFreeVideosList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:gravity="start"
         android:paddingStart="@dimen/dimen_8dp"
         android:paddingEnd="@dimen/dimen_8dp"
@@ -23,13 +22,14 @@
         android:paddingBottom="@dimen/dimen_0dp"
         android:text="Course Title"
         android:textColor="@color/black"
-        android:textSize="@dimen/dimen_12sp"
+        android:textSize="@dimen/dimen_title"
         android:textStyle="bold" />
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="@dimen/dimen_2dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:layout_marginBottom="@dimen/dimen_8dp"
         android:id="@+id/rvFreeVideosDetails"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/course_details_item"
+        tools:listitem="@layout/item_course_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

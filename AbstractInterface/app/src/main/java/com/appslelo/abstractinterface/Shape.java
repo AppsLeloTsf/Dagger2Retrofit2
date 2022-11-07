@@ -1,11 +1,15 @@
-package com.appslelo.aidlapp;
+package com.appslelo.abstractinterface;
+
+import android.util.Log;
 
 abstract class Shape {
     String objectName = " ";
-    Shape(String name) { this.objectName = name; }
+    Shape(String name) {
+        this.objectName = name;
+    }
     public void moveTo(int x, int y)
     {
-        System.out.println(this.objectName + " "
+        Log.d("TSF_MSG",this.objectName + " "
                 + "has been moved to"
                 + " x = " + x + " and y = " + y);
     }

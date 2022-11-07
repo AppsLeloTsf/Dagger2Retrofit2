@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.models.banners;
+package com.ca_dreamers.cadreamers.models.free_videos.banners;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

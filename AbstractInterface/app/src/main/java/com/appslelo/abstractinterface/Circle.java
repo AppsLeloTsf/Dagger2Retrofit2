@@ -1,4 +1,6 @@
-package com.appslelo.aidlapp;
+package com.appslelo.abstractinterface;
+
+import android.util.Log;
 
 public class Circle extends Shape{
 
@@ -9,24 +11,19 @@ public class Circle extends Shape{
     // Constructor
     Circle(int radius, String name)
     {
-        // Super keyword refers to parent class
         super(name);
-        // This keyword refers to current instance itself
         this.radius = radius;
     }
 
-    // Method 1
-    // To draw circle
-    @Override public void draw()
-    {
-        // Print statement
-        System.out.println("Circle has been drawn ");
+    @Override
+    public double area() {
+        return (double)((pi * radius * radius));
+
     }
 
-    // Method 2
-    // To compute circle area
-    @Override public double area()
+    @Override public void draw()
     {
-        return (double)((pi * radius * radius));
+        Log.d("TSF_MSG","Circle has been drawn ");
     }
+
 }

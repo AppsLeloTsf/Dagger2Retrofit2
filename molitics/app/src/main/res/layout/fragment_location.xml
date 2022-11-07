@@ -8,22 +8,91 @@
         <variable
             name="locationViewModel"
             type="com.molitics.molitician.ui.dashboard.register.register.viewModel.RegisterViewModel" />
+
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:background="@color/verification_bg"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/rl_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/ivBackStateList"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dim_50dp"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/dim_10dp"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/ivBackStateList"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:paddingStart="@dimen/dim_10dp"
+                android:text="Choose your location"
+                android:textSize="@dimen/xlarge_txt_20"
+                tools:ignore="RtlSymmetry" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/etSearchLocation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_40dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:hint="Search location"
+            android:paddingStart="@dimen/dim_8dp"
+            android:drawablePadding="@dimen/dim_8dp"
+
+            android:textSize="@dimen/dimen_14sp"
+            android:drawableStart="@drawable/ic_search"
+            android:background="@drawable/bg_et_black_transparent"
+            android:padding="@dimen/dim_10dp"
+            android:layout_marginTop="@dimen/dim_10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:clickable="true"/>
+        <TextView
+            android:id="@+id/locationBtn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_40dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:textSize="@dimen/dimen_14sp"
+            android:paddingStart="@dimen/dim_8dp"
+            android:drawablePadding="@dimen/dim_8dp"
+            android:text="Use my current location"
+            android:background="@drawable/bg_et_black_transparent"
+            android:padding="@dimen/dim_10dp"
+            android:layout_marginTop="@dimen/dim_10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:clickable="true"
+            app:drawableStartCompat="@drawable/ic_my_location" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dimen_16dp"
             android:id="@+id/locationRecycler"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/locationBtn"
             app:locationAdapter="@{locationViewModel.locationObservableList}"
             tools:listitem="@layout/adapter_location" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

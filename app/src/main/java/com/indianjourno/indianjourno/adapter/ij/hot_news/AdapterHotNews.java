@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.adapter.ij;
+package com.indianjourno.indianjourno.adapter.ij.hot_news;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,8 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.indianjourno.indianjourno.activity.ij.BreakingNewsDetailActivity;
-import com.indianjourno.indianjourno.model.ij_news.ModelBreakingNew;
+import com.indianjourno.indianjourno.activity.ij.breaking_news.BreakingNewsDetailActivity;
+import com.indianjourno.indianjourno.activity.ij.hot_news.HotNewsDetailActivity;
 import com.indianjourno.indianjourno.model.ij_news.ModelHotNews;
 import com.indianjourno.indianjourno.utils.Constant;
 
@@ -37,7 +37,7 @@ public class AdapterHotNews extends RecyclerView.Adapter<AdapterHotNews.Category
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_breaking_news, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_hot_news, viewGroup, false);
         tContext = (Activity)view.getContext();
         return new CategoryViewHolder(view);
     }
@@ -58,7 +58,7 @@ public class AdapterHotNews extends RecyclerView.Adapter<AdapterHotNews.Category
                 .skipMemoryCache(true)
                 .into(categoryViewHolder.ivBreakingNewsImage);
             categoryViewHolder.rlBreakingNews.setOnClickListener(v -> {
-                Intent tIntent = new Intent(tContext, BreakingNewsDetailActivity.class);
+                Intent tIntent = new Intent(tContext, HotNewsDetailActivity.class);
                 tIntent.putExtra(Constant.CAT_ID, strCatId);
                 tIntent.putExtra(Constant.NEWS_ID, strNewsId);
                 tIntent.putExtra(Constant.NEWS_TITLE, strNewsTitle);
@@ -72,7 +72,7 @@ public class AdapterHotNews extends RecyclerView.Adapter<AdapterHotNews.Category
 
     @Override
     public int getItemCount() {
-        return tModels.size();
+        return Math.min(tModels.size(), 5);
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder{

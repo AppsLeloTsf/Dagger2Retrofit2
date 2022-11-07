@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.ca_dreamers.cadreamers.R;
+
 public class UpdatePassActivity extends AppCompatActivity {
 
     @Override

@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.models.login_reg.password;
+package com.ca_dreamers.cadreamers.models.login_reg.password.update_pass;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

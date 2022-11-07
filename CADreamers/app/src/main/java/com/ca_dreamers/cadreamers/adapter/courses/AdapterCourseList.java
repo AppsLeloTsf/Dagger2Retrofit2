@@ -1,5 +1,6 @@
-package com.ca_dreamers.cadreamers.adapter.top_20;
+package com.ca_dreamers.cadreamers.adapter.courses;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,35 +22,34 @@ import butterknife.ButterKnife;
 
 public class AdapterCourseList extends RecyclerView.Adapter<AdapterCourseList.CategoryViewHolder> {
 
-    private List<Datum> tModels;
+    private final List<Datum> tModels;
     private Context tContext;
-    private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
-    private String strCatId;
+    private final RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
 
-    public AdapterCourseList(List<Datum> tModels, Context tContext) {
+
+    public AdapterCourseList(List<Datum> tModels) {
         this.tModels = tModels;
-        this.tContext = tContext;
-        this.strCatId = strCatId;
+
+
     }
 
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.course_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_course, viewGroup, false);
+        tContext = view.getContext();
         return new CategoryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, final int i) {
         final Datum tModel = tModels.get(i);
-        final String strCourseId = tModel.getId();
         final String strCourseTitle = tModel.getSubCategoryName();
 
 
             categoryViewHolder.tvNewsTitle.setText(strCourseTitle);
         LinearLayoutManager layoutManager
-                = new LinearLayoutManager(
-                        categoryViewHolder.rvCourseDetail.getContext(), LinearLayoutManager.HORIZONTAL, false);
+                = new LinearLayoutManager(categoryViewHolder.rvCourseDetail.getContext());
         layoutManager.setInitialPrefetchItemCount(tModel.getCourses().size());
 
         AdapterCourseDetails adapterCourseDetails
@@ -64,11 +64,13 @@ public class AdapterCourseList extends RecyclerView.Adapter<AdapterCourseList.Ca
         return tModels.size();
     }
 
-    public class CategoryViewHolder extends RecyclerView.ViewHolder{
+    public static class CategoryViewHolder extends RecyclerView.ViewHolder{
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.tvNewsTitle)
         protected TextView tvNewsTitle;
 
 
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.rvCourseDetail)
         protected RecyclerView rvCourseDetail;
 

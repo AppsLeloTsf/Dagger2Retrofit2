@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.adapter.books;
+package com.ca_dreamers.cadreamers.adapter.free_videos;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,34 +13,32 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.ca_dreamers.cadreamers.R;
-import com.ca_dreamers.cadreamers.models.top_20.banners.Datum;
+import com.ca_dreamers.cadreamers.models.free_videos.banners.Datum;
 
 import java.util.List;
 import java.util.Objects;
 
-public class AdapterBooksBanner extends PagerAdapter {
+public class AdapterFreeVideosBanner extends PagerAdapter {
 
 
     private List<Datum> images;
     private Context context;
     private Datum tModel;
-    private LayoutInflater mLayoutInflater;
 
 
-    public AdapterBooksBanner(List<Datum> images, Context context) {
+    public AdapterFreeVideosBanner(List<Datum> images, Context context) {
 
         this.images = images;
         this.context = context;
-        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View itemView = mLayoutInflater.inflate(R.layout.banners_top_20, container, false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.banners_free_videos, container, false);
 
         tModel = images.get(position);
         // referencing the image view from the item.xml file
-        ImageView imageView = (ImageView) itemView.findViewById(R.id.ivTop20Banner);
+        ImageView imageView = (ImageView) itemView.findViewById(R.id.ivBannerFreeVideos);
         Glide.with(context)
                 .load(tModel.getImageUrl())
                 .skipMemoryCache(true)

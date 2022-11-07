@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.adapter.ij.breaking_news;
+package com.indianjourno.indianjourno.adapter.ij.hot_news;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.indianjourno.indianjourno.activity.ij.BreakingNewsDetailActivity;
+import com.indianjourno.indianjourno.activity.ij.breaking_news.BreakingNewsDetailActivity;
+import com.indianjourno.indianjourno.activity.ij.hot_news.HotNewsDetailActivity;
 import com.indianjourno.indianjourno.model.ij_news.ModelBreakingNew;
+import com.indianjourno.indianjourno.model.ij_news.ModelHotNews;
 import com.indianjourno.indianjourno.utils.Constant;
 
 import java.util.List;
@@ -23,12 +25,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import indianjourno.indianjourno.R;
 
-public class AdapterBreakingNewsDetails extends RecyclerView.Adapter<AdapterBreakingNewsDetails.CategoryViewHolder> {
+public class AdapterHotNewsDetails extends RecyclerView.Adapter<AdapterHotNewsDetails.CategoryViewHolder> {
 
     private Context tContext;
-    private List<ModelBreakingNew> tModels;
+    private List<ModelHotNews> tModels;
 
-    public AdapterBreakingNewsDetails(List<ModelBreakingNew> tModels) {
+    public AdapterHotNewsDetails(List<ModelHotNews> tModels) {
         this.tModels = tModels;
     }
 
@@ -42,7 +44,7 @@ public class AdapterBreakingNewsDetails extends RecyclerView.Adapter<AdapterBrea
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, final int i) {
-        final ModelBreakingNew tModel = tModels.get(i);
+        final ModelHotNews tModel = tModels.get(i);
         final String strCatId = tModel.getCategory();
         final String strNewsId = tModel.getNewsId();
         final String strNewsTitle = tModel.getNewsTitle();
@@ -58,7 +60,7 @@ public class AdapterBreakingNewsDetails extends RecyclerView.Adapter<AdapterBrea
             categoryViewHolder.llFragMainItemDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent tIntent = new Intent(tContext, BreakingNewsDetailActivity.class);
+                    Intent tIntent = new Intent(tContext, HotNewsDetailActivity.class);
                     tIntent.putExtra(Constant.CAT_ID, strCatId);
                     tIntent.putExtra(Constant.NEWS_ID, strNewsId);
                     tIntent.putExtra(Constant.NEWS_TITLE, strNewsTitle);

@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_main_light"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.about_us.AboutUsFragment">
-
+    tools:context=".fragments.side_nav.about_us.AboutUsFragment">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <TextView
+        android:id="@+id/tvAboutUs"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_12sp"
+        android:background="@drawable/edit_text_round"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
-
+        android:text="About Us" />
+    </RelativeLayout>
+</ScrollView>
 </FrameLayout>

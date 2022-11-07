@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.adapter.ij;
+package com.indianjourno.indianjourno.adapter.ij.trending_news;
 
 import android.content.Context;
 import android.content.Intent;
@@ -74,7 +74,7 @@ public class AdapterTrendingNews extends RecyclerView.Adapter<AdapterTrendingNew
 
     @Override
     public int getItemCount() {
-        return tModels.size();
+        return Math.min(tModels.size(),5);
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder{

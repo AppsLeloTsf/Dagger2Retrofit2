@@ -13,12 +13,12 @@
         android:src="@drawable/log_rect" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvUpdateNote"
+        android:id="@+id/tvLoginStatus"
         android:layout_marginTop="@dimen/dimen_16dp"
         android:textColor="@color/black"
         android:textSize="@dimen/dimen_14sp"
         android:gravity="center"
-        android:text="Update Note"
+        android:text="@string/login_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 <LinearLayout
@@ -27,13 +27,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCancelUpdate"
+        android:id="@+id/btnLoginCancel"
         android:text="Cancel"
         style="@style/button_main" />
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnUpdateApp"
-        style="@style/button_main"
-        android:text="Update"/>
+        android:id="@+id/btnLoginOkay"
+        android:text="Okay"
+        style="@style/button_main" />
+
 </LinearLayout>
 
 </LinearLayout>

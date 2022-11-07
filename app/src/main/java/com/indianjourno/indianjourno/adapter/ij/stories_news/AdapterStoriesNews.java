@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.adapter.ij.hot_news;
+package com.indianjourno.indianjourno.adapter.ij.stories_news;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.indianjourno.indianjourno.activity.ij.breaking_news.BreakingNewsDetailActivity;
+import com.indianjourno.indianjourno.activity.ij.stories_news.StoriesNewsDetailActivity;
 import com.indianjourno.indianjourno.model.ij_news.ModelHotNews;
+import com.indianjourno.indianjourno.model.ij_news.ModelStoriesNews;
 import com.indianjourno.indianjourno.utils.Constant;
 
 import java.util.List;
@@ -24,26 +26,26 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import indianjourno.indianjourno.R;
 
-public class AdapterHotNews extends RecyclerView.Adapter<AdapterHotNews.CategoryViewHolder> {
+public class AdapterStoriesNews extends RecyclerView.Adapter<AdapterStoriesNews.CategoryViewHolder> {
 
     private Context tContext;
-    private final List<ModelHotNews> tModels;
+    private final List<ModelStoriesNews> tModels;
 
-    public AdapterHotNews(List<ModelHotNews> tModels) {
+    public AdapterStoriesNews(List<ModelStoriesNews> tModels) {
         this.tModels = tModels;
     }
 
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_breaking_news, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_stories_news, viewGroup, false);
         tContext = (Activity)view.getContext();
         return new CategoryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, final int i) {
-        final ModelHotNews tModel = tModels.get(i);
+        final ModelStoriesNews tModel = tModels.get(i);
         final String strCatId = tModel.getCategory();
         final String strNewsId = tModel.getNewsId();
         final String strNewsTitle = tModel.getNewsTitle();
@@ -51,13 +53,13 @@ public class AdapterHotNews extends RecyclerView.Adapter<AdapterHotNews.Category
         final String strNewsContent = tModel.getNewsContent();
         final String strImgUrl = Constant.IMAGE_NEWS_IJ+tModel.getPhoto();
 
-            categoryViewHolder.tvBreakingNewsTitle.setText(strNewsTitle);
+            categoryViewHolder.tvStoriesNewsTitle.setText(strNewsTitle);
         Glide.with(tContext)
                 .load(strImgUrl)
                 .skipMemoryCache(true)
-                .into(categoryViewHolder.ivBreakingNewsImage);
+                .into(categoryViewHolder.ivStoriesNewsImage);
             categoryViewHolder.rlBreakingNews.setOnClickListener(v -> {
-                Intent tIntent = new Intent(tContext, BreakingNewsDetailActivity.class);
+                Intent tIntent = new Intent(tContext, StoriesNewsDetailActivity.class);
                 tIntent.putExtra(Constant.CAT_ID, strCatId);
                 tIntent.putExtra(Constant.NEWS_ID, strNewsId);
                 tIntent.putExtra(Constant.NEWS_TITLE, strNewsTitle);
@@ -71,15 +73,15 @@ public class AdapterHotNews extends RecyclerView.Adapter<AdapterHotNews.Category
 
     @Override
     public int getItemCount() {
-        return tModels.size();
+        return Math.min(tModels.size(), 5);
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.tvBreakingNewsTitle)
-        protected TextView tvBreakingNewsTitle;
-        @BindView(R.id.ivBreakingNewsImage)
-        protected ImageView ivBreakingNewsImage;
-        @BindView(R.id.rlBreakingNews)
+        @BindView(R.id.tvStoriesNewsTitle)
+        protected TextView tvStoriesNewsTitle;
+        @BindView(R.id.ivStoriesNewsImage)
+        protected ImageView ivStoriesNewsImage;
+        @BindView(R.id.rlStoriesNews)
         protected RelativeLayout rlBreakingNews;
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);

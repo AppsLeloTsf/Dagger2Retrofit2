@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -83,8 +84,8 @@ public class AdapterNewsListByCatDetail extends RecyclerView.Adapter<AdapterNews
         protected TextView tvNewsTitleDetail;
         @BindView(R.id.ivNewsImageDetail)
         protected ImageView ivNewsImageDetail;
-        @BindView(R.id.llFragMainItemDetail)
-        protected LinearLayout llFragMainItemDetail;
+        @BindView(R.id.rlFragMainItemDetail)
+        protected RelativeLayout llFragMainItemDetail;
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

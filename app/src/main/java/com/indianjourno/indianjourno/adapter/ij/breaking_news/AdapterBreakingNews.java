@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.adapter.ij;
+package com.indianjourno.indianjourno.adapter.ij.breaking_news;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -15,9 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.indianjourno.indianjourno.activity.NewsDetailFeatureActivity;
-import com.indianjourno.indianjourno.activity.ij.BreakingNewsDetailActivity;
-import com.indianjourno.indianjourno.model.feature.NewsFeature;
+import com.indianjourno.indianjourno.activity.ij.breaking_news.BreakingNewsDetailActivity;
 import com.indianjourno.indianjourno.model.ij_news.ModelBreakingNew;
 import com.indianjourno.indianjourno.utils.Constant;
 

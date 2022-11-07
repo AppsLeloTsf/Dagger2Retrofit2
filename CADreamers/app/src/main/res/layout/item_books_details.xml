@@ -8,31 +8,30 @@
     android:layout_marginBottom="@dimen/dimen_8dp"
     android:layout_marginTop="@dimen/dimen_0dp"
     app:cardCornerRadius="@dimen/dimen_8dp"
-    android:background="@color/white"
-    android:layout_width="@dimen/dimen_180dp"
-    android:layout_height="@dimen/dimen_100dp">
-<RelativeLayout
-    android:id="@+id/llCourseDetail"
+    app:cardBackgroundColor="@color/white"
+    android:layout_width="@dimen/dimen_140dp"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:id="@+id/rlBooksDetail"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/ivCourseDetails"
+            android:id="@+id/ivBooksDetails"
             android:scaleType="fitXY"
             android:background="@mipmap/ic_launcher"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="@dimen/dimen_120dp"/>
     <TextView
-        android:id="@+id/tvCourseDetailTitle"
-        android:background="@color/transparent_70_black"
+        android:id="@+id/tvBooksDetailTitle"
         android:layout_alignParentBottom="true"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textStyle="bold"
-        android:textSize="@dimen/dimen_10sp"
-        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_8sp"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:padding="4dp"
         android:gravity="center"
         android:text="News Title"/>
-</RelativeLayout>
+</LinearLayout>
 </androidx.cardview.widget.CardView>

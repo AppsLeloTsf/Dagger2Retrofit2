@@ -1,4 +1,4 @@
-package com.vikram.vikramapps.api;
+package api;
 
 import android.text.TextUtils;
 

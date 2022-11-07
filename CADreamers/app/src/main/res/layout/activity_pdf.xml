@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clConstraint"
+    android:background="@drawable/bg_main_light"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.PdfActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.github.barteksc.pdfviewer.PDFView
+        android:background="@color/white"
+        android:id="@+id/idPDFView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:visibility="gone"
+        android:background="@drawable/edit_text_round"
+        android:padding="@dimen/dimen_4dp"
+        android:id="@+id/ivDownloadPdf"
+        android:src="@drawable/ic_download"
+        app:tint="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:layout_width="@dimen/dimen_50dp"
+        android:layout_height="@dimen/dimen_50dp"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_loading"
+        android:text="Download the PDF"
+        android:drawableTint="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_14sp"
+        android:textColor="@color/logo"
+        android:drawableBottom="@drawable/ic_download"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:indeterminateDrawable="@drawable/custom_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

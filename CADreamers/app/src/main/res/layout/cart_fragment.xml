@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.cart.CartFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFetchCart"
+        android:layout_margin="@dimen/_8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
-
-</FrameLayout>
+        android:layout_height="match_parent"/>
+<androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/btnCheckout"
+    android:layout_alignParentBottom="true"
+    android:text="Proceed to Checkout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_40dp"
+    android:background="@drawable/button_rect_main"
+    android:textColor="@color/white"
+    android:textAllCaps="false"
+    android:textSize="@dimen/dimen_14sp"
+    android:textStyle="bold"
+    />
+</RelativeLayout>

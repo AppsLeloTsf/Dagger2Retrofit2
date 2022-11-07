@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.activity.ij.breaking_news;
+package com.indianjourno.indianjourno.activity.ij.hot_news;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -21,11 +21,13 @@ import com.indianjourno.indianjourno.activity.LoginActivity;
 import com.indianjourno.indianjourno.activity.MainActivity;
 import com.indianjourno.indianjourno.adapter.AdapterNewsListByFeatureDetail;
 import com.indianjourno.indianjourno.adapter.ij.breaking_news.AdapterBreakingNewsDetails;
+import com.indianjourno.indianjourno.adapter.ij.hot_news.AdapterHotNewsDetails;
 import com.indianjourno.indianjourno.api.RetrofitClient;
 import com.indianjourno.indianjourno.model.ModelFeatureIdNews;
 import com.indianjourno.indianjourno.model.bookmarks.BookmarkInsertion;
 import com.indianjourno.indianjourno.model.feature.FeatureNews;
 import com.indianjourno.indianjourno.model.ij_news.ModelBreakingNew;
+import com.indianjourno.indianjourno.model.ij_news.ModelHotNews;
 import com.indianjourno.indianjourno.storage.SharedPrefManager;
 import com.indianjourno.indianjourno.utils.Constant;
 
@@ -39,7 +41,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BreakingNewsDetailActivity extends AppCompatActivity {
+public class HotNewsDetailActivity extends AppCompatActivity {
     private String strCatId;
     private String strCatName;
     private String strUserId;
@@ -91,10 +93,10 @@ public class BreakingNewsDetailActivity extends AppCompatActivity {
         Spanned htmlAsSpanned = Html.fromHtml(strDetail);
         tvDietDetailDetailCat.setText(htmlAsSpanned);
         rvNewsDetailFeature.setLayoutManager(new LinearLayoutManager(this));
-       callHomeBreakingNews(tContext);
+       callHotNewsNews();
         FloatingActionButton fab = findViewById(R.id.fabActivityFeatureDetail);
         fab.setOnClickListener(view -> {
-            Intent intent = new Intent(BreakingNewsDetailActivity.this, MainActivity.class);
+            Intent intent = new Intent(HotNewsDetailActivity.this, MainActivity.class);
             startActivity(intent);
         });
     }
@@ -117,13 +119,13 @@ public class BreakingNewsDetailActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.ivNewsDetailBookmarksCat)
     public void ivBookmarkFeatureClicked(){
-        if(!tSharedPrefManager.getUserId().equalsIgnoreCase("")){ Toast.makeText(BreakingNewsDetailActivity.this, "Please login for save bookmark", Toast.LENGTH_SHORT).show();
+        if(!tSharedPrefManager.getUserId().equalsIgnoreCase("")){ Toast.makeText(HotNewsDetailActivity.this, "Please login for save bookmark", Toast.LENGTH_SHORT).show();
             Call<BookmarkInsertion> call = RetrofitClient.getInstance().getApi().bookmarkInsert(strUserId, strNewsId);
             call.enqueue(new Callback<BookmarkInsertion>() {
                 @Override
                 public void onResponse(Call<BookmarkInsertion> call, Response<BookmarkInsertion> response) {
                     BookmarkInsertion tModel = response.body();
-                    Toast.makeText(BreakingNewsDetailActivity.this, tModel.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HotNewsDetailActivity.this, tModel.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 @Override
                 public void onFailure(Call<BookmarkInsertion> call, Throwable t) {
@@ -131,49 +133,28 @@ public class BreakingNewsDetailActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Toast.makeText(BreakingNewsDetailActivity.this, "Please login for save bookmark", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(BreakingNewsDetailActivity.this, LoginActivity.class);
+            Toast.makeText(HotNewsDetailActivity.this, "Please login for save bookmark", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(HotNewsDetailActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         }
 
     }
 
-    private void callCatApi(){
-        Call<FeatureNews> call = RetrofitClient.getInstance().getApi().getNewsByFeatureId(strCatId);
-        call.enqueue(new Callback<FeatureNews>() {
+
+
+    private void callHotNewsNews() {
+        Call<List<ModelHotNews>> call = RetrofitClient.getInstance().getApi().getAllHotNewsIj();
+        call.enqueue(new Callback<List<ModelHotNews>>() {
             @Override
-            public void onResponse(Call<FeatureNews> call, Response<FeatureNews> response) {
-                FeatureNews tModel = response.body();
-                if(!tModel.getError()) {
-                    AdapterNewsListByFeatureDetail tAdapter = new AdapterNewsListByFeatureDetail(tModel.getNewsFeatures(), strCatId);
-                    rvNewsDetailFeature.setAdapter(tAdapter);
-                }
-                else {
-                    Toast.makeText(BreakingNewsDetailActivity.this, tModel.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<FeatureNews> call, Throwable t) {
-
-            }
-          });
-    }
-
-
-    private void callHomeBreakingNews(Context context) {
-        Call<List<ModelBreakingNew>> call = RetrofitClient.getInstance().getApi().getAllBreakingNewsIj();
-        call.enqueue(new Callback<List<ModelBreakingNew>>() {
-            @Override
-            public void onResponse(Call<List<ModelBreakingNew>> call, Response<List<ModelBreakingNew>> response) {
-                List<ModelBreakingNew> tModel = response.body();
-                AdapterBreakingNewsDetails tAdapter = new AdapterBreakingNewsDetails(tModel);
+            public void onResponse(Call<List<ModelHotNews>> call, Response<List<ModelHotNews>> response) {
+                List<ModelHotNews> tModel = response.body();
+                AdapterHotNewsDetails tAdapter = new AdapterHotNewsDetails(tModel);
                 rvNewsDetailFeature.setAdapter(tAdapter);
             }
 
             @Override
-            public void onFailure(Call<List<ModelBreakingNew>> call, Throwable t) {
+            public void onFailure(Call<List<ModelHotNews>> call, Throwable t) {
 
             }
         });

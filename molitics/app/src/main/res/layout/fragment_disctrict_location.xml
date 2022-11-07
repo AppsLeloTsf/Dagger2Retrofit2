@@ -12,19 +12,70 @@
             type="com.molitics.molitician.ui.dashboard.register.register.viewModel.RegisterViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
+        android:background="@color/verification_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/locationRecycler"
+        <RelativeLayout
+            android:id="@+id/rl_bar"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:districtLocationAdapter="@{districtLocationViewModel.districtObservableList}"
-            app:layout_constraintBottom_toTopOf="@+id/doneButton"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/ivBackDistrictBar"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dim_50dp"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/dim_10dp"
+                android:src="@drawable/ic_back" />
+
+
+            <TextView
+                android:id="@+id/tvStateNameDistrict"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/ivBackDistrictBar"
+                android:paddingStart="@dimen/dim_10dp"
+                android:text="Your State"
+                android:textSize="@dimen/xlarge_txt_20"
+                tools:ignore="RtlSymmetry" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/etSearchLocation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_40dp"
+            android:layout_below="@+id/rl_bar"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:paddingStart="@dimen/dim_8dp"
+            android:drawablePadding="@dimen/dim_8dp"
+
+            android:layout_marginTop="@dimen/dim_10dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:background="@drawable/bg_et_black_transparent"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_search"
+            android:hint="Search location"
+            android:padding="@dimen/dim_10dp"
+            android:textSize="@dimen/dimen_14sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/white"
+            android:id="@+id/locationRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/doneButton"
+            android:layout_below="@+id/etSearchLocation"
+            android:layout_marginTop="@dimen/dim_10dp"
+            app:districtLocationAdapter="@{districtLocationViewModel.districtObservableList}"
             tools:listitem="@layout/adapter_location" />
 
         <TextView
@@ -32,14 +83,12 @@
             style="@style/SignInButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/dim_20dp"
-            android:layout_marginRight="@dimen/xlarge_txt_20"
+            android:layout_marginRight="@dimen/dim_20dp"
             android:layout_marginBottom="@dimen/dim_10dp"
             android:onClick="@{() -> districtLocationViewModel.doneButtonClicked()}"
-            android:text="@string/done"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/done" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -47,10 +96,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:visibility="@{districtLocationViewModel.isLoading ? View.VISIBLE : View.GONE}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_centerInParent="true"
+             />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 </layout>

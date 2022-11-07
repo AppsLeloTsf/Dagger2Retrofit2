@@ -1,4 +1,4 @@
-package com.cadreamrs.common;
+package com.ca_dreamers.cadreamers.helper;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,19 +10,11 @@ import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 
-import com.cadreamrs.R;
+import com.ca_dreamers.cadreamers.R;
 
 
 public class CustomFontHelper {
 
-  /**
-   * Sets a font on a textview based on the custom com.my.package:font attribute
-   * If the custom font attribute isn't found in the attributes nothing happens
-   *
-   * @param button
-   * @param context
-   * @param attrs
-   */
   public static void setCustomFont(Button button, Context context, AttributeSet attrs) {
     TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CustomFont);
     String font = a.getString(R.styleable.CustomFont_fontName);
@@ -30,13 +22,7 @@ public class CustomFontHelper {
     a.recycle();
   }
 
-  /**
-   * Sets a font on a textview
-   *
-   * @param button
-   * @param font
-   * @param context
-   */
+
   public static void setCustomFont(Button button, String font, Context context) {
     if (font == null) {
       return;
@@ -54,13 +40,7 @@ public class CustomFontHelper {
     a.recycle();
   }
 
-  /**
-   * Sets a font on a textview
-   *
-   * @param textview
-   * @param font
-   * @param context
-   */
+
   public static void setCustomTextViewFont(TextView textview, String font, Context context) {
     if (font == null) {
       return;
@@ -78,13 +58,7 @@ public class CustomFontHelper {
     a.recycle();
   }
 
-  /**
-   * Sets a font on a textview
-   *
-   * @param editText
-   * @param font
-   * @param context
-   */
+
   public static void setEditTextCustomFont(EditText editText, String font, Context context) {
     if (font == null) {
       return;
@@ -107,13 +81,7 @@ public class CustomFontHelper {
     setMultiAutoCompTextViewCustomFont(multiAutoCompleteTextView, font, context);
     a.recycle();
   }
-  /**
-   * Sets a font on a textview
-   *
-   * @param multiAutoCompleteTextView
-   * @param font
-   * @param context
-   */
+
   public static void setMultiAutoCompTextViewCustomFont(MultiAutoCompleteTextView multiAutoCompleteTextView, String font, Context context) {
     if (font == null) {
       return;
@@ -124,13 +92,7 @@ public class CustomFontHelper {
     }
   }
 
-  /**
-   * Sets a font on a textview
-   *
-   * @param autoCompleteTextView
-   * @param font
-   * @param context
-   */
+
   public static void setAutoCompTextViewCustomFont(AutoCompleteTextView autoCompleteTextView, String font, Context context) {
     if (font == null) {
       return;

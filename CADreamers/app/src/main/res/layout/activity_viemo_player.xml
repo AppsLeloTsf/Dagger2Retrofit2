@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/view"
-    android:background="@drawable/bg_main_light"
+    android:background="@color/black"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
         android:id="@+id/vimeoPlayer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:background="@color/transparent_50_black"
         app:autoPlay="true"
         app:loop="false"
@@ -30,4 +31,4 @@
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/dimen_14sp" />
 
-</FrameLayout>
+</RelativeLayout>

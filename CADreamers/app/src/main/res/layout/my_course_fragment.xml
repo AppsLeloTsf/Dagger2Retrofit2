@@ -6,40 +6,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/dimen_16dp"
     tools:context=".fragments.side_nav.my_course.MyCourseFragment">
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-<TextView
-    android:id="@+id/tvMyOrdersCourseTag"
-    android:text="My Ordered Courses"
-    android:background="@drawable/et_black_transparent"
-    android:textColor="@color/white"
-    style="@style/tv_title"/>
+        android:layout_height="@dimen/dimen_40dp">
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_white_switch"
+            android:id="@+id/btnBrowsCourseMy"
+            android:text="Browse Course"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main_switch"
+            android:id="@+id/btnMyCourseMy"
+            android:text="My Course"
+            />
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="@dimen/dimen_16dp"
         android:id="@+id/rvMyOrdersCourses"
         tools:listitem="@layout/item_course"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/tvMyOrdersBooksTag"
-        android:layout_marginTop="@dimen/dimen_32dp"
-        android:text="My Ordered Books"
-        android:background="@drawable/et_black_transparent"
-        android:textColor="@color/white"
-        style="@style/tv_title"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMyOrdersBooks"
-        tools:listitem="@layout/item_course"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.ui.side_nav.history;
+package com.ca_dreamers.cadreamers.fragments.side_nav.history;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -16,8 +16,6 @@ import com.ca_dreamers.cadreamers.R;
 
 public class HistoryFragment extends Fragment {
 
-    private HistoryViewModel mViewModel;
-
     public static HistoryFragment newInstance() {
         return new HistoryFragment();
     }
@@ -28,11 +26,5 @@ public class HistoryFragment extends Fragment {
         return inflater.inflate(R.layout.history_fragment, container, false);
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
 }

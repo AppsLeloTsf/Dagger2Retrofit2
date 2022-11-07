@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -62,6 +63,9 @@ public class BreakingNewsDetailActivity extends AppCompatActivity {
     protected TextView tvDietDetailDetailCat;
     @BindView(R.id.rvNewsDetailFeature)
     protected RecyclerView rvNewsDetailFeature;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +94,7 @@ public class BreakingNewsDetailActivity extends AppCompatActivity {
         tvDatePublishedCat.setText(strDate);
         Spanned htmlAsSpanned = Html.fromHtml(strDetail);
         tvDietDetailDetailCat.setText(htmlAsSpanned);
+
         rvNewsDetailFeature.setLayoutManager(new LinearLayoutManager(this));
        callHomeBreakingNews(tContext);
         FloatingActionButton fab = findViewById(R.id.fabActivityFeatureDetail);

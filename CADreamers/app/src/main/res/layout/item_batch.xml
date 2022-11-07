@@ -9,17 +9,17 @@
     android:layout_marginBottom="@dimen/dimen_8dp"
     android:layout_marginTop="@dimen/dimen_0dp"
     app:cardCornerRadius="@dimen/dimen_8dp"
-    android:layout_width="@dimen/dimen_200dp"
-    android:layout_height="@dimen/dimen_120dp">
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_220dp">
 <RelativeLayout
     android:background="@color/white"
     android:orientation="vertical"
     android:gravity="center_vertical"
-    android:id="@+id/llComboPackage"
+    android:id="@+id/rlBatch"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/ivComboIcon"
+            android:id="@+id/ivBatchIcon"
             android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
@@ -28,9 +28,9 @@
         android:layout_alignParentEnd="true"
         android:paddingStart="@dimen/dimen_8dp"
         android:paddingEnd="@dimen/dimen_8dp"
-        android:id="@+id/tvComboPackagePrice"
-        android:textColor="@color/colorPrimaryDark"
-        android:background="@color/transparent_50_black"
+        android:id="@+id/tvBatchPackagePrice"
+        android:textColor="@color/white"
+        android:background="@color/transparent_70_black"
         android:textStyle="bold"
         android:textSize="@dimen/dimen_12sp"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:text="₹ 18000"/>
     <TextView
         android:layout_alignParentBottom="true"
-        android:id="@+id/tvComboTitle"
+        android:id="@+id/tvBatchTitle"
         android:textColor="@color/white"
         android:padding="@dimen/dimen_4dp"
         android:background="@color/transparent_70_black"
@@ -51,7 +51,7 @@
         android:text="Combo Title"/>
 
     <TextView
-        android:id="@+id/tvComboDesc"
+        android:id="@+id/tvBatchDesc"
         android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:textColor="@color/white"
@@ -62,10 +62,5 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:text="Desc"/>
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rvComboProductType"-->
-<!--            android:layout_marginTop="@dimen/dimen_4dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"/>-->
 </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -3,7 +3,6 @@ package com.ca_dreamers.cadreamers.adapter.address;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +25,7 @@ import com.ca_dreamers.cadreamers.api.Api;
 import com.ca_dreamers.cadreamers.api.RetrofitClient;
 import com.ca_dreamers.cadreamers.models.address.Datum;
 import com.ca_dreamers.cadreamers.models.address.delete_address.ModelDeleteAddress;
-import com.ca_dreamers.cadreamers.models.my_payment.ModelMyPayment;
+import com.ca_dreamers.cadreamers.models.my_payment.package_payment.ModelComboPayment;
 import com.ca_dreamers.cadreamers.storage.SharedPrefManager;
 import com.ca_dreamers.cadreamers.utils.Constant;
 import com.google.gson.JsonObject;
@@ -46,21 +45,22 @@ import retrofit2.Response;
 import static com.ca_dreamers.cadreamers.utils.Constant.TAG;
 
 
-public class AdapterAddress extends RecyclerView.Adapter<AdapterAddress.AddressViewHolder> {
+public class AdapterAddressBatch extends RecyclerView.Adapter<AdapterAddressBatch.AddressViewHolder> {
 
-    private SharedPrefManager sharedPrefManager;
     private String strUserId;
     private String strAddId;
     private  AlertDialog.Builder builder;
+    private final String strId;
+    private final String strPrice;
 
-    private Context tContext;
-    private List<Datum> tModels;
-    private String strCatId;
+    private final Context tContext;
+    private final List<Datum> tModels;
 
-    public AdapterAddress(List<Datum> tModels, Context tContext) {
+    public AdapterAddressBatch(List<Datum> tModels, Context tContext, String strId, String strPrice) {
         this.tModels = tModels;
         this.tContext = tContext;
-        this.strCatId = strCatId;
+        this.strId = strId;
+        this.strPrice = strPrice;
     }
 
     @NonNull
@@ -68,7 +68,7 @@ public class AdapterAddress extends RecyclerView.Adapter<AdapterAddress.AddressV
     public AddressViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_address, viewGroup, false);
 
-        sharedPrefManager = new SharedPrefManager(tContext);
+        SharedPrefManager sharedPrefManager = new SharedPrefManager(tContext);
         strUserId = sharedPrefManager.getUserId();
         builder = new AlertDialog.Builder(view.getContext());
 
@@ -91,48 +91,33 @@ public class AdapterAddress extends RecyclerView.Adapter<AdapterAddress.AddressV
             addressViewHolder.tvAddressName.setText(strAddressName+", "+strAddressFullAddress+" - "+strAddressPinCode+"\n"+strAddressMobile);
         Glide.with(tContext).load(strAddressAdhar).into(addressViewHolder.ivAddressAdharShow);
 
-            addressViewHolder.ivAddressEdit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            addressViewHolder.ivAddressEdit.setOnClickListener(v -> {
 
-                    Bundle bundle = new Bundle();
-                    bundle.putString(Constant.ADDRESS_ID, tModel.getId());
-                    bundle.putString(Constant.ADDRESS_ACTION, "update");
-                    bundle.putString(Constant.ADDRESS_NAME, tModel.getName());
-                    bundle.putString(Constant.ADDRESS_MOBILE, tModel.getMobile());
-                    bundle.putString(Constant.ADDRESS_ADDRESS, tModel.getCompleteAddress());
-                    bundle.putString(Constant.ADDRESS_PIN_CODE, tModel.getPincode());
-                    bundle.putString(Constant.ADDRESS_ADHAR, tModel.getAadharCard());
-                    Navigation.findNavController(addressViewHolder.itemView).navigate(R.id.nav_update_address, bundle);
+                Bundle bundle = new Bundle();
+                bundle.putString(Constant.ADDRESS_ID, tModel.getId());
+                bundle.putString(Constant.ADDRESS_ACTION, "update");
+                bundle.putString(Constant.ADDRESS_NAME, tModel.getName());
+                bundle.putString(Constant.ADDRESS_MOBILE, tModel.getMobile());
+                bundle.putString(Constant.ADDRESS_ADDRESS, tModel.getCompleteAddress());
+                bundle.putString(Constant.ADDRESS_PIN_CODE, tModel.getPincode());
+                bundle.putString(Constant.ADDRESS_ADHAR, tModel.getAadharCard());
+                Navigation.findNavController(addressViewHolder.itemView).navigate(R.id.nav_update_address, bundle);
 
-                }
             });
-            addressViewHolder.btnAddressSelect.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    callMakePaymentApi();
-                }
-            });
+            addressViewHolder.btnAddressSelect.setOnClickListener(v -> callPackagePaymentApi());
         addressViewHolder.ivAddressDelete.setOnClickListener(v -> {
 
             builder.setMessage("Do you want to delete the address?")
                     .setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            callAddressDeleteApi(addressViewHolder);
-                            dialog.dismiss();
-                        }
+                    .setPositiveButton("Yes", (dialog, id) -> {
+                        callAddressDeleteApi(addressViewHolder);
+                        dialog.dismiss();
                     })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            //  Action for 'NO' Button
-                            dialog.cancel();
-                            Toast.makeText(tContext, "Cancelled", Toast.LENGTH_SHORT).show();
-                        }
+                    .setNegativeButton("No", (dialog, id) -> {
+                        dialog.cancel();
+                        Toast.makeText(tContext, "Cancelled", Toast.LENGTH_SHORT).show();
                     });
-            //Creating dialog box
             AlertDialog alert = builder.create();
-            //Setting the title manually
             alert.setTitle("Delete Alert!!");
             alert.show();
 
@@ -146,17 +131,23 @@ public class AdapterAddress extends RecyclerView.Adapter<AdapterAddress.AddressV
         return tModels.size();
     }
 
-    public class AddressViewHolder extends RecyclerView.ViewHolder{
+    public static class AddressViewHolder extends RecyclerView.ViewHolder{
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.tvAddressName)
         protected TextView tvAddressName;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.tvAddressCount)
         protected TextView tvAddressCount;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.ivAddressEdit)
         protected ImageView ivAddressEdit;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.btnAddressSelect)
         protected AppCompatButton btnAddressSelect;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.ivAddressAdharShow)
         protected ImageView ivAddressAdharShow;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.ivAddressDelete)
         protected ImageView ivAddressDelete;
         public AddressViewHolder(@NonNull View itemView) {
@@ -166,25 +157,25 @@ public class AdapterAddress extends RecyclerView.Adapter<AdapterAddress.AddressV
     }
     public void callAddressDeleteApi(AddressViewHolder cartViewHolder){
         Api api = RetrofitClient.createService(Api.class, "cadreamers", "cadreamers@123");
-        JsonObject gsonObject = new JsonObject();
+        JsonObject gsonObject;
         try {
             JSONObject paramObject = new JSONObject();
             paramObject.put("addrid", strAddId);
 
-            JsonParser jsonParser = new JsonParser();
-            gsonObject = (JsonObject) jsonParser.parse(paramObject.toString());
+            gsonObject = (JsonObject) JsonParser.parseString(paramObject.toString());
             Call<ModelDeleteAddress> call = api.deleteAddress(gsonObject);
             call.enqueue(new Callback<ModelDeleteAddress>() {
                 @Override
-                public void onResponse(Call<ModelDeleteAddress> call, Response<ModelDeleteAddress> response) {
+                public void onResponse(@NonNull Call<ModelDeleteAddress> call, @NonNull Response<ModelDeleteAddress> response) {
                     ModelDeleteAddress modelDeleteCart = response.body();
+                    assert modelDeleteCart != null;
                     Toast.makeText(tContext,modelDeleteCart.getMessage().getMessage(),
                             Toast.LENGTH_SHORT).show();
                     removeItem(cartViewHolder);
                 }
 
                 @Override
-                public void onFailure(Call<ModelDeleteAddress> call, Throwable t) {
+                public void onFailure(@NonNull Call<ModelDeleteAddress> call, @NonNull Throwable t) {
 
                     Log.d(TAG, "Del Add Failure: "+t.getMessage());
                 }
@@ -204,38 +195,32 @@ public class AdapterAddress extends RecyclerView.Adapter<AdapterAddress.AddressV
 
 
 
-    private void callMakePaymentApi(){
+    private void callPackagePaymentApi(){
         Api api = RetrofitClient.createService(Api.class, "cadreamers", "cadreamers@123");
-        JsonObject gsonObject = new JsonObject();
+        JsonObject gsonObject;
         try {
             JSONObject paramObject = new JSONObject();
-            paramObject.put("s_address", strAddId);
+            paramObject.put("product_id", strId);
             paramObject.put("payment_method", "instamojo");
             paramObject.put("userid", strUserId);
+            paramObject.put("price", strPrice);
+            gsonObject = (JsonObject) JsonParser.parseString(paramObject.toString());
+            Call<ModelComboPayment> call = api.getComboPayment(gsonObject);
 
-
-            JsonParser jsonParser = new JsonParser();
-            gsonObject = (JsonObject) jsonParser.parse(paramObject.toString());
-            Log.d("PAYMENT", "Address ID: "+gsonObject);
-
-            Call<ModelMyPayment> callPayment = api.getPayment(gsonObject);
-
-            callPayment.enqueue(new Callback<ModelMyPayment>() {
+            call.enqueue(new Callback<ModelComboPayment>() {
                 @Override
-                public void onResponse(Call<ModelMyPayment> call, Response<ModelMyPayment> response) {
-                    ModelMyPayment modelMyPayment = response.body();
-                    if (modelMyPayment.getStatus().getStatuscode().equals("200")) {
-                        Intent intent = new Intent(tContext, MakePaymentActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.putExtra(Constant.PAYMENT_URL, modelMyPayment.getData().getRedirectLongUrl());
-                        tContext.startActivity(intent);
-                    }
+                public void onResponse(@NonNull Call<ModelComboPayment> call, @NonNull Response<ModelComboPayment> response) {
+                    ModelComboPayment modelComboPayment = response.body();
+
+                    Intent intent = new Intent(tContext, MakePaymentActivity.class);
+                    assert modelComboPayment != null;
+                    intent.putExtra(Constant.PAYMENT_URL, modelComboPayment.getData().getRedirectLongUrl());
+                    tContext.startActivity(intent);
                 }
 
                 @Override
-                public void onFailure(Call<ModelMyPayment> call, Throwable t) {
+                public void onFailure(@NonNull Call<ModelComboPayment> call, @NonNull Throwable t) {
 
-                    Toast.makeText(tContext, "Your cart is empty, Go back to add course or books in your cart.", Toast.LENGTH_LONG).show();
                 }
             });
         } catch (JSONException e) {

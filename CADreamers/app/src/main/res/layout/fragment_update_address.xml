@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.address.add_address.AddAddressFragment"
+    tools:context=".fragments.address.update_address.UpdateAddressFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <ScrollView
         android:fillViewport="true"
@@ -38,35 +38,38 @@
                             style="@style/tv_profile_tag"/>
                         <EditText
                             android:id="@+id/etAddAddressName"
-                            android:text="Name"
+                            android:hint="Name"
                             style="@style/tv_profile"/>
                         <TextView
                             android:text="Mobile Number"
+
                             style="@style/tv_profile_tag"/>
                         <EditText
                             android:id="@+id/etAddAddressPhone"
-                            android:text="Mobile Number"
+                            android:maxLength="10"
+                            android:inputType="phone"
+                            android:hint="Mobile Number"
                             style="@style/tv_profile"/>
                         <TextView
                             android:text="Address"
                             style="@style/tv_profile_tag"/>
                         <EditText
                             android:id="@+id/etAddAddressAddress"
-                            android:text="Address"
+                            android:hint="Address"
                             style="@style/tv_profile"/>
                         <TextView
                             android:text="City"
                             style="@style/tv_profile_tag"/>
                         <EditText
                             android:id="@+id/etAddAddressCity"
-                            android:text="City"
+                            android:hint="City"
                             style="@style/tv_profile"/>
                         <TextView
                             android:text="State"
                             style="@style/tv_profile_tag"/>
                         <EditText
                             android:id="@+id/etAddAddressState"
-                            android:text="State"
+                            android:hint="State"
                             style="@style/tv_profile"/>
                         <TextView
                             android:text="Country"
@@ -74,7 +77,7 @@
 
                         <EditText
                             android:id="@+id/etAddAddressCountry"
-                            android:text="Country"
+                            android:hint="Country"
                             style="@style/tv_profile"/>
 
                         <TextView
@@ -82,25 +85,43 @@
                             style="@style/tv_profile_tag"/>
                         <EditText
                             android:id="@+id/etAddAddressPinCode"
-                            android:text="Pin Code"
+                            android:maxLength="6"
+                            android:inputType="number"
+                            android:hint="Pin Code"
                             style="@style/tv_profile"/>
 
                          <TextView
-                            android:text="Aadhar Number"
+                            android:text="Upload ID Proof"
                             style="@style/tv_profile_tag"/>
-                        <EditText
-                            android:id="@+id/etAddAddressAdhar"
-                            android:text="Aadhar Number"
-                            style="@style/tv_profile"/>
+                        <RelativeLayout
+                            android:layout_width="@dimen/dimen_200dp"
+                            android:layout_height="@dimen/dimen_120dp">
+                            <ImageView
+                                android:id="@+id/ivUploadId"
+                                style="@style/tv_profile"
+                                android:padding="@dimen/dimen_2dp"
+                                android:scaleType="fitXY"
+                                android:layout_width="@dimen/dimen_200dp"
+                                android:layout_height="@dimen/dimen_120dp"
+                                android:hint="Aadhar Number" />
+                            <ImageView
+                                android:background="@color/transparent_50_black"
+                                android:layout_alignParentBottom="true"
+                                android:gravity="bottom|center_horizontal"
+                                android:layout_width="match_parent"
+                                android:padding="@dimen/dimen_8dp"
+                                android:src="@drawable/ic_add_photo"
+                                android:layout_height="wrap_content"
+                                app:tint="@color/white" />
+                        </RelativeLayout>
+
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:layout_marginTop="@dimen/dimen_16dp"
-                            android:layout_width="@dimen/dimen_150dp"
                             android:id="@+id/btnAddAddressSubmit"
                             android:layout_gravity="center_horizontal"
                             android:text="Submit"
-                            style="@style/button_main"/>
-
+                            style="@style/button_main_"/>
 
                     </LinearLayout>
                 </LinearLayout>

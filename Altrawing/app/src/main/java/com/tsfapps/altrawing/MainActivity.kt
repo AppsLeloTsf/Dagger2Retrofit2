@@ -11,6 +11,9 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+ * JKS Password: Altrawing@2022
+ */
 class MainActivity : AppCompatActivity() {
      private lateinit var myWebView: WebView
      private lateinit var progressBar: ProgressBar

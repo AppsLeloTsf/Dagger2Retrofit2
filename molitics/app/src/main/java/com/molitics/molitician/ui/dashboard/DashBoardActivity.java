@@ -188,13 +188,6 @@ public class DashBoardActivity extends BaseActivity<ActivityDashBoardBinding, Da
     }
 
     private void setCustomNavigationDrawer() {
-   /*     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer_layout.addDrawerListener(toggle);
-        toggle.syncState();
-        // enable to change icon
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.three_line);*/
 
         navigation_view.setNavigationItemSelectedListener(this);
 
@@ -208,9 +201,7 @@ public class DashBoardActivity extends BaseActivity<ActivityDashBoardBinding, Da
                 PrefUtil.putInt(Constant.PreferenceKey.NOTIFICATION_ACTIVE, 1);
             }
         });
-        if (PrefUtil.getInt(Constant.PreferenceKey.NOTIFICATION_ACTIVE) == 1)
-            actionView.setChecked(true);
-        else actionView.setChecked(false);
+        actionView.setChecked(PrefUtil.getInt(Constant.PreferenceKey.NOTIFICATION_ACTIVE) == 1);
 
         darkNavView.setOnClickListener(v -> {
             if (PrefUtil.getInt(Constant.PreferenceKey.DARK_MODE_ACTIVE) == 1) {

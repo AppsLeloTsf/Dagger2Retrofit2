@@ -1,31 +1,56 @@
-package com.janatasuddi.janatasuddinews.api;
+package com.vikram.vikramapps.api;
 
+import android.text.TextUtils;
+
+import okhttp3.Credentials;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static RetrofitClient mInstance;
-    private Retrofit retrofit;
-    private RetrofitClient(){
-        String baseUrl = "https://www.janatasuddi.com/api/";
-        retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+    public static final String API_BASE_URL = "https://www.cadreamers.com/api/";
+
+    private static final OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
+    private static final Retrofit.Builder builder =
+            new Retrofit.Builder()
+                    .baseUrl(API_BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create());
+
+    private static Retrofit retrofit = builder.build();
+
+    public static <S> S createService(Class<S> serviceClass) {
+        return createService(serviceClass, null, null);
     }
 
-    public static synchronized RetrofitClient getInstance(){
-
-        if(mInstance==null){
-            mInstance = new RetrofitClient();
+    public static <S> S createService(
+            Class<S> serviceClass, String username, String password) {
+        if (!TextUtils.isEmpty(username)
+                && !TextUtils.isEmpty(password)) {
+            String authToken = Credentials.basic(username, password);
+            return createService(serviceClass, authToken);
         }
-        return  mInstance;
+
+        return createService(serviceClass, null);
     }
 
-    public Api getApi(){
+    public static <S> S createService(
+            Class<S> serviceClass, final String authToken) {
+        if (!TextUtils.isEmpty(authToken)) {
+            AuthenticationInterceptor interceptor =
+                    new AuthenticationInterceptor(authToken);
 
-        return retrofit.create(Api.class);
+            if (!httpClient.interceptors().contains(interceptor)) {
+                httpClient.addInterceptor(interceptor);
+
+                builder.client(httpClient.build());
+                retrofit = builder.build();
+            }
+        }
+
+        return retrofit.create(serviceClass);
     }
+
 
 }

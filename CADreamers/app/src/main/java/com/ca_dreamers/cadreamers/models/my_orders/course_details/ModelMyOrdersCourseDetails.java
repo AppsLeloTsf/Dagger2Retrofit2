@@ -3,7 +3,7 @@ package com.ca_dreamers.cadreamers.models.my_orders.course_details;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ModelMyOrderCourseDetails {
+public class ModelMyOrdersCourseDetails {
     @SerializedName("status")
     @Expose
     private Status status;

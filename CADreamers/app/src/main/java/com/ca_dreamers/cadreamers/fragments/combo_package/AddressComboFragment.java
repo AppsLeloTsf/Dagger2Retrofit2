@@ -1,8 +1,10 @@
-package com.ca_dreamers.cadreamers.fragments.address;
+package com.ca_dreamers.cadreamers.fragments.combo_package;
 
-import androidx.lifecycle.ViewModelProvider;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,12 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.ca_dreamers.cadreamers.R;
-import com.ca_dreamers.cadreamers.adapter.address.AdapterAddress;
+import com.ca_dreamers.cadreamers.adapter.address.AdapterAddressCombo;
 import com.ca_dreamers.cadreamers.api.Api;
 import com.ca_dreamers.cadreamers.api.RetrofitClient;
 import com.ca_dreamers.cadreamers.models.address.ModelAddress;
@@ -36,14 +34,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddressFragment extends Fragment {
+public class AddressComboFragment extends Fragment {
 
     private SharedPrefManager sharedPrefManager;
-    private String strUserId;
-    private AddressViewModel mViewModel;
 
+
+    private String strId;
+    private String strPrice;
+
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.srlAddress)
     protected SwipeRefreshLayout srlAddress;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rvAddress)
     protected RecyclerView rvAddress;
 
@@ -53,46 +55,39 @@ public class AddressFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_address, container, false);
         ButterKnife.bind(this, view);
         sharedPrefManager = new SharedPrefManager(getContext());
-        strUserId = sharedPrefManager.getUserId();
+
+        assert getArguments() != null;
+        strId = getArguments().getString(Constant.COURSE_ID);
+        strPrice = getArguments().getString(Constant.COURSE_PRICE);
+
         rvAddress.setLayoutManager(new LinearLayoutManager(getContext()));
         callAddressApi();
-        srlAddress.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                callAddressApi();
-            }
-        });
+        srlAddress.setOnRefreshListener(this::callAddressApi);
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(AddressViewModel.class);
-        // TODO: Use the ViewModel
-    }
     private void callAddressApi(){
         Api api = RetrofitClient.createService(Api.class, "cadreamers", "cadreamers@123");
-        JsonObject gsonObject = new JsonObject();
+        JsonObject gsonObject;
         try {
             JSONObject paramObject = new JSONObject();
             paramObject.put("userid", sharedPrefManager.getUserId());
 
-            JsonParser jsonParser = new JsonParser();
-            gsonObject = (JsonObject) jsonParser.parse(paramObject.toString());
+            gsonObject = (JsonObject) JsonParser.parseString(paramObject.toString());
             Call<ModelAddress> userCall = api.getAddress(gsonObject);
 
             userCall.enqueue(new Callback<ModelAddress>() {
                 @Override
-                public void onResponse(Call<ModelAddress> call, Response<ModelAddress> response) {
+                public void onResponse(@NonNull Call<ModelAddress> call, @NonNull Response<ModelAddress> response) {
                     ModelAddress modelAddress = response.body();
                     srlAddress.setRefreshing(false);
-                    AdapterAddress adapterAddress = new AdapterAddress(modelAddress.getData(), getContext());
+                    assert modelAddress != null;
+                    AdapterAddressCombo adapterAddress = new AdapterAddressCombo(modelAddress.getData(), getContext(), strId, strPrice);
                     rvAddress.setAdapter(adapterAddress);
                 }
 
                 @Override
-                public void onFailure(Call<ModelAddress> call, Throwable t) {
+                public void onFailure(@NonNull Call<ModelAddress> call, @NonNull Throwable t) {
 
                 }
             });
@@ -101,6 +96,7 @@ public class AddressFragment extends Fragment {
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.ivAddressAddNew)
     public void btnAddressAddNewClicked(View view){
         Bundle bundle = new Bundle();

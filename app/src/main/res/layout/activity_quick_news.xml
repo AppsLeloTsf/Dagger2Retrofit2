@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.indianjourno.indianjourno.activity.ij.news.AllNewsActivity">
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vpAllNews"
+        android:id="@+id/vpQuickNews"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal" />

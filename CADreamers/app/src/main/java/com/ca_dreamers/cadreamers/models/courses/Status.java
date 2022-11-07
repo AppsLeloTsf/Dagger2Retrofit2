@@ -1,9 +1,11 @@
-package com.vikram.vikramapps.models.courses;
+package com.ca_dreamers.cadreamers.models.courses;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Status {
+import java.io.Serializable;
+
+public class Status implements Serializable {
     @SerializedName("status")
     @Expose
     private String status;

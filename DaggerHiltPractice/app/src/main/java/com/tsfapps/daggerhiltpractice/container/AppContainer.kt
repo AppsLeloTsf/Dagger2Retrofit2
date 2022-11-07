@@ -1,5 +1,6 @@
-package com.tsfapps.daggerhiltpractice
+package com.tsfapps.daggerhiltpractice.container
 
+import com.tsfapps.daggerhiltpractice.LoginService
 import com.tsfapps.daggerhiltpractice.repository.UserLocalDataSource
 import com.tsfapps.daggerhiltpractice.repository.UserRemoteDataSource
 import com.tsfapps.daggerhiltpractice.repository.UserRepository
@@ -20,6 +21,9 @@ class AppContainer {
     val userRepository = UserRepository(userLocalDataSource, userRemoteDataSource)
 
     val  loginViewModelFactory = LoginViewModelFactory(userRepository)
+
+    //LoginContainer will be null when user is NOT in the login flow
+    var loginContainer: LoginContainer? = null
 
 
 

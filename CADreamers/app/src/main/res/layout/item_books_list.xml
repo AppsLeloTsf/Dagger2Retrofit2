@@ -12,7 +12,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvNewsTitle"
+        android:id="@+id/tvBooksListTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
@@ -22,12 +22,12 @@
         android:paddingBottom="@dimen/dimen_0dp"
         android:text="Course Title"
         android:textColor="@color/black"
-        android:textSize="@dimen/dimen_16sp"
+        android:textSize="@dimen/dimen_title"
         android:textStyle="bold" />
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_4dp"
         android:layout_marginBottom="@dimen/dimen_8dp"
-        android:id="@+id/rvCourseDetail"
+        android:id="@+id/rvBooksDetails"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_course_details"
         android:layout_width="match_parent"

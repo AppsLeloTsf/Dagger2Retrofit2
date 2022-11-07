@@ -9,8 +9,8 @@
     android:layout_marginTop="@dimen/dimen_0dp"
     app:cardCornerRadius="@dimen/dimen_8dp"
     android:background="@color/white"
-    android:layout_width="@dimen/dimen_180dp"
-    android:layout_height="@dimen/dimen_100dp">
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_200dp">
 <RelativeLayout
     android:id="@+id/llCourseDetail"
     android:orientation="vertical"
@@ -28,7 +28,7 @@
         android:layout_alignParentBottom="true"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:textSize="@dimen/dimen_10sp"
+        android:textSize="@dimen/dimen_12sp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:padding="4dp"

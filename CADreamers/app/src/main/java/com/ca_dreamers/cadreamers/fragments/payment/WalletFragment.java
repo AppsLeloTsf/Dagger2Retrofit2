@@ -1,16 +1,16 @@
-package com.instamojo.android.fragments;
+package com.ca_dreamers.cadreamers.fragments.payment;
 
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 
 import com.instamojo.android.R;
 import com.instamojo.android.activities.PaymentDetailsActivity;
@@ -19,14 +19,13 @@ import com.instamojo.android.helpers.Constants;
 import com.instamojo.android.helpers.Logger;
 import com.instamojo.android.models.Wallet;
 import com.instamojo.android.models.WalletOptions;
+import com.instamojo.android.fragments.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * A simple {@link Fragment} subclass. The {@link Fragment} to show Net Banking options to User.
- */
+
 public class WalletFragment extends BaseFragment implements SearchView.OnQueryTextListener {
 
     private static final String TAG = WalletFragment.class.getSimpleName();
@@ -34,9 +33,7 @@ public class WalletFragment extends BaseFragment implements SearchView.OnQueryTe
     private ListView mWalletListView;
     private TextView headerTextView;
 
-    /**
-     * Creates a new Instance of Fragment.
-     */
+    
     public WalletFragment() {
         // Required empty public constructor
     }

@@ -1,4 +1,6 @@
-package com.appslelo.aidlapp;
+package com.appslelo.abstractinterface;
+
+import android.util.Log;
 
 public class Rectangle extends Shape{
 
@@ -17,18 +19,15 @@ public class Rectangle extends Shape{
         this.width = width;
     }
 
-    // Method 1
-    // To draw rectangle
-    @Override public void draw()
+    @Override
+    public void draw()
     {
-        System.out.println("Rectangle has been drawn ");
+        Log.d("TSF_MSG","Rectangle has been drawn ");
     }
 
-    // Method 2
-    // To compute rectangle area
-    @Override public double area()
+    @Override
+    public double area()
     {
-        // Length * Breadth
         return (double)(length * width);
     }
 }

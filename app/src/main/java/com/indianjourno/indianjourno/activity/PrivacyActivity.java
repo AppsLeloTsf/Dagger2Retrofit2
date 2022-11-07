@@ -1,4 +1,4 @@
-package com.indainjourno.indianjourno.activity;
+package com.indianjourno.indianjourno.activity;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -6,13 +6,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.janatasuddi.janatasuddinews.R;
-import com.janatasuddi.janatasuddinews.api.RetrofitClient;
-import com.janatasuddi.janatasuddinews.model.static_page.PrivacyModels;
-import com.janatasuddi.janatasuddinews.utils.Constant;
+
+import com.indianjourno.indianjourno.api.RetrofitClient;
+import com.indianjourno.indianjourno.model.static_page.PrivacyModels;
+import com.indianjourno.indianjourno.utils.Constant;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import indianjourno.indianjourno.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -6,42 +6,32 @@
     app:startDestination="@+id/bottom_courses">
 
     <fragment
-        android:id="@+id/bottom_courses"
-        android:name="com.ca_dreamers.cadreamers.ui.courses.CoursesFragment"
-        android:label="@string/menu_courses"
-        tools:layout="@layout/fragment_course" >
-        <action
-            android:id="@+id/action_bottom_courses_to_nav_course_detail"
-            app:destination="@id/nav_course_detail"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"/>
-    </fragment>
+        android:id="@+id/nav_my_orders"
+        android:name="com.ca_dreamers.cadreamers.fragments.side_nav.my_course.MyCourseFragment"
+        android:label="My Orders"
+        tools:layout="@layout/my_course_fragment" />
 
     <fragment
-        android:id="@+id/bottom_top_20"
-        android:name="com.ca_dreamers.cadreamers.ui.top_20.Top20Fragment"
-        android:label="@string/menu_top_20"
-        tools:layout="@layout/fragment_top_20" />
+        android:id="@+id/nav_history"
+        android:name="com.ca_dreamers.cadreamers.fragments.side_nav.history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/history_fragment" />
 
     <fragment
-        android:id="@+id/bottom_free_videos"
-        android:name="com.ca_dreamers.cadreamers.ui.free_videos.FreeVideosFragment"
-        android:label="@string/menu_free_videos"
-        tools:layout="@layout/fragment_free_videos" />
+        android:id="@+id/nav_about_us"
+        android:name="com.ca_dreamers.cadreamers.fragments.side_nav.about_us.AboutUsFragment"
+        android:label="About Us"
+        tools:layout="@layout/about_us_fragment" />
 
     <fragment
-        android:id="@+id/bottom_books"
-        android:name="com.ca_dreamers.cadreamers.ui.books.BooksFragment"
-        android:label="@string/menu_books"
-        tools:layout="@layout/fragment_books" />
+        android:id="@+id/nav_contact_us"
+        android:name="com.ca_dreamers.cadreamers.fragments.side_nav.contact_us.ContactUsFragment"
+        android:label="Contact Us"
+        tools:layout="@layout/fragment_contact_us" />
+
     <fragment
-        android:id="@+id/nav_course_detail"
-        android:name="com.ca_dreamers.cadreamers.fragment.FragmentCourseDetails"
-        android:label="@string/course_detail"
-        tools:layout="@layout/fragment_course_details" />
-    <fragment
-        android:id="@+id/nav_books_detail"
-        android:name="com.ca_dreamers.cadreamers.ui.books.FragmentBooksDetails"
-        android:label="@string/books_detail"
-        tools:layout="@layout/fragment_course_details" />
+        android:id="@+id/nav_feedback"
+        android:name="com.ca_dreamers.cadreamers.fragments.side_nav.feedback.FeedbackFragment"
+        android:label="Feedback"
+        tools:layout="@layout/fragment_contact_us" />
 </navigation>

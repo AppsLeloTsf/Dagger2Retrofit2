@@ -1,6 +1,8 @@
-package com.vikram.vikramapps.models.courses;
+package com.ca_dreamers.cadreamers.models.courses;
 
-public class CourseRequest {
+import java.io.Serializable;
+
+public class CourseRequest implements Serializable {
     final String user_id;
 
     public CourseRequest(String user_id) {

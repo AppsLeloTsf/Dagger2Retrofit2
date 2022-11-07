@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.adapter.ij.stories_news;
+package com.indianjourno.indianjourno.adapter.ij.news;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.indianjourno.indianjourno.activity.ij.breaking_news.BreakingNewsDetailActivity;
 import com.indianjourno.indianjourno.activity.ij.stories_news.StoriesNewsDetailActivity;
-import com.indianjourno.indianjourno.model.ij_news.ModelHotNews;
+import com.indianjourno.indianjourno.model.ij_news.ModelNewsByCatId;
 import com.indianjourno.indianjourno.model.ij_news.ModelStoriesNews;
 import com.indianjourno.indianjourno.utils.Constant;
 
@@ -25,12 +24,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import indianjourno.indianjourno.R;
 
-public class AdapterStoriesNewsDetails extends RecyclerView.Adapter<AdapterStoriesNewsDetails.CategoryViewHolder> {
+public class AdapterNewsByCatDetails extends RecyclerView.Adapter<AdapterNewsByCatDetails.CategoryViewHolder> {
 
     private Context tContext;
-    private List<ModelStoriesNews> tModels;
+    private List<ModelNewsByCatId> tModels;
 
-    public AdapterStoriesNewsDetails(List<ModelStoriesNews> tModels) {
+    public AdapterNewsByCatDetails(List<ModelNewsByCatId> tModels) {
         this.tModels = tModels;
     }
 
@@ -44,7 +43,7 @@ public class AdapterStoriesNewsDetails extends RecyclerView.Adapter<AdapterStori
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, final int i) {
-        final ModelStoriesNews tModel = tModels.get(i);
+        final ModelNewsByCatId tModel = tModels.get(i);
         final String strCatId = tModel.getCategory();
         final String strNewsId = tModel.getNewsId();
         final String strNewsTitle = tModel.getNewsTitle();

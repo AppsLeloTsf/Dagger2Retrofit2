@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="20dp"
@@ -13,17 +13,49 @@
         android:src="@drawable/log_rect" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/etForgotPassword"
+        android:id="@+id/etOTPPass"
         style="@style/TextInputLayout_main">
         <com.google.android.material.textfield.TextInputEditText
             style="@style/et_main"
             android:drawableRight="@drawable/ic_user"
             android:drawableTint="@color/colorPrimaryDark"
-            android:hint="Enter your email id" />
+            android:hint="Enter the OTP" />
     </com.google.android.material.textfield.TextInputLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnForgotPass"
-        style="@style/button_main" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPasswordUpdate"
+        style="@style/TextInputLayout_main"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorPrimaryDark">
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/et_main"
+            android:hint="Enter new password"
+            android:inputType="textPassword" />
 
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPasswordUpdateAgain"
+        style="@style/TextInputLayout_main"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorPrimaryDark">
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/et_main"
+            android:hint="Enter password agian"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPassUpdate"
+        style="@style/button_main" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPassUpdateCancel"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:text="Cancel"
+        style="@style/button_main" />
+    </LinearLayout>
 
 </LinearLayout>

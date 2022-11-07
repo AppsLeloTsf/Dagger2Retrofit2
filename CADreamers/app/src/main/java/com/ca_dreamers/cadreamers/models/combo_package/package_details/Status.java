@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.models.combo_package;
+package com.ca_dreamers.cadreamers.models.combo_package.package_details;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

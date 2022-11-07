@@ -5,12 +5,12 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="220dp">
+    android:layout_height="@dimen/dimen_banner_height">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <ImageView
-            android:id="@+id/ivTop20Banner"
+            android:id="@+id/ivBannerBooks"
             android:scaleType="fitXY"
             android:background="@mipmap/ic_launcher"
             android:layout_width="match_parent"

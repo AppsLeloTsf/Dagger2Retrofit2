@@ -6,8 +6,8 @@
     android:layout_margin="@dimen/dimen_8dp"
     app:cardCornerRadius="@dimen/dimen_8dp"
     android:background="@color/color_white"
-    android:layout_width="200dp"
-    android:layout_height="wrap_content">
+    android:layout_width="@dimen/dimen_200dp"
+    android:layout_height="@dimen/dimen_150dp">
 <LinearLayout
     android:id="@+id/llFragMainItem"
     android:orientation="vertical"
@@ -17,18 +17,16 @@
             android:id="@+id/ivFragHome"
             android:scaleType="fitXY"
             android:background="@mipmap/ic_launcher"
-            android:layout_width="200dp"
-            android:layout_height="150dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_130dp"/>
     <TextView
         android:background="@color/colorPrimaryDark"
         android:id="@+id/tvFragHome"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:textStyle="bold"
-        android:layout_height="0dp"
-        android:layout_width="200dp"
-        android:padding="6dp"
-        android:layout_weight="4"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:gravity="center"
         android:text="News Title"/>
 </LinearLayout>

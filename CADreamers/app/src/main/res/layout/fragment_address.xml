@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/srlAddress"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.adress.AddressFragment">
+    android:background="@drawable/bg_main_light"
+    tools:context=".fragments.address.AddressFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAddressSelectTag"
+        android:layout_alignParentTop = "true"
+        android:text="Select the Address"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_40dp"
+        android:background="@color/logo"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="@dimen/dimen_14sp"
+        android:textStyle="bold"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAddress"
-        tools:listitem="@layout/item_address"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAddressSelectTag"
+        android:layout_marginTop="7dp"
+        tools:listitem="@layout/item_address" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAddressAddNew"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="@dimen/dimen_40dp"
+        android:layout_height="@dimen/dimen_40dp"
+        android:src="@drawable/ic_add_address"
+       android:layout_margin="@dimen/dimen_16dp"
+        />
+    </RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

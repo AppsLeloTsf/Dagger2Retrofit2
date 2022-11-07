@@ -1,4 +1,4 @@
-package com.janatasuddi.janatasuddinews.utils;
+package com.ca_dreamers.cadreamers.utils;
 
 import android.os.Build;
 import android.util.Log;
@@ -207,7 +207,7 @@ public class DateUtils {
     public static String dateFormatDdMmmYyyy(String strOldDate){
 
         try {
-            Date date=new SimpleDateFormat(Constant.DATE_FORMAT_yyyy__MM__dd,Locale.UK).parse(strOldDate);
+            Date date=new SimpleDateFormat(Constant.yyyy_MM_dd_HH_mm_ss, Locale.UK).parse(strOldDate);
             SimpleDateFormat formatter = new SimpleDateFormat(Constant.DATE_FORMAT_DD_MMM_YYYY, Locale.UK);
             return formatter.format(date);
 

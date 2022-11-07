@@ -1,6 +1,6 @@
-package com.ca_dreamers.cadreamers.adapter.courses;
+package com.ca_dreamers.cadreamers.adapter.free_videos;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,52 +11,47 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ca_dreamers.cadreamers.R;
-import com.ca_dreamers.cadreamers.models.courses.Datum;
-
+import com.ca_dreamers.cadreamers.models.free_videos.Datum;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AdapterCourseList extends RecyclerView.Adapter<AdapterCourseList.CategoryViewHolder> {
+public class AdapterFreeVideosList extends RecyclerView.Adapter<AdapterFreeVideosList.CategoryViewHolder> {
 
-    private List<Datum> tModels;
-    private Context tContext;
-    private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
-    private String strCatId;
+    private final List<Datum> tModels;
+    private final RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
 
-    public AdapterCourseList(List<Datum> tModels, Context tContext) {
+    public AdapterFreeVideosList(List<Datum> tModels) {
         this.tModels = tModels;
-        this.tContext = tContext;
-        this.strCatId = strCatId;
     }
 
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.course_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_free_videos_list, viewGroup, false);
         return new CategoryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, final int i) {
         final Datum tModel = tModels.get(i);
-        final String strCourseId = tModel.getId();
         final String strCourseTitle = tModel.getSubCategoryName();
 
 
-            categoryViewHolder.tvNewsTitle.setText(strCourseTitle);
+            categoryViewHolder.tvFreeVideos.setText(strCourseTitle);
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(
-                        categoryViewHolder.rvCourseDetail.getContext(), LinearLayoutManager.HORIZONTAL, false);
-        layoutManager.setInitialPrefetchItemCount(tModel.getCourses().size());
+                        categoryViewHolder.rvFreeVideosDetails.getContext(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManager.setInitialPrefetchItemCount(tModel.getFreeVideos().size());
 
-        AdapterCourseDetails adapterCourseDetails
-                = new AdapterCourseDetails(tModel.getCourses(), tContext);
-        categoryViewHolder.rvCourseDetail.setLayoutManager(layoutManager);
-        categoryViewHolder.rvCourseDetail.setAdapter(adapterCourseDetails);
-        categoryViewHolder.rvCourseDetail.setRecycledViewPool(viewPool);
+
+        AdapterFreeVideosDetails adapterCourseDetails
+                = new AdapterFreeVideosDetails(tModel.getFreeVideos());
+        categoryViewHolder.rvFreeVideosDetails.setLayoutManager(layoutManager);
+        categoryViewHolder.rvFreeVideosDetails.setAdapter(adapterCourseDetails);
+        categoryViewHolder.rvFreeVideosDetails.setRecycledViewPool(viewPool);
     }
 
     @Override
@@ -64,13 +59,16 @@ public class AdapterCourseList extends RecyclerView.Adapter<AdapterCourseList.Ca
         return tModels.size();
     }
 
-    public class CategoryViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.tvNewsTitle)
-        protected TextView tvNewsTitle;
+    public static class CategoryViewHolder extends RecyclerView.ViewHolder{
+
+        @SuppressLint("NonConstantResourceId")
+        @BindView(R.id.tvFreeVideosList)
+        protected TextView tvFreeVideos;
 
 
-        @BindView(R.id.rvCourseDetail)
-        protected RecyclerView rvCourseDetail;
+        @SuppressLint("NonConstantResourceId")
+        @BindView(R.id.rvFreeVideosDetails)
+        protected RecyclerView rvFreeVideosDetails;
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);

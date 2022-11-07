@@ -1,11 +1,11 @@
-package com.cadreamrs.views;
+package com.ca_dreamers.cadreamers.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatEditText;
 
-import com.cadreamrs.common.CustomFontHelper;
+import com.ca_dreamers.cadreamers.helper.CustomFontHelper;
 
 
 public class CustomEditText extends AppCompatEditText {

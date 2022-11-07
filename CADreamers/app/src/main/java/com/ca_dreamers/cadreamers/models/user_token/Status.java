@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.models.top_20;
+package com.ca_dreamers.cadreamers.models.user_token;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

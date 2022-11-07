@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.indianjourno.indianjourno.activity.ij.trending_news.TrendingNewsDetailActivity;
 import com.indianjourno.indianjourno.model.ij_news.ModelHotNews;
+import com.indianjourno.indianjourno.model.ij_news.ModelTrendingNews;
 import com.indianjourno.indianjourno.utils.Constant;
 
 import java.util.List;
@@ -27,23 +28,23 @@ import indianjourno.indianjourno.R;
 public class AdapterTrendingNewsAll extends RecyclerView.Adapter<AdapterTrendingNewsAll.CategoryViewHolder> {
 
     private Context tContext;
-    private final List<ModelHotNews> tModels;
+    private final List<ModelTrendingNews> tModels;
 
-    public AdapterTrendingNewsAll(List<ModelHotNews> tModels) {
+    public AdapterTrendingNewsAll(List<ModelTrendingNews> tModels) {
         this.tModels = tModels;
     }
 
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_breaking_news, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_breaking_news_all, viewGroup, false);
         tContext = (Activity)view.getContext();
         return new CategoryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, final int i) {
-        final ModelHotNews tModel = tModels.get(i);
+        final ModelTrendingNews tModel = tModels.get(i);
         final String strCatId = tModel.getCategory();
         final String strNewsId = tModel.getNewsId();
         final String strNewsTitle = tModel.getNewsTitle();

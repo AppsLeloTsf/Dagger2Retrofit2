@@ -1,11 +1,33 @@
 package com.tsfapps.myapplication
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+fun main(args: Array<String>) {
+/*    var i = 1
+    while (i <= 10){
+        println("Line $i")
+        ++i
     }
+
+    var sum = 0
+   // var j = 10
+
+    while (i != 0){
+        sum += i
+        --i
+    }
+
+    println("Sum = $sum")*/
+
+
+    var sum: Int = 0
+    var input: String
+
+   do {
+       print("Enter the number")
+       input = readLine()!!
+       sum += input.toInt()
+   } while( input != "0")
+
+   println("Sum = $sum")
+
+
 }

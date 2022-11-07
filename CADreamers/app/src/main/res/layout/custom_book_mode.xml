@@ -11,19 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_100dp"
         android:src="@drawable/log_rect" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/etForgotPassword"
-        style="@style/TextInputLayout_main">
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/et_main"
-            android:drawableRight="@drawable/ic_user"
-            android:drawableTint="@color/colorPrimaryDark"
-            android:hint="Enter your email id" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnForgotPass"
-        style="@style/button_main" />
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBookMode"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/app_name" />
 
 </LinearLayout>

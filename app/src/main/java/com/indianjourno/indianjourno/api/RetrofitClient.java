@@ -9,8 +9,9 @@ public class RetrofitClient {
     private Retrofit retrofit;
     private RetrofitClient(){
         String baseUrl = "https://www.janatasuddi.com/api/";
+        String baseUrlIndian = "https://indianjourno.com/";
         retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(baseUrlIndian)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

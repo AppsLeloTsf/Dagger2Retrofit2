@@ -1,17 +1,18 @@
-package com.indianjourno.indianjourno.activity.ij.stories_news;
+package com.indianjourno.indianjourno.activity.ij.hot_news;
+
+import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-
-import com.indianjourno.indianjourno.adapter.ij.stories_news.AdapterStoriesNews;
+import com.indianjourno.indianjourno.adapter.ij.hot_news.AdapterHotNews;
+import com.indianjourno.indianjourno.adapter.ij.hot_news.AdapterHotNewsAll;
 import com.indianjourno.indianjourno.adapter.ij.stories_news.AdapterStoriesNewsAll;
-import com.indianjourno.indianjourno.adapter.ij.stories_news.AdapterStoriesNewsDetails;
 import com.indianjourno.indianjourno.api.RetrofitClient;
+import com.indianjourno.indianjourno.model.ij_news.ModelHotNews;
 import com.indianjourno.indianjourno.model.ij_news.ModelStoriesNews;
 
 import java.util.List;
@@ -23,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class StoriesNewsActivity extends AppCompatActivity {
+public class HotNewsActivity extends AppCompatActivity {
 
     @BindView(R.id.rvStoryNewsList)
     protected RecyclerView rvStoryNewsList;
@@ -32,29 +33,31 @@ public class StoriesNewsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stories_news);
+        setContentView(R.layout.activity_hot_news);
         ButterKnife.bind(this);
         setSupportActionBar(tbToolbarStories);
 
         rvStoryNewsList.setLayoutManager(new LinearLayoutManager(this));
-        callStoriesNews();
+        callHotNews();
     }
 
-    private void callStoriesNews() {
-        Call<List<ModelStoriesNews>> call = RetrofitClient.getInstance().getApi().getAllStoriesNewsIj();
-        call.enqueue(new Callback<List<ModelStoriesNews>>() {
+
+    private void callHotNews() {
+        Call<List<ModelHotNews>> call = RetrofitClient.getInstance().getApi().getAllHotNewsIj();
+        call.enqueue(new Callback<List<ModelHotNews>>() {
             @Override
-            public void onResponse(Call<List<ModelStoriesNews>> call, Response<List<ModelStoriesNews>> response) {
-                List<ModelStoriesNews> tModel = response.body();
-                AdapterStoriesNewsAll tAdapter = new AdapterStoriesNewsAll(tModel);
+            public void onResponse(Call<List<ModelHotNews>> call, Response<List<ModelHotNews>> response) {
+                List<ModelHotNews> tModels = response.body();
+                AdapterHotNewsAll tAdapter = new AdapterHotNewsAll(tModels);
                 rvStoryNewsList.setAdapter(tAdapter);
             }
 
             @Override
-            public void onFailure(Call<List<ModelStoriesNews>> call, Throwable t) {
+            public void onFailure(Call<List<ModelHotNews>> call, Throwable t) {
 
             }
         });
     }
+
 
 }

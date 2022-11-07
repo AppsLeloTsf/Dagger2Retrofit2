@@ -1,15 +1,18 @@
-package com.instamojo.android.fragments;
+package com.ca_dreamers.cadreamers.fragments.payment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.instamojo.android.R;
 import com.instamojo.android.activities.PaymentDetailsActivity;
+import com.instamojo.android.fragments.BaseFragment;
 import com.instamojo.android.helpers.Logger;
 import com.instamojo.android.models.EMIOption;
 
@@ -23,7 +26,6 @@ public class EMIFragment extends BaseFragment {
 
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,12 +53,9 @@ public class EMIFragment extends BaseFragment {
         for (final EMIOption bank : parentActivity.getOrder().getPaymentOptions().getEmiOptions().getEmiOptions()) {
             View bankView = LayoutInflater.from(getContext()).inflate(R.layout.list_view_instamojo, emiBanksContainer, false);
             ((TextView) bankView.findViewById(R.id.item_name)).setText(bank.getBankName());
-            bankView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    EMIOptionsFragment optionsView = EMIOptionsFragment.getInstance(bank);
-                    parentActivity.loadFragment(optionsView, true);
-                }
+            bankView.setOnClickListener(v -> {
+                EMIOptionsFragment optionsView = EMIOptionsFragment.getInstance(bank);
+                parentActivity.loadFragment(optionsView, true);
             });
 
             emiBanksContainer.addView(bankView);

@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.models.profile.user_image;
+package com.ca_dreamers.cadreamers.models.profile.user_image.update_image;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

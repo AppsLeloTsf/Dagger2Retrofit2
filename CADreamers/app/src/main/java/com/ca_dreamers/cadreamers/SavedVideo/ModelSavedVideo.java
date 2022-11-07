@@ -1,33 +1,31 @@
-package com.ca_dreamers.cadreamers.models;
+package com.ca_dreamers.cadreamers.SavedVideo;
 
 public class ModelSavedVideo {
 
-    // variables for our course
-    // name and description.
-    private String courseName;
-    private String courseDescription;
+    private String strAbsolutePath;
+    private String strNameOfFile;
 
 
     // creating constructor for our variables.
-    public ModelSavedVideo(String courseName, String courseDescription) {
-        this.courseName = courseName;
-        this.courseDescription = courseDescription;
+    public ModelSavedVideo(String strAbsolutePath, String strNameOfFile) {
+        this.strAbsolutePath = strAbsolutePath;
+        this.strNameOfFile = strNameOfFile;
     }
 
     // creating getter and setter methods.
-    public String getCourseName() {
-        return courseName;
+    public String getStrAbsolutePath() {
+        return strAbsolutePath;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setStrAbsolutePath(String strAbsolutePath) {
+        this.strAbsolutePath = strAbsolutePath;
     }
 
-    public String getCourseDescription() {
-        return courseDescription;
+    public String getStrNameOfFile() {
+        return strNameOfFile;
     }
 
-    public void setCourseDescription(String courseDescription) {
-        this.courseDescription = courseDescription;
+    public void setStrNameOfFile(String strNameOfFile) {
+        this.strNameOfFile = strNameOfFile;
     }
 }

@@ -1,7 +1,6 @@
-package com.ca_dreamers.cadreamers.ui.side_nav.about_us;
+package com.ca_dreamers.cadreamers.fragments.side_nav.about_us;
 
-import androidx.lifecycle.ViewModelProvider;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,12 +14,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ca_dreamers.cadreamers.R;
-import com.ca_dreamers.cadreamers.adapter.courses.AdapterCoursesBanner;
 import com.ca_dreamers.cadreamers.api.Api;
 import com.ca_dreamers.cadreamers.api.RetrofitClient;
 import com.ca_dreamers.cadreamers.models.about_us.ModelAboutUs;
-import com.ca_dreamers.cadreamers.models.courses.banners.ModelCoursesBanner;
-import com.ca_dreamers.cadreamers.utils.Constant;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +26,7 @@ import retrofit2.Response;
 
 public class AboutUsFragment extends Fragment {
 
-    private AboutUsViewModel mViewModel;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.tvAboutUs)
     protected TextView tvAboutUs;
 
@@ -47,12 +43,6 @@ public class AboutUsFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(AboutUsViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
     private void callAboutUs(){
         Api api = RetrofitClient.createService(Api.class, "cadreamers", "cadreamers@123");
@@ -60,13 +50,14 @@ public class AboutUsFragment extends Fragment {
 
         call.enqueue(new Callback<ModelAboutUs>() {
             @Override
-            public void onResponse(Call<ModelAboutUs> call, Response<ModelAboutUs> response) {
+            public void onResponse(@NonNull Call<ModelAboutUs> call, @NonNull Response<ModelAboutUs> response) {
                 ModelAboutUs modelAboutUs = response.body();
+                assert modelAboutUs != null;
                 tvAboutUs.setText(Html.fromHtml(modelAboutUs.getData().getContent()));
             }
 
             @Override
-            public void onFailure(Call<ModelAboutUs> call, Throwable t) {
+            public void onFailure(@NonNull Call<ModelAboutUs> call, @NonNull Throwable t) {
 
             }
         });

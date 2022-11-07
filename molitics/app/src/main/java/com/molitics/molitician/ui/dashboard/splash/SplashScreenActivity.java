@@ -28,7 +28,6 @@ import com.molitics.molitician.util.Util;
  */
 
 public class SplashScreenActivity extends BasicAcivity implements SplashPresenter.SplashView {
-    private static int SPLASH_TIME_OUT = 500;
     private SplashHandler splashHandler;
     private int app_version_code;
 
@@ -63,6 +62,7 @@ public class SplashScreenActivity extends BasicAcivity implements SplashPresente
     }
 
     void gotoNext() {
+        int SPLASH_TIME_OUT = 500;
         new Handler().postDelayed(() -> {
             String next = PrefUtil.getString(Constant.PreferenceKey.NEXT_STRING);
             Intent intent;
@@ -72,8 +72,12 @@ public class SplashScreenActivity extends BasicAcivity implements SplashPresente
                 intent = new Intent(SplashScreenActivity.this, DashBoardActivity.class);
             } else {
                 intent = new Intent(SplashScreenActivity.this, ActivityFragment.class);
-                intent.putExtra(Constant.INTENT_FROM, Constant.From.ACTIVITY_SIGN_IN_FRAGMENT);
+                intent.putExtra(Constant.INTENT_FROM, Constant.From.SIGN_IN_FRAGMENT);
             }
+//            else {
+//                intent = new Intent(SplashScreenActivity.this, ActivityFragment.class);
+//                intent.putExtra(Constant.INTENT_FROM, Constant.From.ACTIVITY_SIGN_IN_FRAGMENT);
+//            }
             startActivity(intent);
             overridePendingTransition(R.anim.fadein_activity, R.anim.fadeout_activity);
             finish();

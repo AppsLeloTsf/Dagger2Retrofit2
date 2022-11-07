@@ -1,4 +1,4 @@
-package com.indainjourno.indianjourno.activity;
+package com.indianjourno.indianjourno.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,17 +9,20 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.janatasuddi.janatasuddinews.R;
-import com.janatasuddi.janatasuddinews.api.RetrofitClient;
-import com.janatasuddi.janatasuddinews.model.login.LoginMessage;
-import com.janatasuddi.janatasuddinews.storage.SharedPrefManager;
-import com.janatasuddi.janatasuddinews.utils.Constant;
+
+import com.indianjourno.indianjourno.api.RetrofitClient;
+import com.indianjourno.indianjourno.model.ij_user.ModelUserLogin;
+import com.indianjourno.indianjourno.model.login.LoginMessage;
+import com.indianjourno.indianjourno.storage.SharedPrefManager;
+import com.indianjourno.indianjourno.utils.Constant;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import indianjourno.indianjourno.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -82,23 +85,23 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void callApiLogin(String strEmail,  String strPassword){
-        Call<LoginMessage> call = RetrofitClient
+        Call<ModelUserLogin> call = RetrofitClient
                 .getInstance()
                 .getApi()
                 .userLogin(strEmail, strPassword);
 
 
-       call.enqueue(new Callback<LoginMessage>() {
+       call.enqueue(new Callback<ModelUserLogin>() {
            @Override
-           public void onResponse(Call<LoginMessage> call, Response<LoginMessage> response) {
-               LoginMessage tModel = response.body();
+           public void onResponse(@NonNull Call<ModelUserLogin> call, @NonNull Response<ModelUserLogin> response) {
+               ModelUserLogin tModel = response.body();
 
                assert tModel != null;
                if (!tModel.getError()) {
-                   String strId = tModel.getUsersDetails().getViwersId();
-                   String strName = tModel.getUsersDetails().getViwersName();
-                   String strMobile = tModel.getUsersDetails().getViwersMobile();
-                   String strEmail = tModel.getUsersDetails().getViwersEmail();
+                   String strId = tModel.getUsers().getViwersId();
+                   String strName = tModel.getUsers().getViwersName();
+                   String strMobile = tModel.getUsers().getViwersMobile();
+                   String strEmail = tModel.getUsers().getViwersEmail();
                    tSharedPrefManager.setUserData(strId, strName, strMobile, strEmail);
                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                    Toast.makeText(LoginActivity.this, "Welcome " + strName, Toast.LENGTH_SHORT).show();
@@ -107,11 +110,11 @@ public class LoginActivity extends AppCompatActivity {
                    finish();
                }
                else {
-                   Toast.makeText(LoginActivity.this, tModel.getMessage(), Toast.LENGTH_SHORT).show();
+                   Toast.makeText(LoginActivity.this, "Credentials does not matching", Toast.LENGTH_SHORT).show();
                }
            }
            @Override
-           public void onFailure(Call<LoginMessage> call, Throwable t) {
+           public void onFailure(@NonNull Call<ModelUserLogin> call, @NonNull Throwable t) {
                Log.d(Constant.TAG, t.getMessage());
            }
        });

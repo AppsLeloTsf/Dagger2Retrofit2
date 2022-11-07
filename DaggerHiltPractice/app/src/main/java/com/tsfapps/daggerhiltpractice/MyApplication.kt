@@ -1,4 +1,9 @@
 package com.tsfapps.daggerhiltpractice
 
-class MyApplication {
+import android.app.Application
+import com.tsfapps.daggerhiltpractice.container.AppContainer
+
+class MyApplication : Application(){
+    val appContainer = AppContainer()
+
 }

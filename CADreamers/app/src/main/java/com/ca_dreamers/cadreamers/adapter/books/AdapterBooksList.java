@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.adapter.courses;
+package com.ca_dreamers.cadreamers.adapter.books;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,22 +11,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ca_dreamers.cadreamers.R;
-import com.ca_dreamers.cadreamers.models.courses.Datum;
-
+import com.ca_dreamers.cadreamers.models.books.Datum;
 
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AdapterCourseList extends RecyclerView.Adapter<AdapterCourseList.CategoryViewHolder> {
+public class AdapterBooksList extends RecyclerView.Adapter<AdapterBooksList.CategoryViewHolder> {
 
     private List<Datum> tModels;
     private Context tContext;
     private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     private String strCatId;
 
-    public AdapterCourseList(List<Datum> tModels, Context tContext) {
+    public AdapterBooksList(List<Datum> tModels, Context tContext) {
         this.tModels = tModels;
         this.tContext = tContext;
         this.strCatId = strCatId;
@@ -35,7 +33,7 @@ public class AdapterCourseList extends RecyclerView.Adapter<AdapterCourseList.Ca
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.course_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_books_list, viewGroup, false);
         return new CategoryViewHolder(view);
     }
 
@@ -46,17 +44,17 @@ public class AdapterCourseList extends RecyclerView.Adapter<AdapterCourseList.Ca
         final String strCourseTitle = tModel.getSubCategoryName();
 
 
-            categoryViewHolder.tvNewsTitle.setText(strCourseTitle);
+            categoryViewHolder.tvBooksListTitle.setText(strCourseTitle);
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(
-                        categoryViewHolder.rvCourseDetail.getContext(), LinearLayoutManager.HORIZONTAL, false);
+                        categoryViewHolder.rvBooksDetails.getContext(), LinearLayoutManager.HORIZONTAL, false);
         layoutManager.setInitialPrefetchItemCount(tModel.getCourses().size());
 
-        AdapterCourseDetails adapterCourseDetails
-                = new AdapterCourseDetails(tModel.getCourses(), tContext);
-        categoryViewHolder.rvCourseDetail.setLayoutManager(layoutManager);
-        categoryViewHolder.rvCourseDetail.setAdapter(adapterCourseDetails);
-        categoryViewHolder.rvCourseDetail.setRecycledViewPool(viewPool);
+        AdapterBooksDetails adapterCourseDetails
+                = new AdapterBooksDetails(tModel.getCourses(), tContext);
+        categoryViewHolder.rvBooksDetails.setLayoutManager(layoutManager);
+        categoryViewHolder.rvBooksDetails.setAdapter(adapterCourseDetails);
+        categoryViewHolder.rvBooksDetails.setRecycledViewPool(viewPool);
     }
 
     @Override
@@ -65,16 +63,17 @@ public class AdapterCourseList extends RecyclerView.Adapter<AdapterCourseList.Ca
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.tvNewsTitle)
-        protected TextView tvNewsTitle;
 
+        @BindView(R.id.tvBooksListTitle)
+        protected TextView tvBooksListTitle;
 
-        @BindView(R.id.rvCourseDetail)
-        protected RecyclerView rvCourseDetail;
+        @BindView(R.id.rvBooksDetails)
+        protected RecyclerView rvBooksDetails;
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
     }
+
 }

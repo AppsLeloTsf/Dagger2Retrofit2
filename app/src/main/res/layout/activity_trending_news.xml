@@ -32,7 +32,7 @@
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/ivToolbarLogo"
             android:layout_marginStart="@dimen/dimen_8dp"
-            android:text="Stories News"
+            android:text="Trending News"
             android:textColor="@color/RED"
             android:textSize="18sp"
             android:textStyle="bold"

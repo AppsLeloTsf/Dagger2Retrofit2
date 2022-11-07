@@ -1,7 +1,8 @@
-package com.janatasuddi.janatasuddinews.utils;
+package com.ca_dreamers.cadreamers.utils;
 import android.content.Context;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
+
 public class DurationScroller extends Scroller {
     private double scrollFactor = 1;
     public DurationScroller(Context context) {

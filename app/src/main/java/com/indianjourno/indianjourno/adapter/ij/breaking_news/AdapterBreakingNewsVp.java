@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.adapter.ij.news;
+package com.indianjourno.indianjourno.adapter.ij.breaking_news;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.Html;
@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.indianjourno.indianjourno.model.ij_news.ModelBreakingNew;
 import com.indianjourno.indianjourno.model.ij_news.all_news.News;
-import com.indianjourno.indianjourno.model.ij_video.Video;
 import com.indianjourno.indianjourno.utils.Constant;
 
 import java.util.List;
@@ -23,13 +23,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import indianjourno.indianjourno.R;
 
-public class AdapterAllNewsVp extends RecyclerView.Adapter<AdapterAllNewsVp.ViewHolder> {
+public class AdapterBreakingNewsVp extends RecyclerView.Adapter<AdapterBreakingNewsVp.ViewHolder> {
 
     private Context ctx;
-    private List<News> tModels;
+    private List<ModelBreakingNew> tModels;
 
 
-    public AdapterAllNewsVp(Context ctx, List<News> tModels) {
+    public AdapterBreakingNewsVp(Context ctx, List<ModelBreakingNew> tModels) {
         this.ctx = ctx;
         this.tModels = tModels;
     }
@@ -46,7 +46,7 @@ public class AdapterAllNewsVp extends RecyclerView.Adapter<AdapterAllNewsVp.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // This will set the images in imageview
-        News tModel = tModels.get(position);
+        ModelBreakingNew tModel = tModels.get(position);
         String strImg = Constant.IMAGE_NEWS_IJ+tModel.getPhoto();
 
         holder.tvAllNewsTitle.setText(tModel.getNewsTitle());
@@ -57,8 +57,6 @@ public class AdapterAllNewsVp extends RecyclerView.Adapter<AdapterAllNewsVp.View
                 .load(strImg)
                 .skipMemoryCache(true)
                 .into(holder.ivAllNewsHeader);
-
-
     }
 
     // This Method returns the size of the Array

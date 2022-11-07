@@ -1,5 +1,6 @@
-package com.ca_dreamers.cadreamers.adapter.my_orders;
+package com.ca_dreamers.cadreamers.adapter.my_course;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,17 +25,14 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AdapterMyOrdersCourses extends RecyclerView.Adapter<AdapterMyOrdersCourses.MyOrdersViewHolder> {
+public class AdapterMyCourses extends RecyclerView.Adapter<AdapterMyCourses.MyOrdersViewHolder> {
 
-    private List<Datum> tModels;
-    private Context tContext;
-    private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
-    private String strCatId;
+    private final List<Datum> tModels;
+    private final Context tContext;
 
-    public AdapterMyOrdersCourses(List<Datum> tModels, Context tContext) {
+    public AdapterMyCourses(List<Datum> tModels, Context tContext) {
         this.tModels = tModels;
         this.tContext = tContext;
-        this.strCatId = strCatId;
     }
 
     @NonNull
@@ -47,23 +45,18 @@ public class AdapterMyOrdersCourses extends RecyclerView.Adapter<AdapterMyOrders
     @Override
     public void onBindViewHolder(@NonNull MyOrdersViewHolder myOrdersViewHolder, final int i) {
         final Datum tModel = tModels.get(i);
-        final String strId = tModel.getId();
-        final String strRating = tModel.getRating();
 
             Glide.with(tContext).load(tModel.getThumbUrl()).into(myOrdersViewHolder.ivMyOrders);
             myOrdersViewHolder.tvMyOrders.setText(tModel.getName());
             myOrdersViewHolder.tvMyOrderShortDesc.setText(tModel.getShortDesc());
-            myOrdersViewHolder.rbMyOrders.setRating(Float.parseFloat(strRating));
-        myOrdersViewHolder.llMyOrdersCourse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString(Constant.COURSE_ID, tModel.getId());
-                bundle.putString(Constant.COURSE_IMAGE, tModel.getImage());
-                bundle.putString(Constant.COURSE_TITLE, tModel.getName());
-                bundle.putString(Constant.COURSE_DESCRIPTION, tModel.getShortDesc());
-                Navigation.findNavController(myOrdersViewHolder.itemView).navigate(R.id.nav_purchased_course_detail, bundle);
-            }
+            myOrdersViewHolder.rbMyOrders.setRating(5);
+        myOrdersViewHolder.llMyOrdersCourse.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString(Constant.COURSE_ID, tModel.getId());
+            bundle.putString(Constant.COURSE_IMAGE, tModel.getImage());
+            bundle.putString(Constant.COURSE_TITLE, tModel.getName());
+            bundle.putString(Constant.COURSE_DESCRIPTION, tModel.getShortDesc());
+            Navigation.findNavController(myOrdersViewHolder.itemView).navigate(R.id.nav_purchased_course_detail, bundle);
         });
 
     }
@@ -73,15 +66,20 @@ public class AdapterMyOrdersCourses extends RecyclerView.Adapter<AdapterMyOrders
         return tModels.size();
     }
 
-    public class MyOrdersViewHolder extends RecyclerView.ViewHolder{
+    public static class MyOrdersViewHolder extends RecyclerView.ViewHolder{
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.llMyOrdersCourse)
         protected LinearLayout llMyOrdersCourse;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.ivMyOrders)
         protected ImageView ivMyOrders;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.tvMyOrders)
         protected TextView tvMyOrders;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.tvMyOrderShortDesc)
         protected TextView tvMyOrderShortDesc;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.rbMyOrders)
         protected RatingBar rbMyOrders;
         public MyOrdersViewHolder(@NonNull View itemView) {

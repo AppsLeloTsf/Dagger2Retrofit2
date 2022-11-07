@@ -1,74 +1,125 @@
 package com.ca_dreamers.cadreamers.adapter.address;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.ca_dreamers.cadreamers.R;
-import com.ca_dreamers.cadreamers.models.books.Course;
+import com.ca_dreamers.cadreamers.activity.MakePaymentActivity;
+import com.ca_dreamers.cadreamers.api.Api;
+import com.ca_dreamers.cadreamers.api.RetrofitClient;
+import com.ca_dreamers.cadreamers.models.address.Datum;
+import com.ca_dreamers.cadreamers.models.address.delete_address.ModelDeleteAddress;
+import com.ca_dreamers.cadreamers.models.my_payment.ModelMyPayment;
+import com.ca_dreamers.cadreamers.storage.SharedPrefManager;
 import com.ca_dreamers.cadreamers.utils.Constant;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.ca_dreamers.cadreamers.utils.Constant.TAG;
 
 
-public class AdapterAdressFetch extends RecyclerView.Adapter<AdapterAdressFetch.CourseDetailsViewHolder> {
+public class AdapterAddress extends RecyclerView.Adapter<AdapterAddress.AddressViewHolder> {
 
-    private Context tContext;
-    private List<Course> tModels;
-    private String strCatId;
+    private String strUserId;
+    private String strAddId;
+    private  AlertDialog.Builder builder;
 
-    public AdapterAdressFetch(List<Course> tModels, Context tContext) {
+    private final Context tContext;
+    private final List<Datum> tModels;
+
+    public AdapterAddress(List<Datum> tModels, Context tContext) {
         this.tModels = tModels;
         this.tContext = tContext;
-        this.strCatId = strCatId;
     }
 
     @NonNull
     @Override
-    public CourseDetailsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_books_details, viewGroup, false);
+    public AddressViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_address, viewGroup, false);
 
-        return new CourseDetailsViewHolder(view);
+        SharedPrefManager sharedPrefManager = new SharedPrefManager(tContext);
+        strUserId = sharedPrefManager.getUserId();
+        builder = new AlertDialog.Builder(view.getContext());
+
+
+        return new AddressViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull CourseDetailsViewHolder courseDetailsViewHolder, final int i) {
-        final Course tModel = tModels.get(i);
-        final String strCourseId = tModel.getId();
-        final String strCourseTitle = tModel.getName();
-        final String strImage = tModel.getImage();
+    public void onBindViewHolder(@NonNull AddressViewHolder addressViewHolder, final int i) {
+        final Datum tModel = tModels.get(i);
+        strAddId = tModel.getId();
+        final String strAddressName = tModel.getName();
+        final String strAddressMobile = tModel.getMobile();
+        final String strAddressPinCode = tModel.getPincode();
+        final String strAddressAdhar = "https://cadreamers.com/uploads/profile/"+tModel.getAadharCard();
+        final String strAddressFullAddress = tModel.getCompleteAddress();
 
 
-            courseDetailsViewHolder.tvBooksDetailTitle.setText(strCourseTitle);
-        Glide.with(tContext)
-                .load(strImage)
-                .into(courseDetailsViewHolder.ivBooksDetails);
-            courseDetailsViewHolder.rlBooksDetail.setOnClickListener(v -> {
+            addressViewHolder.tvAddressCount.setText("Address "+(i+1));
+            addressViewHolder.tvAddressName.setText(strAddressName+", "+strAddressFullAddress+" - "+strAddressPinCode+"\n"+strAddressMobile);
+        Glide.with(tContext).load(strAddressAdhar).into(addressViewHolder.ivAddressAdharShow);
+
+            addressViewHolder.ivAddressEdit.setOnClickListener(v -> {
 
                 Bundle bundle = new Bundle();
-                bundle.putString(Constant.COURSE_ID, tModel.getId());
-                bundle.putString(Constant.COURSE_IMAGE, tModel.getImage());
-                bundle.putString(Constant.COURSE_TITLE, tModel.getName());
-                bundle.putString(Constant.COURSE_DESCRIPTION, tModel.getShortDesc());
-                bundle.putString(Constant.COURSE_DESCRIPTION_FULL, tModel.getDescription());
-                bundle.putString(Constant.COURSE_PRICE, tModel.getPrice());
-                bundle.putString(Constant.COURSE_MRP, tModel.getMrp());
-                bundle.putString(Constant.COURSE_DISCOUNT, tModel.getDiscount());
-                Navigation.findNavController(courseDetailsViewHolder.itemView).navigate(R.id.nav_books_detail, bundle);
+                bundle.putString(Constant.ADDRESS_ID, tModel.getId());
+                bundle.putString(Constant.ADDRESS_ACTION, "update");
+                bundle.putString(Constant.ADDRESS_NAME, tModel.getName());
+                bundle.putString(Constant.ADDRESS_MOBILE, tModel.getMobile());
+                bundle.putString(Constant.ADDRESS_ADDRESS, tModel.getCompleteAddress());
+                bundle.putString(Constant.ADDRESS_PIN_CODE, tModel.getPincode());
+                bundle.putString(Constant.ADDRESS_ADHAR, "https://cadreamers.com/uploads/profile/"+tModel.getAadharCard());
+                Navigation.findNavController(addressViewHolder.itemView).navigate(R.id.nav_update_address, bundle);
+
             });
+            addressViewHolder.btnAddressSelect.setOnClickListener(v -> callMakePaymentApi());
+        addressViewHolder.ivAddressDelete.setOnClickListener(v -> {
+
+            builder.setMessage("Do you want to delete the address?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", (dialog, id) -> {
+                        callAddressDeleteApi(addressViewHolder);
+                        dialog.dismiss();
+                    })
+                    .setNegativeButton("No", (dialog, id) -> {
+                        dialog.cancel();
+                        Toast.makeText(tContext, "Cancelled", Toast.LENGTH_SHORT).show();
+                    });
+            AlertDialog alert = builder.create();
+            alert.setTitle("Delete Alert!!");
+            alert.show();
+
+        });
+
 
     }
 
@@ -77,16 +128,107 @@ public class AdapterAdressFetch extends RecyclerView.Adapter<AdapterAdressFetch.
         return tModels.size();
     }
 
-    public class CourseDetailsViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.tvBooksDetailTitle)
-        protected TextView tvBooksDetailTitle;
-        @BindView(R.id.ivBooksDetails)
-        protected ImageView ivBooksDetails;
-        @BindView(R.id.rlBooksDetail)
-        protected LinearLayout rlBooksDetail;
-        public CourseDetailsViewHolder(@NonNull View itemView) {
+    public static class AddressViewHolder extends RecyclerView.ViewHolder{
+        @SuppressLint("NonConstantResourceId")
+        @BindView(R.id.tvAddressName)
+        protected TextView tvAddressName;
+        @SuppressLint("NonConstantResourceId")
+        @BindView(R.id.tvAddressCount)
+        protected TextView tvAddressCount;
+        @SuppressLint("NonConstantResourceId")
+        @BindView(R.id.ivAddressEdit)
+        protected ImageView ivAddressEdit;
+        @SuppressLint("NonConstantResourceId")
+        @BindView(R.id.btnAddressSelect)
+        protected AppCompatButton btnAddressSelect;
+        @SuppressLint("NonConstantResourceId")
+        @BindView(R.id.ivAddressAdharShow)
+        protected ImageView ivAddressAdharShow;
+        @SuppressLint("NonConstantResourceId")
+        @BindView(R.id.ivAddressDelete)
+        protected ImageView ivAddressDelete;
+
+        public AddressViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
     }
+    public void callAddressDeleteApi(AddressViewHolder cartViewHolder){
+        Api api = RetrofitClient.createService(Api.class, "cadreamers", "cadreamers@123");
+        JsonObject gsonObject;
+        try {
+            JSONObject paramObject = new JSONObject();
+            paramObject.put("addrid", strAddId);
+
+            gsonObject = (JsonObject) JsonParser.parseString(paramObject.toString());
+            Call<ModelDeleteAddress> call = api.deleteAddress(gsonObject);
+            call.enqueue(new Callback<ModelDeleteAddress>() {
+                @Override
+                public void onResponse(@NonNull Call<ModelDeleteAddress> call, @NonNull Response<ModelDeleteAddress> response) {
+                    ModelDeleteAddress modelDeleteCart = response.body();
+                    assert modelDeleteCart != null;
+                    Toast.makeText(tContext,modelDeleteCart.getMessage().getMessage(),
+                            Toast.LENGTH_SHORT).show();
+                    removeItem(cartViewHolder);
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<ModelDeleteAddress> call, @NonNull Throwable t) {
+
+                    Log.d(TAG, "Del Add Failure: "+t.getMessage());
+                }
+            });
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+    private void removeItem(AddressViewHolder cartViewHolder) {
+        int newPosition = cartViewHolder.getLayoutPosition();
+        tModels.remove(newPosition);
+        notifyItemRemoved(newPosition);
+        notifyItemRangeChanged(newPosition, tModels.size());
+    }
+
+
+
+    private void callMakePaymentApi(){
+        Api api = RetrofitClient.createService(Api.class, "cadreamers", "cadreamers@123");
+        JsonObject gsonObject;
+        try {
+            JSONObject paramObject = new JSONObject();
+            paramObject.put("s_address", strAddId);
+            paramObject.put("payment_method", "instamojo");
+            paramObject.put("userid", strUserId);
+
+            gsonObject = (JsonObject) JsonParser.parseString(paramObject.toString());
+            Log.d("PAYMENT", "Address ID: "+gsonObject);
+
+            Call<ModelMyPayment> callPayment = api.getPayment(gsonObject);
+
+            callPayment.enqueue(new Callback<ModelMyPayment>() {
+                @Override
+                public void onResponse(@NonNull Call<ModelMyPayment> call, @NonNull Response<ModelMyPayment> response) {
+                    ModelMyPayment modelMyPayment = response.body();
+                    assert modelMyPayment != null;
+                    if (modelMyPayment.getStatus().getStatuscode().equals("200")) {
+                        Intent intent = new Intent(tContext, MakePaymentActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.putExtra(Constant.PAYMENT_URL, modelMyPayment.getData().getRedirectLongUrl());
+                        tContext.startActivity(intent);
+                    }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<ModelMyPayment> call, @NonNull Throwable t) {
+
+                    Toast.makeText(tContext, "Your cart is empty, Go back to add course or books in your cart.", Toast.LENGTH_LONG).show();
+                }
+            });
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

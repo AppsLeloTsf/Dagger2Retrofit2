@@ -1,4 +1,4 @@
-package com.indainjourno.indianjourno.activity;
+package com.indianjourno.indianjourno.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,12 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.janatasuddi.janatasuddinews.R;
-import com.janatasuddi.janatasuddinews.adapter.AdapterVideoCatList;
-import com.janatasuddi.janatasuddinews.api.RetrofitClient;
-import com.janatasuddi.janatasuddinews.model.video_cat.ModelVideoCat;
+
+import com.indianjourno.indianjourno.adapter.AdapterVideoCatList;
+import com.indianjourno.indianjourno.api.RetrofitClient;
+import com.indianjourno.indianjourno.model.video_cat.ModelVideoCat;
 
 import butterknife.BindView;
+import indianjourno.indianjourno.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

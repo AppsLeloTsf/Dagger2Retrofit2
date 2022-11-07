@@ -1,13 +1,16 @@
-package com.instamojo.android.fragments;
+package com.ca_dreamers.cadreamers.fragments.payment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+
 import com.instamojo.android.R;
 import com.instamojo.android.activities.PaymentDetailsActivity;
+import com.instamojo.android.fragments.BaseFragment;
 import com.instamojo.android.helpers.Logger;
 import com.instamojo.android.models.GatewayOrder;
 import com.instamojo.android.models.PaymentOptions;

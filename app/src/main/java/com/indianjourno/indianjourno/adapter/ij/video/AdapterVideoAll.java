@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.adapter.ij;
+package com.indianjourno.indianjourno.adapter.ij.video;
 
 import android.content.Context;
 import android.content.Intent;
@@ -35,7 +35,7 @@ public class AdapterVideoAll extends RecyclerView.Adapter<AdapterVideoAll.Catego
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_video_list_play, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_video_list_all, viewGroup, false);
         tContext = view.getContext();
         return new CategoryViewHolder(view);
     }

@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.adapter.ij.hot_news;
+package com.indianjourno.indianjourno.adapter.ij.stories_news;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.indianjourno.indianjourno.activity.ij.breaking_news.BreakingNewsDetailActivity;
-import com.indianjourno.indianjourno.model.ij_news.ModelBreakingNew;
+import com.indianjourno.indianjourno.activity.ij.stories_news.StoriesNewsDetailActivity;
 import com.indianjourno.indianjourno.model.ij_news.ModelHotNews;
+import com.indianjourno.indianjourno.model.ij_news.ModelStoriesNews;
 import com.indianjourno.indianjourno.utils.Constant;
 
 import java.util.List;
@@ -24,12 +25,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import indianjourno.indianjourno.R;
 
-public class AdapterHotNewsDetails extends RecyclerView.Adapter<AdapterHotNewsDetails.CategoryViewHolder> {
+public class AdapterStoriesNewsDetails extends RecyclerView.Adapter<AdapterStoriesNewsDetails.CategoryViewHolder> {
 
     private Context tContext;
-    private List<ModelHotNews> tModels;
+    private List<ModelStoriesNews> tModels;
 
-    public AdapterHotNewsDetails(List<ModelHotNews> tModels) {
+    public AdapterStoriesNewsDetails(List<ModelStoriesNews> tModels) {
         this.tModels = tModels;
     }
 
@@ -43,7 +44,7 @@ public class AdapterHotNewsDetails extends RecyclerView.Adapter<AdapterHotNewsDe
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, final int i) {
-        final ModelHotNews tModel = tModels.get(i);
+        final ModelStoriesNews tModel = tModels.get(i);
         final String strCatId = tModel.getCategory();
         final String strNewsId = tModel.getNewsId();
         final String strNewsTitle = tModel.getNewsTitle();
@@ -59,7 +60,7 @@ public class AdapterHotNewsDetails extends RecyclerView.Adapter<AdapterHotNewsDe
             categoryViewHolder.llFragMainItemDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent tIntent = new Intent(tContext, BreakingNewsDetailActivity.class);
+                    Intent tIntent = new Intent(tContext, StoriesNewsDetailActivity.class);
                     tIntent.putExtra(Constant.CAT_ID, strCatId);
                     tIntent.putExtra(Constant.NEWS_ID, strNewsId);
                     tIntent.putExtra(Constant.NEWS_TITLE, strNewsTitle);

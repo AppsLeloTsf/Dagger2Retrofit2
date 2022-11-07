@@ -12,6 +12,6 @@ class SignInRepo {
 
     suspend fun resendOtpService(userDetails: SignInRequestModel) = RetrofitRestClient.instance.sendOtp(userDetails).awaitResult()
 
-    suspend fun verifyApiService(userDetails: SignInRequestModel, auth: String) = RetrofitRestClient.instance.verifyOtp(auth, userDetails).awaitResult()
+    suspend fun verifyApiService(auth: String, userDetails: SignInRequestModel) = RetrofitRestClient.instance.verifyOtp(auth, userDetails).awaitResult()
 
 }

@@ -29,6 +29,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
     private lateinit var workRunnable: Runnable
     private val myCalendar = Calendar.getInstance()
 
+    // Initializing other items
+    // from layout file
+
+
     private val datePicker: DatePickerDialog.OnDateSetListener =
         DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
             registerViewModel.dateOfBirth.set("$year-$monthOfYear-$dayOfMonth")
@@ -49,11 +53,19 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         registerViewModel.navigator = this
+
         genderRadioListener()
         setDatePicker()
         handleUi()
         setRadioCheck()
+        ivBackCreateAccount.setOnClickListener {
+            val fm = parentFragmentManager;
+            if (fm.backStackEntryCount > 0) {
+                fm.popBackStack()
+            }
+        }
     }
 
     private fun handleUi() {
@@ -72,9 +84,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
                     handler.postDelayed(workRunnable, 1000 /*delay*/)
                 }
             }
-
             override fun afterTextChanged(s: Editable?) {
-
             }
         })
     }
@@ -113,7 +123,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
     }
 
     companion object {
-
         fun getInstance(): RegisterFragment {
             val instance = RegisterFragment()
             val mBundle = Bundle()

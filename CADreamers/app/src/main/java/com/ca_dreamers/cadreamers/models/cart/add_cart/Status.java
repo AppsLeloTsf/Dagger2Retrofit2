@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.fragments.cart.add_cart;
+package com.ca_dreamers.cadreamers.models.cart.add_cart;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

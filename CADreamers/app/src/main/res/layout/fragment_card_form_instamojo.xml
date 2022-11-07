@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:paddingLeft="@dimen/margin_16"
     android:paddingRight="@dimen/margin_16"
-    tools:context=".activities.PaymentDetailsActivity">
+    tools:context=".activity.payment.PaymentDetailsActivity">
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/card_number_box"

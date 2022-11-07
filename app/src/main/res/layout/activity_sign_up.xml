@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.RegisterActivity">
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:src="@drawable/logopng" />
+        android:src="@mipmap/ic_launcher" />
 
 
     <LinearLayout
@@ -41,6 +41,8 @@
                style="@style/etStyleMainLayout">
             <EditText
                 android:id="@+id/etMobileReg"
+                android:maxLength="10"
+                android:inputType="number"
                 style="@style/etStyleMain"
                 android:hint="@string/mobile" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -49,6 +51,7 @@
                 style="@style/etStyleMainLayout">
             <EditText
                 android:id="@+id/etEmailReg"
+                android:inputType="textEmailAddress"
                 style="@style/etStyleMain"
                 android:hint="@string/email" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -99,5 +102,5 @@
 
     </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

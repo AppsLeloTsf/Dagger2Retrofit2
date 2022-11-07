@@ -1,4 +1,4 @@
-package com.indainjourno.indianjourno.activity;
+package com.indianjourno.indianjourno.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,8 +8,10 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.janatasuddi.janatasuddinews.R;
-import com.janatasuddi.janatasuddinews.storage.SharedPrefManager;
+
+import com.indianjourno.indianjourno.storage.SharedPrefManager;
+
+import indianjourno.indianjourno.R;
 
 public class SplashScreen extends AppCompatActivity {
 

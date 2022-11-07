@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.activity.ij.stories_news;
+package com.indianjourno.indianjourno.activity.ij.news;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -19,14 +19,12 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.indianjourno.indianjourno.activity.LoginActivity;
 import com.indianjourno.indianjourno.activity.MainActivity;
-import com.indianjourno.indianjourno.adapter.AdapterNewsListByFeatureDetail;
-import com.indianjourno.indianjourno.adapter.ij.breaking_news.AdapterBreakingNewsDetails;
+import com.indianjourno.indianjourno.adapter.ij.news.AdapterNewsByCat;
+import com.indianjourno.indianjourno.adapter.ij.news.AdapterNewsByCatDetails;
 import com.indianjourno.indianjourno.adapter.ij.stories_news.AdapterStoriesNewsDetails;
 import com.indianjourno.indianjourno.api.RetrofitClient;
-import com.indianjourno.indianjourno.model.ModelFeatureIdNews;
 import com.indianjourno.indianjourno.model.bookmarks.BookmarkInsertion;
-import com.indianjourno.indianjourno.model.feature.FeatureNews;
-import com.indianjourno.indianjourno.model.ij_news.ModelBreakingNew;
+import com.indianjourno.indianjourno.model.ij_news.ModelNewsByCatId;
 import com.indianjourno.indianjourno.model.ij_news.ModelStoriesNews;
 import com.indianjourno.indianjourno.storage.SharedPrefManager;
 import com.indianjourno.indianjourno.utils.Constant;
@@ -41,7 +39,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class StoriesNewsDetailActivity extends AppCompatActivity {
+public class NewsByCatDetailActivity extends AppCompatActivity {
     private String strCatId;
     private String strCatName;
     private String strUserId;
@@ -93,10 +91,10 @@ public class StoriesNewsDetailActivity extends AppCompatActivity {
         Spanned htmlAsSpanned = Html.fromHtml(strDetail);
         tvDietDetailDetailCat.setText(htmlAsSpanned);
         rvNewsDetailFeature.setLayoutManager(new LinearLayoutManager(this));
-        callStoriesNews();
+        callNewsByCatApi(strCatId);
         FloatingActionButton fab = findViewById(R.id.fabActivityFeatureDetail);
         fab.setOnClickListener(view -> {
-            Intent intent = new Intent(StoriesNewsDetailActivity.this, MainActivity.class);
+            Intent intent = new Intent(NewsByCatDetailActivity.this, MainActivity.class);
             startActivity(intent);
         });
     }
@@ -119,13 +117,13 @@ public class StoriesNewsDetailActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.ivNewsDetailBookmarksCat)
     public void ivBookmarkFeatureClicked(){
-        if(!tSharedPrefManager.getUserId().equalsIgnoreCase("")){ Toast.makeText(StoriesNewsDetailActivity.this, "Please login for save bookmark", Toast.LENGTH_SHORT).show();
+        if(!tSharedPrefManager.getUserId().equalsIgnoreCase("")){ Toast.makeText(NewsByCatDetailActivity.this, "Please login for save bookmark", Toast.LENGTH_SHORT).show();
             Call<BookmarkInsertion> call = RetrofitClient.getInstance().getApi().bookmarkInsert(strUserId, strNewsId);
             call.enqueue(new Callback<BookmarkInsertion>() {
                 @Override
                 public void onResponse(Call<BookmarkInsertion> call, Response<BookmarkInsertion> response) {
                     BookmarkInsertion tModel = response.body();
-                    Toast.makeText(StoriesNewsDetailActivity.this, tModel.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewsByCatDetailActivity.this, tModel.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 @Override
                 public void onFailure(Call<BookmarkInsertion> call, Throwable t) {
@@ -133,8 +131,8 @@ public class StoriesNewsDetailActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Toast.makeText(StoriesNewsDetailActivity.this, "Please login for save bookmark", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(StoriesNewsDetailActivity.this, LoginActivity.class);
+            Toast.makeText(NewsByCatDetailActivity.this, "Please login for save bookmark", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(NewsByCatDetailActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         }
@@ -143,18 +141,18 @@ public class StoriesNewsDetailActivity extends AppCompatActivity {
 
 
 
-    private void callStoriesNews() {
-        Call<List<ModelStoriesNews>> call = RetrofitClient.getInstance().getApi().getAllStoriesNewsIj();
-        call.enqueue(new Callback<List<ModelStoriesNews>>() {
+    private void callNewsByCatApi(String strCatId) {
+        Call<List<ModelNewsByCatId>> call = RetrofitClient.getInstance().getApi().getNewsByCatIdIj(strCatId);
+        call.enqueue(new Callback<List<ModelNewsByCatId>>() {
             @Override
-            public void onResponse(Call<List<ModelStoriesNews>> call, Response<List<ModelStoriesNews>> response) {
-                List<ModelStoriesNews> tModel = response.body();
-                AdapterStoriesNewsDetails tAdapter = new AdapterStoriesNewsDetails(tModel);
+            public void onResponse(Call<List<ModelNewsByCatId>> call, Response<List<ModelNewsByCatId>> response) {
+                List<ModelNewsByCatId> tModel = response.body();
+                AdapterNewsByCatDetails tAdapter = new AdapterNewsByCatDetails(tModel);
                 rvNewsDetailFeature.setAdapter(tAdapter);
             }
 
             @Override
-            public void onFailure(Call<List<ModelStoriesNews>> call, Throwable t) {
+            public void onFailure(Call<List<ModelNewsByCatId>> call, Throwable t) {
 
             }
         });

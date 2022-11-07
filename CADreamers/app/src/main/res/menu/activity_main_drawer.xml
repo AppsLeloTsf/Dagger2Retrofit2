@@ -5,16 +5,57 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_user"
+            android:title="My Profile" />
+
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_offline_courses"
+            android:visible="false"
+            android:icon="@drawable/ic_video"
+            android:title="@string/my_saved_courses" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:visible="false"
+            android:id="@+id/nav_offline_books"
+            android:icon="@drawable/ic_pdf"
+            android:title="@string/my_saved_books" />
+
+        <item
+            android:id="@+id/nav_my_courses"
+            android:icon="@drawable/ic_my_orders"
+            android:title="My Courses" />
+        <item
+            android:id="@+id/nav_my_books"
+            android:icon="@drawable/ic_bottom_book"
+            android:title="My Books" />
+        <item
+            android:id="@+id/nav_invite_friends"
+            android:icon="@drawable/ic_share"
+            android:title="Invite Friends" />
+        <item
+            android:id="@+id/nav_update_app"
+            android:icon="@drawable/ic_update_app"
+            android:title="Update App" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_feedback"
+            android:title="Feedback" />
+        <item
+            android:id="@+id/nav_address"
+            android:icon="@drawable/ic_location"
+            android:title="Manage Address" />
+
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_about_us"
+            android:title="About Us" />
+        <item
+            android:id="@+id/nav_contact_us"
+            android:icon="@drawable/ic_contact_us"
+            android:title="Contact Us" />
+        <item
+            android:id="@+id/nav_sign_out"
+            android:icon="@drawable/ic_sign_out"
+            android:title="Sign Out" />
     </group>
 </menu>

@@ -10,27 +10,27 @@
     android:layout_marginBottom="@dimen/dimen_8dp"
     android:padding="@dimen/dimen_8dp"
     android:background="@color/color_white"
-    android:layout_width="220dp"
+    android:layout_width="@dimen/dimen_220dp"
     android:layout_height="wrap_content">
     <RelativeLayout
         android:background="@color/white"
-        android:id="@+id/rlBreakingNews"
+        android:id="@+id/rlStoriesNews"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.cardview.widget.CardView
-            android:id="@+id/cvVideoCatImage"
+            android:id="@+id/cvStoriesNews"
             app:cardCornerRadius="@dimen/dimen_8dp"
             app:cardElevation="@dimen/dimen_16dp"
             android:layout_width="match_parent"
             android:layout_alignParentEnd="true"
-            android:layout_height="@dimen/dimen_120dp">
+            android:layout_height="@dimen/dimen_180dp">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/ivBreakingNewsImage"
+                    android:id="@+id/ivStoriesNewsImage"
                     android:scaleType="fitXY"
                     android:background="@mipmap/ic_launcher"
                     android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                     android:background="@color/color_transparent_partial" />
 
                 <TextView
-                    android:id="@+id/tvBreakingNewsTitle"
+                    android:id="@+id/tvStoriesNewsTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -52,26 +52,6 @@
                     android:textSize="@dimen/dimen_10sp"
                     android:textStyle="bold" />
             </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-
-
-        <androidx.cardview.widget.CardView
-            android:visibility="gone"
-            android:layout_below="@+id/cvVideoCatImage"
-            android:id="@+id/cvVideoCatIcon"
-            app:cardCornerRadius="@dimen/dimen_20dp"
-            app:cardElevation="@dimen/dimen_16dp"
-            android:layout_margin="@dimen/dimen_4dp"
-            android:layout_width="@dimen/dimen_40dp"
-            android:layout_alignParentStart="true"
-            android:layout_height="@dimen/dimen_40dp">
-            <ImageView
-                android:id="@+id/ivFragHomeCat"
-                android:scaleType="fitXY"
-                android:background="@mipmap/ic_launcher"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
         </androidx.cardview.widget.CardView>
 
     </RelativeLayout>

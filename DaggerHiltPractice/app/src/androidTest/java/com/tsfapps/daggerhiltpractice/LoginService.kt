@@ -1,2 +1,5 @@
-package com.tsfapps.daggerhiltpractice 
+package com.tsfapps.daggerhiltpractice
 
+class LoginService {
+
+}

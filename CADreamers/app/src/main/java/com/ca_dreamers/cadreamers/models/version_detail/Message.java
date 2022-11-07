@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.models.contact_us;
+package com.ca_dreamers.cadreamers.models.version_detail;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

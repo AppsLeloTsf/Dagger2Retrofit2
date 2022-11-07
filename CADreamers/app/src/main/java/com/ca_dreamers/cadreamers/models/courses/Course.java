@@ -1,9 +1,11 @@
-package com.vikram.vikramapps.models.courses;
+package com.ca_dreamers.cadreamers.models.courses;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Course {
+import java.io.Serializable;
+
+public class Course implements Serializable {
     @SerializedName("id")
     @Expose
     private String id;

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/bottom_courses"
-        android:title="Courses"
-        android:icon="@drawable/ic_bottom_course"/>
+        android:id="@+id/bottom_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
     <item
-        android:id="@+id/bottom_books"
-        android:title="Books"
-        android:icon="@drawable/ic_bottom_book"/>
+        android:id="@+id/bottom_account"
+        android:title="Account"
+        android:icon="@drawable/ic_account"/>
     <item
-        android:id="@+id/bottom_batch"
-        android:title="Batch"
-        android:icon="@drawable/ic_bottom_top_20"/>
+        android:id="@+id/bottom_category"
+        android:title="Category"
+        android:icon="@drawable/ic_category"/>
     <item
-        android:id="@+id/bottom_free_courses"
-        android:title="Free Courses"
-        android:icon="@drawable/ic_bottom_free_video"/>
+        android:id="@+id/bottom_video"
+        android:title="All News"
+        android:icon="@drawable/ic_video"/>
 </menu>

@@ -4,7 +4,7 @@
     android:background="@drawable/bg_main_light"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.side_nav.contact_us.ContactUsFragment">
+    tools:context=".fragments.side_nav.contact_us.ContactUsFragment">
 
     <ScrollView
         android:layout_width="match_parent"

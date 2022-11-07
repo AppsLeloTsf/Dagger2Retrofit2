@@ -3,9 +3,10 @@ package com.ca_dreamers.cadreamers.models.courses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ModelCourse {
+public class ModelCourse implements Serializable {
     @SerializedName("status")
     @Expose
     private Status status;

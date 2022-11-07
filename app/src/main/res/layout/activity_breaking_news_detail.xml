@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.NewsDetailFeatureActivity">
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/svActivityFeatureDetail"
+    tools:context="com.indianjourno.indianjourno.activity.ij.breaking_news.BreakingNewsDetailActivity">
+<RelativeLayout
+    android:id="@+id/rlVpContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpBreakingNews"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vpBreakingNews"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" />
+</RelativeLayout>
+    <LinearLayout
+        android:layout_below="@+id/rlVpContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginStart="@dimen/dimen_16dp"
+        style="@style/tvTitle"
+        android:text="Related News" />
 
-
-            <TextView
-                android:layout_below="@+id/vpBreakingNews"
-                android:layout_marginStart="@dimen/dimen_16dp"
-                style="@style/tvTitle"
-                android:text="Related News" />
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_below="@+id/tvTitle"
-                android:layout_marginTop="@dimen/dimen_4dp"
-                android:background="@color/gray"
-                android:id="@+id/rvNewsDetailFeature"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-    </androidx.core.widget.NestedScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="@dimen/dimen_4dp"
+        android:background="@color/gray"
+        android:id="@+id/rvBreakingNewsDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabActivityFeatureDetail"
         android:backgroundTint="@color/colorPrimaryDark"
@@ -41,7 +42,7 @@
         android:layout_margin="16dp"
         android:clickable="true"
         android:src="@drawable/ic_home"
-        app:layout_anchor="@id/svActivityFeatureDetail"
+        android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         app:layout_anchorGravity="bottom|right|end"

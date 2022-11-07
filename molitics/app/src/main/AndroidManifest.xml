@@ -12,15 +12,16 @@
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <permission
         android:name="com.molitics.molitician.permission.C2D_MESSAGE"
@@ -47,12 +48,10 @@
         <meta-data
             android:name="asset_statements"
             android:resource="@string/asset_statements" />
-
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
         <!--
-
                 <activity
                     android:name=".ui.dashboard.splash.SplashScreenActivity"
                     android:launchMode="singleTop"
@@ -63,17 +62,16 @@
                     </intent-filter>
                 </activity>
         -->
-
         <activity
             android:name=".ui.dashboard.splash.SplashActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".BasicAcivity"
             android:screenOrientation="portrait" />
@@ -89,12 +87,14 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
             <intent-filter android:autoVerify="true">
+
                 <!-- Sets the intent action to view the activity -->
                 <action android:name="android.intent.action.VIEW" />
                 <!-- Allows the link to be opened from a web browser -->
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!-- Allows the deep link to be used without specifying the app name -->
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data
                     android:host="www.molitics.in"
                     android:pathPrefix="/"
@@ -110,68 +110,59 @@
             <!-- Branch URI Scheme -->
             <intent-filter>
                 <data android:scheme="moliticsandroid" />
+
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
-
         </activity>
-
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-
         <activity
             android:name=".ui.dashboard.survey.SurveyDetailActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.leader.newleaderprofile.NewLeaderProfileActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.filter.LeaderFilterActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.newsBookmark.NewsBookMarkView"
             android:screenOrientation="portrait" />
-
-        <!--     <activity
+        <!--
+     <activity
                  android:name=".ui.dashboard.userProfile.issue_following.IssueFollowingActivity"
-                 android:screenOrientation="portrait" />-->
-
+                 android:screenOrientation="portrait" />
+        -->
         <activity
             android:name=".ui.dashboard.articles.ArticleActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.articles.ArticleDetailActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.leader.newleaderprofile.KnowMoreLeaderActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.leader.newleaderprofile.contactLeader.ContactLeaderActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.election.past_election.past_states.PartListView"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.newsDetail.DetailNewsActivity"
             android:label="@string/process_text_action_name"
             android:launchMode="standard"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden">
-
             <intent-filter>
                 <action android:name="android.intent.action.PROCESS_TEXT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
@@ -213,6 +204,7 @@
             android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:mimeType="text/plain" />
@@ -230,22 +222,18 @@
         <activity
             android:name=".ui.dashboard.voice.VoiceCreatorProfile"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.voice.voiceComment.CommentFragment"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
-
         <activity
             android:name=".ui.dashboard.articles.feedArticle.CreateArticleActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustPan" />
-
         <activity
             android:name=".customView.VideoRecordingCustomActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.voice.createVoice.TagLeaderFragment"
             android:screenOrientation="portrait" />
@@ -255,7 +243,6 @@
         <activity
             android:name=".ui.dashboard.voice.video_module.VoiceVideoActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.darsh.multipleimageselect.activities.AlbumSelectActivity"
             android:screenOrientation="portrait"
@@ -270,7 +257,6 @@
         <activity
             android:name=".customView.CameraFragmentMainActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.dashboard.youtubeMoreDetail.YoutubeMoreActivity"
             android:screenOrientation="portrait" />
@@ -293,7 +279,6 @@
             android:name=".ui.dashboard.leader.searchLeader.SearchLeaderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.Search">
-
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -326,7 +311,6 @@
         <meta-data
             android:name="io.branch.sdk.BranchKey.test"
             android:value="key_test_hmwP8IfnssUyJOkcT3EcKoahDAjp7l2u" />
-
         <meta-data
             android:name="io.branch.sdk.TestMode"
             android:value="false" />
@@ -338,6 +322,13 @@
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name=".a_otp_service.MySMSBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
+            </intent-filter>
+        </receiver>
 
         <service
             android:name=".gcm.MyFirebaseMessagingService"
@@ -346,7 +337,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <service
             android:name=".gcm.MyInstanceIDListenerService"
             android:exported="false">
@@ -355,7 +345,6 @@
             </intent-filter>
         </service>
         <service android:name=".gcm.RegistrationIntentService" />
-
         <service
             android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
             android:enabled="true" />
@@ -378,6 +367,7 @@
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
+
         <service
             android:name="com.google.android.gms.analytics.CampaignTrackingService"
             android:enabled="true"
@@ -391,4 +381,5 @@
             </intent-filter>
         </receiver>
     </application>
+
 </manifest>

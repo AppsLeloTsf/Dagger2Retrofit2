@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:background="@color/transparent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.top_20.Top20Fragment">
+    tools:context=".fragments.top_20.Top20Fragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_banner_height">
+        <com.ca_dreamers.cadreamers.utils.AutoScrollViewPager
+            android:layout_margin="@dimen/dimen_8dp"
+            android:id="@+id/sliderTop20"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+        <com.google.android.material.tabs.TabLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/tabsTop20"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_30dp"
+            android:padding="@dimen/dimen_8dp"
+            android:background="@color/transparent"
+            app:tabBackground="@drawable/viewpager_tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            />
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTop20List"
-        tools:listitem="@layout/course_item"
+        tools:listitem="@layout/top_20_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-</RelativeLayout>
+</LinearLayout>

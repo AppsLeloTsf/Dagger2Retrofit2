@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.models.login_reg.otp_match;
+package com.ca_dreamers.cadreamers.models.login_reg.password;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

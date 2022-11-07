@@ -4,14 +4,17 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 class ExampleUnitTest {
-    @Test
+   /* @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }*/
+
+    @Test
+    fun generates_number(){
+
+        val dice = Dice(6)
+        val rollNum = dice.roll()
+        assertTrue("The value of rollNum is not between 1 to 6", rollNum in 1..6)
     }
 }

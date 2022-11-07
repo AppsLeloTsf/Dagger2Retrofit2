@@ -1,5 +1,7 @@
 package com.molitics.molitician.ui.dashboard.register.viewModel
 
+import android.content.IntentFilter
+import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,18 +17,26 @@ import com.molitics.molitician.ui.dashboard.register.model.DeviceInfo
 import com.molitics.molitician.ui.dashboard.register.model.SignInRequestModel
 import com.molitics.molitician.ui.dashboard.register.model.User
 import com.molitics.molitician.util.Constant
-import com.molitics.molitician.util.Constant.From.SIGN_UP_FRAGMENT
 import com.molitics.molitician.util.PrefUtil
 import com.molitics.molitician.util.Util
 import com.molitics.molitician.util.checkContactNumber
 import com.molitics.molitician.util.resultFactory
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+import com.facebook.FacebookSdk.getApplicationContext
+
+import com.google.android.gms.auth.api.phone.SmsRetriever
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.molitics.molitician.util.Util.showToast
+
 
 class SignInViewModel(
     private val baseApplication: MolticsApplication,
     private val signInRepo: SignInRepo
 ) : BaseViewModel<SignInNavigation>() {
+
+
 
     val contactNumber = ObservableField<String>("")
     val userPassword = ObservableField<String>("")
@@ -49,7 +59,8 @@ class SignInViewModel(
     /** UI - login click
      */
     fun onOtpClick() {
-        if (checkContactNumber(baseApplication, contactNumber.get()!!)) {
+        if (checkContactNumber(baseApplication, contactNumber.get()!!))
+        {
             viewModelScope.launch(coroutinException) {
                 val userDetails = SignInRequestModel(
                     device = getDeviceInfo(),
@@ -62,7 +73,10 @@ class SignInViewModel(
                     navigator.navigateToOtp(contactNumber.get(), it.auth_key)
                 }
             }
+
         }
+     // startSMSListener()
+
     }
 
     /**UI - login click
@@ -77,10 +91,9 @@ class SignInViewModel(
             )
         }
     }
-
     private fun validatePasswordForm(): Boolean {
         if (userPassword.get().isNullOrEmpty()) {
-            Util.showToast(baseApplication, baseApplication.getString(R.string.enter_password))
+            showToast(baseApplication, baseApplication.getString(R.string.enter_password))
             return false
         }
         return true
@@ -90,39 +103,38 @@ class SignInViewModel(
     fun onOtpVerifyClick() {
         when {
             otp.get().isNullOrEmpty() -> {
-                Util.showToast(baseApplication, baseApplication.getString(R.string.otp_not_enter))
+               showToast(baseApplication, baseApplication.getString(R.string.otp_not_enter))
             }
-            screenType == Constant.From.SIGN_IN_FRAGMENT -> {
-                singInApi(
+            screenType == Constant.From.SIGN_UP_FRAGMENT -> {
+                verifyOtpApi(
+
                     SignInRequestModel(
-                        User(
-                            contactNumber.get(),
-                            password = otp.get(),
+                            mobile = contactNumber.get(),
                             otp = otp.get(),
-                            source = 2
-                        )
+                            verification_for = Constant.From.SIGN_UP_FRAGMENT,
                     )
                 )
             }
+
             else -> {
                 singInApi(
-                    SignInRequestModel(
-                        User(
-                            contactNumber.get(),
-                            password = otp.get(),
-                            otp = otp.get(),
-                            source = 2
+                        SignInRequestModel(
+                                User(
+                                        contactNumber.get(),
+                                        password = otp.get(),
+                                        otp = otp.get(),
+                                        source = 2
+                                )
                         )
-                    )
                 )
             }
         }
     }
 
     /** verify otp click*/
-    private fun verifyOtpApi(userDetails: SignInRequestModel, auth: String) {
+    private fun verifyOtpApi(userDetails: SignInRequestModel) {
         viewModelScope.launch(coroutinException) {
-            val data = signInRepo.verifyApiService(userDetails, auth).resultFactory(baseApplication)
+            val data = signInRepo.verifyApiService(userAuth, userDetails).resultFactory(baseApplication)
             data?.let {
                 navigator.navigateToOtp(null, null)
             }
@@ -136,10 +148,10 @@ class SignInViewModel(
             verification_for = screenType
         )
         viewModelScope.launch(coroutinException) {
-            val data = signInRepo.resendOtpService(userDetails).resultFactory(baseApplication)
-            data?.let {
-                navigator.navigateToOtp(contactNumber.get(), it.userModel.auth_key)
-            }
+            signInRepo.resendOtpService(userDetails).resultFactory(baseApplication)
+//            data?.let {
+//                navigator.navigateToOtp(contactNumber.get(), it.userModel.auth_key)
+//            }
         }
     }
 
@@ -147,6 +159,9 @@ class SignInViewModel(
         setIsLoading(true)
         viewModelScope.launch(coroutinException) {
             userDetails.device = getDeviceInfo()
+            Log.d("TSF_APPS","Mobile: "+contactNumber.get() )
+            Log.d("TSF_APPS","Screen: "+screenType )
+
             val data =
                 signInRepo.postSignInRequest(userAuth, userDetails).resultFactory(baseApplication)
             setIsLoading(false)
@@ -167,4 +182,6 @@ class SignInViewModel(
         setIsLoading(false)
         Util.showLog("coroutinException", throwable.message)
     }
+
+
 }

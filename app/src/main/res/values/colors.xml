@@ -1,10 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_200">#EC5E5B</color>
+    <color name="purple_500">#FFDC0602</color>
+    <color name="purple_700">#DC0602</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#a00</color>
+    <color name="colorPrimaryDark">#a00</color>
+    <color name="colorAccent">#a00</color>
+    <color name="colorLightGreen">#009688</color>
+
+    <color name="colorLightOrange">#FF5722</color>
+    <color name="Blue">#3F51B5</color>
+    <color name="Orange">#FF5722</color>
+    <color name="LightOrange">#C0522F</color>
+    <color name="magneta">#0fbbf1</color>
+    <color name="transparent">#383836</color>
+    <color name="color_grey">#5A5A5A</color>
+    <color name="color_grey_light">#FAFAFA</color>
+    <color name="color_transparent">#CC000000</color>
+    <color name="color_transparent_partial">#80000000</color>
+    <color name="color_transparent_full">#19000000</color>
+
+
+    <color name="blue">#436bff</color>
+    <color name="light_black">#4a4a4a</color>
+    <color name="color_white">#fff</color>
+    <color name="color_black">#000</color>
+    <color name="gray">#EBEBEB</color>
+    <color name="light_red">#a00</color>
+    <color name="sky_blue">#7CD4F7</color>
+    <color name="color_Red">#C62828</color>
+    <color name="colorgrey">#CFD8DC</color>
+    <color name="color_darkRed">#FF2400</color>
+    <color name="colorGrey2">#616161</color>
+    <color name="color_Lightgrey">#EEEEEE</color>
+    <color name="colorBrown">#6D4C41</color>
+    <color name="RED">#D50000</color>
+    <color name="color_blue">#0440F3</color>
+    <color name="seagreen">#21bab5</color>
+    <color name="WHITE">#eeeeee</color>
+    <color name="LOGO">#5492d6</color>
+    <color name="logo_text">#74aeed</color>
+    <color name="BLACK">#27292b</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="google_plus">#c62828</color>
+    <color name="facebook">#1976d2</color>
+    <color name="color_golden">#CFA403</color>
+    <color name="color_green">#01700B</color>
+    <color name="color_red">#FFAA0000</color>
+
+    <color name="shadow">#555555</color>
+    <color name="title">#777777</color>
 </resources>

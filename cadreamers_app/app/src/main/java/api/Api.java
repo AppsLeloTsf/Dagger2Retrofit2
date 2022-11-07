@@ -1,21 +1,13 @@
-package com.vikram.vikramapps.api;
+package api;
 
 
-
-
+import com.cadreamrs.model.banners.MyBanners;
+import com.cadreamrs.model.courses.MyCourse;
 import com.google.gson.JsonObject;
-import com.vikram.vikramapps.models.banners.MyBanners;
-import com.vikram.vikramapps.models.courses.Course;
-import com.vikram.vikramapps.models.courses.CourseRequest;
-import com.vikram.vikramapps.models.courses.MyCourse;
 
-import org.json.JSONObject;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;

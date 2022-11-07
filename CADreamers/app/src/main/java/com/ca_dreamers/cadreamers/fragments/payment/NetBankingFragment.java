@@ -1,15 +1,16 @@
-package com.instamojo.android.fragments;
+package com.ca_dreamers.cadreamers.fragments.payment;
 
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 
 import com.instamojo.android.R;
 import com.instamojo.android.activities.PaymentDetailsActivity;
@@ -19,6 +20,7 @@ import com.instamojo.android.helpers.Logger;
 import com.instamojo.android.models.Bank;
 import com.instamojo.android.models.GatewayOrder;
 import com.instamojo.android.models.NetBankingOptions;
+import com.instamojo.android.fragments.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.Collections;

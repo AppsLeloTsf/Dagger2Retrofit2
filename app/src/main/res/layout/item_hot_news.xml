@@ -10,7 +10,7 @@
     android:layout_marginBottom="@dimen/dimen_8dp"
     android:padding="@dimen/dimen_8dp"
     android:background="@color/color_white"
-    android:layout_width="260dp"
+    android:layout_width="220dp"
     android:layout_height="wrap_content">
     <RelativeLayout
         android:background="@color/white"

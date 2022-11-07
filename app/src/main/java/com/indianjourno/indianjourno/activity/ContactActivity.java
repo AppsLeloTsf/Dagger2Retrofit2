@@ -1,10 +1,11 @@
-package com.indainjourno.indianjourno.activity;
+package com.indianjourno.indianjourno.activity;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.janatasuddi.janatasuddinews.R;
+import indianjourno.indianjourno.R;
+
 
 public class ContactActivity extends AppCompatActivity {
 

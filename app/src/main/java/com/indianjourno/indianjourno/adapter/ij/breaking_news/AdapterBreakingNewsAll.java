@@ -24,19 +24,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import indianjourno.indianjourno.R;
 
-public class AdapterBreakingNews extends RecyclerView.Adapter<AdapterBreakingNews.CategoryViewHolder> {
+public class AdapterBreakingNewsAll extends RecyclerView.Adapter<AdapterBreakingNewsAll.CategoryViewHolder> {
 
     private Context tContext;
     private final List<ModelBreakingNew> tModels;
 
-    public AdapterBreakingNews(List<ModelBreakingNew> tModels) {
+    public AdapterBreakingNewsAll(List<ModelBreakingNew> tModels) {
         this.tModels = tModels;
     }
 
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_breaking_news, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_breaking_news_all, viewGroup, false);
         tContext = (Activity)view.getContext();
         return new CategoryViewHolder(view);
     }

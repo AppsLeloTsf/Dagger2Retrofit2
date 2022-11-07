@@ -1,4 +1,4 @@
-package com.instamojo.android.fragments;
+package com.ca_dreamers.cadreamers.fragments.payment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.instamojo.android.activities.PaymentActivity;
 import com.instamojo.android.helpers.Logger;
 import com.instamojo.android.network.JavaScriptInterface;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;

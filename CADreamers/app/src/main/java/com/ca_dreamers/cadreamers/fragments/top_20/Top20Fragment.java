@@ -1,5 +1,6 @@
-package com.ca_dreamers.cadreamers.ui.top_20;
+package com.ca_dreamers.cadreamers.fragments.top_20;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,7 +9,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,31 +31,24 @@ import retrofit2.Response;
 
 public class Top20Fragment extends Fragment {
 
-    private Top20ViewModel top20ViewModel;
+
+    AutoSliderTop20Adapter autoScrollPagerAdapter;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rvTop20List)
     protected RecyclerView rvTop20List;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.sliderTop20)
     protected AutoScrollViewPager sliderTop20;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.tabsTop20)
     protected TabLayout tabsTop20;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        top20ViewModel =
-                new ViewModelProvider(this).get(Top20ViewModel.class);
         View root = inflater.inflate(R.layout.fragment_top_20, container, false);
         ButterKnife.bind(this, root);
         rvTop20List.setLayoutManager(new LinearLayoutManager(getContext()));
         callBannersApi();
         callTop20Api();
-
-
-//        top20ViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
         return root;
     }
 
@@ -65,24 +58,25 @@ public class Top20Fragment extends Fragment {
 
         bannersCall.enqueue(new Callback<ModelTop20Banner>() {
             @Override
-            public void onResponse(Call<ModelTop20Banner> call, Response<ModelTop20Banner> response) {
+            public void onResponse(@NonNull Call<ModelTop20Banner> call, @NonNull Response<ModelTop20Banner> response) {
                 ModelTop20Banner modelBanners = response.body();
+                assert modelBanners != null;
                 Log.d("TSF_COURSE", "Banners: "+modelBanners.getData().get(0).getImageUrl());
-                AutoSliderTop20Adapter autoScrollPagerAdapter =
+                autoScrollPagerAdapter =
                         new AutoSliderTop20Adapter(modelBanners.getData(), getContext());
                 sliderTop20.setAdapter(autoScrollPagerAdapter);
 
                 tabsTop20.setupWithViewPager(sliderTop20);
-                // start auto scroll
+
                 sliderTop20.startAutoScroll();
-                // set auto scroll time in mili
+
                 sliderTop20.setInterval(Constant.SLIDER_SPEED);
-                // enable recycling using true
+
                 sliderTop20.setCycle(true);
             }
 
             @Override
-            public void onFailure(Call<ModelTop20Banner> call, Throwable t) {
+            public void onFailure(@NonNull Call<ModelTop20Banner> call, @NonNull Throwable t) {
 
             }
         });
@@ -94,19 +88,21 @@ public class Top20Fragment extends Fragment {
             Call<ModelTop20> call = api.getTop20();
             call.enqueue(new Callback<ModelTop20>() {
                 @Override
-                public void onResponse(Call<ModelTop20> call, Response<ModelTop20> response) {
+                public void onResponse(@NonNull Call<ModelTop20> call, @NonNull Response<ModelTop20> response) {
                     ModelTop20 modelTop20 = response.body();
+                    assert modelTop20 != null;
                     Log.d("TSF_TOP", modelTop20.getData().get(0).getDescription());
-                    AdapterTop20List adapterCourseList = new AdapterTop20List(modelTop20.getData(), getActivity().getApplicationContext());
+                    AdapterTop20List adapterCourseList = new AdapterTop20List(modelTop20.getData());
                     rvTop20List.setAdapter(adapterCourseList);
                 }
 
                 @Override
-                public void onFailure(Call<ModelTop20> call, Throwable t) {
+                public void onFailure(@NonNull Call<ModelTop20> call, @NonNull Throwable t) {
                     Log.d("TSF_TOP", "Top 20 Failure"+t.getMessage());
                 }
             });
 
     }
+
 
 }

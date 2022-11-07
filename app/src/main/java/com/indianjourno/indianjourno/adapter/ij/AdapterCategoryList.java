@@ -1,5 +1,8 @@
-package com.indianjourno.indianjourno.adapter;
+package com.indianjourno.indianjourno.adapter.ij;
 
+import static java.security.AccessController.getContext;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -15,7 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.indianjourno.indianjourno.activity.CategoryActivity;
-import com.indianjourno.indianjourno.model.category.Category;
+
+import com.indianjourno.indianjourno.activity.ij.news.NewsByCatActivity;
+import com.indianjourno.indianjourno.model.ij_category.Category;
 import com.indianjourno.indianjourno.utils.Constant;
 
 import java.util.List;
@@ -24,41 +29,38 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import indianjourno.indianjourno.R;
 
-public class AdapterHomeCategory extends RecyclerView.Adapter<AdapterHomeCategory.MenuCategoryViewHolder>{
+public class AdapterCategoryList extends RecyclerView.Adapter<AdapterCategoryList.MenuCategoryViewHolder>{
 
-    private String strWeekId;
     private Context tContext;
-    private List<Category> tModelsCategory;
-    private FragmentManager tFragmentManager;
-    private int weekSize;
+    private final List<Category> tModels;
 
-    public AdapterHomeCategory(Context tContext, List<Category> tModelsCategory) {
-        this.tContext = tContext;
-        this.tModelsCategory = tModelsCategory;
+    public AdapterCategoryList(List<Category> tModels) {
+        this.tModels = tModels;
     }
 
     @NonNull
     @Override
     public MenuCategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frag_home_cat_item, viewGroup, false);
+       tContext = (Activity)view.getContext();
         return new MenuCategoryViewHolder(view);
     }
     @Override
     public void onBindViewHolder(@NonNull final MenuCategoryViewHolder menuCategoryViewHolder, final int i) {
-        final Category tModelCat = tModelsCategory.get(i);
-        menuCategoryViewHolder.tvFragHome.setText(tModelCat.getCategoryName());
-        String strImgUrl = tModelCat.getCategoryImages();
+        final Category tModel = tModels.get(i);
+        menuCategoryViewHolder.tvFragHome.setText(tModel.getCategoryName());
+        String strImgUrl = tModel.getCatImage();
         Log.d(Constant.TAG, "Image Url: "+strImgUrl);
         Glide.with(tContext)
-                .load(Constant.IMG_URL_CATEGORY_IMAGES+strImgUrl)
+                .load(Constant.IMAGE_CATEGORY_IJ+strImgUrl)
                 .skipMemoryCache(true)
                 .into(menuCategoryViewHolder.ivFragHome);
         menuCategoryViewHolder.ivFragHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             final String  strCatId = tModelCat.getCategoryId();
-             final String  strCatName = tModelCat.getCategoryName();
-                Intent tIntent = new Intent(tContext, CategoryActivity.class);
+             final String  strCatId = tModel.getCategoryId();
+             final String  strCatName = tModel.getCategoryName();
+                Intent tIntent = new Intent(tContext, NewsByCatActivity.class);
                 tIntent.putExtra(Constant.CAT_ID, strCatId);
                 tIntent.putExtra(Constant.CAT_NAME, strCatName);
                 tIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -68,8 +70,7 @@ public class AdapterHomeCategory extends RecyclerView.Adapter<AdapterHomeCategor
     }
     @Override
     public int getItemCount() {
-        Log.d(Constant.TAG, "Cat Size : "+tModelsCategory.size());
-        return tModelsCategory.size();
+        return tModels.size();
     }
 
     public class MenuCategoryViewHolder extends RecyclerView.ViewHolder {

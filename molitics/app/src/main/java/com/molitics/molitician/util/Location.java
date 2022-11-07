@@ -1,6 +1,5 @@
 package com.molitics.molitician.util;
 
-import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
 import org.json.JSONException;

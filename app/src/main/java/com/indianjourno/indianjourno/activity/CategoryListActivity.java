@@ -24,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CategoryListActiviy extends AppCompatActivity {
+public class CategoryListActivity extends AppCompatActivity {
 
     @BindView(R.id.rvNewsCat)
     protected RecyclerView rvNewsCat;
@@ -35,7 +35,7 @@ public class CategoryListActiviy extends AppCompatActivity {
         ButterKnife.bind(this);
         rvNewsCat.setLayoutManager(new LinearLayoutManager(this));
 
-        callAllCatList(getApplicationContext());
+        callAllCatList();
     }
 //        private void callHomeCat(Context context){
 //        Call<CategoryList> call = RetrofitClient.getInstance().getApi().getCategory();
@@ -53,7 +53,7 @@ public class CategoryListActiviy extends AppCompatActivity {
 //            }
 //        });
 //    }
-        private void callAllCatList(Context context){
+        private void callAllCatList(){
         Call <ModelCategory> call = RetrofitClient.getInstance().getApi().getAllCategoryIj();
 
         call.enqueue(new Callback<ModelCategory>() {

@@ -74,5 +74,9 @@
     <dimen name="live_video">120dp</dimen>
     <dimen name="dim_500dp">500dp</dimen>
     <dimen name="dim_800dp">800dp</dimen>
+    <dimen name="dimen_4dp">4dp</dimen>
+    <dimen name="dimen_16dp">16dp</dimen>
+    <dimen name="dim_14sp">14sp</dimen>
+    <dimen name="dimen_14sp">14sp</dimen>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.models.my_payment;
+package com.ca_dreamers.cadreamers.models.notification;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

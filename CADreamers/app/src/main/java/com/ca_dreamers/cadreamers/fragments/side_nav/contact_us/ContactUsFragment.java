@@ -1,7 +1,6 @@
-package com.ca_dreamers.cadreamers.ui.side_nav.contact_us;
+package com.ca_dreamers.cadreamers.fragments.side_nav.contact_us;
 
-import androidx.lifecycle.ViewModelProvider;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,11 +25,10 @@ import retrofit2.Response;
 
 public class ContactUsFragment extends Fragment {
 
-    private ContactUsViewModel mViewModel;
-
-
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.tvContactMobile)
     protected TextView tvContactMobile;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.tvContactEmail)
     protected TextView tvContactEmail;
 
@@ -43,26 +41,20 @@ public class ContactUsFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(ContactUsViewModel.class);
-        // TODO: Use the ViewModel
-    }
-
     private void callContactUs(){
         Api api = RetrofitClient.createService(Api.class, "cadreamers", "cadreamers@123");
         Call<ModelContactUs> call = api.getContactUs();
         call.enqueue(new Callback<ModelContactUs>() {
             @Override
-            public void onResponse(Call<ModelContactUs> call, Response<ModelContactUs> response) {
+            public void onResponse(@NonNull Call<ModelContactUs> call, @NonNull Response<ModelContactUs> response) {
                 ModelContactUs modelContactUs = response.body();
+                assert modelContactUs != null;
                 tvContactMobile.setText(modelContactUs.getData().getPhone());
                 tvContactEmail.setText(modelContactUs.getData().getEmail());
             }
 
             @Override
-            public void onFailure(Call<ModelContactUs> call, Throwable t) {
+            public void onFailure(@NonNull Call<ModelContactUs> call, @NonNull Throwable t) {
 
             }
         });

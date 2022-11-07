@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.indainjourno.indianjourno">
+    package="indianjourno.indianjourno">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -10,14 +14,78 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IndianJourno">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name="com.indianjourno.indianjourno.activity.ij.news.AllNewsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.ij.stories_news.StoriesNewsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.VideoPlayActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.VideoListActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.CategoryListActivity"
+            android:exported="false" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ContactActivity" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.VideoCatListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.VideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.BookmarkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.CategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.NewsDetailCategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.NewsDetailFeatureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.PrivacyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.SplashScreen"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.indianjourno.indianjourno.activity.FeatureActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ij.breaking_news.BreakingNewsDetailActivity" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ij.trending_news.TrendingNewsDetailActivity" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ij.stories_news.StoriesNewsDetailActivity" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ij.hot_news.HotNewsDetailActivity" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ij.news.NewsByCatActivity" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ij.news.NewsByCatDetailActivity" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ij.breaking_news.BreakingNewsActivity" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ij.hot_news.HotNewsActivity" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ij.trending_news.TrendingNewsActivity" />
+        <activity android:name="com.indianjourno.indianjourno.activity.ij.news.QuickNewsActivity" />
     </application>
-
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
 </manifest>

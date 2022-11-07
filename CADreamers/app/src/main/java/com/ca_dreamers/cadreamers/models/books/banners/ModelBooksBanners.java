@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class BooksBanners {
+public class ModelBooksBanners {
     @SerializedName("status")
     @Expose
     private Status status;

@@ -1,4 +1,4 @@
-package com.vikram_shop.vikramshop.ui;
+package com.vikram_shop.vikramshop.ui.sell;
 
 import androidx.lifecycle.ViewModel;
 

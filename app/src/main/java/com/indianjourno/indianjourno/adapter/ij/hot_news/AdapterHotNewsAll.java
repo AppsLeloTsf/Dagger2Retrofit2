@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.indianjourno.indianjourno.activity.ij.breaking_news.BreakingNewsDetailActivity;
 import com.indianjourno.indianjourno.activity.ij.hot_news.HotNewsDetailActivity;
 import com.indianjourno.indianjourno.model.ij_news.ModelHotNews;
 import com.indianjourno.indianjourno.utils.Constant;
@@ -25,19 +24,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import indianjourno.indianjourno.R;
 
-public class AdapterHotNews extends RecyclerView.Adapter<AdapterHotNews.CategoryViewHolder> {
+public class AdapterHotNewsAll extends RecyclerView.Adapter<AdapterHotNewsAll.CategoryViewHolder> {
 
     private Context tContext;
     private final List<ModelHotNews> tModels;
 
-    public AdapterHotNews(List<ModelHotNews> tModels) {
+    public AdapterHotNewsAll(List<ModelHotNews> tModels) {
         this.tModels = tModels;
     }
 
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_hot_news, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_hot_news_all, viewGroup, false);
         tContext = (Activity)view.getContext();
         return new CategoryViewHolder(view);
     }

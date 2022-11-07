@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,7 +38,7 @@ public class AdapterVideoList extends RecyclerView.Adapter<AdapterVideoList.Cate
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frag_news_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_video_list_play, viewGroup, false);
         tContext = view.getContext();
         return new CategoryViewHolder(view);
     }
@@ -51,12 +52,12 @@ public class AdapterVideoList extends RecyclerView.Adapter<AdapterVideoList.Cate
         final String strVideoUrl = tModel.getVCode();
         final String strVideoImage = tModel.getVideoImage();
 
-            categoryViewHolder.tvNewsTitle.setText(strVideoTitle);
+            categoryViewHolder.tvVideoListTitle.setText(strVideoTitle);
         Glide.with(tContext)
                 .load(Constant.VIDEO_IMG_URL+strVideoImage)
                 .skipMemoryCache(true)
-                .into(categoryViewHolder.ivNewsImage);
-            categoryViewHolder.llFragMainItem.setOnClickListener(v -> {
+                .into(categoryViewHolder.ivVideoListImage);
+            categoryViewHolder.rlFragMainItem.setOnClickListener(v -> {
                 Intent tIntent = new Intent(tContext, VideoActivity.class);
                 tIntent.putExtra(Constant.CAT_ID, strCatId);
                 tIntent.putExtra(Constant.VIDEO_ID, strVideoId);
@@ -75,12 +76,12 @@ public class AdapterVideoList extends RecyclerView.Adapter<AdapterVideoList.Cate
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.tvNewsTitle)
-        protected TextView tvNewsTitle;
-        @BindView(R.id.ivNewsImage)
-        protected ImageView ivNewsImage;
-        @BindView(R.id.llFragMainItem)
-        protected LinearLayout llFragMainItem;
+        @BindView(R.id.tvVideoListTitle)
+        protected TextView tvVideoListTitle;
+        @BindView(R.id.ivVideoListImage)
+        protected ImageView ivVideoListImage;
+        @BindView(R.id.rlFragMainItem)
+        protected RelativeLayout rlFragMainItem;
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

@@ -1,9 +1,9 @@
-package com.ca_dreamers.cadreamers.models.address.add_address;
+package com.ca_dreamers.cadreamers.models.address.add_update_address;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ModelAddAddress {
+public class ModelAddUpdateAddress {
     @SerializedName("status")
     @Expose
     private Status status;

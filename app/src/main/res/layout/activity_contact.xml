@@ -41,7 +41,7 @@
                 android:layout_height="2dp"/>
             <ImageView
                 android:layout_marginTop="@dimen/dimen_16dp"
-                android:src="@drawable/logopng"
+                android:src="@mipmap/ic_launcher"
                 android:scaleType="fitXY"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"/>

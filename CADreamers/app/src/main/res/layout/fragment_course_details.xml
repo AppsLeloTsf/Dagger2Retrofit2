@@ -1,14 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/dimen_8dp"
+    android:background="@drawable/bg_main_light"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.FragmentCourseDetails">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="@dimen/dimen_8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/llCourseDetailsView"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivCourseDetailsView"
+            android:scaleType="fitXY"
+            android:background="@mipmap/ic_launcher"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_banner_height"/>
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvMrpCourseTag"
+            android:textStyle="bold"
+            android:text="MRP: Rs. "
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvMrpCourse"
+            android:textStyle="italic"
+            android:layout_toEndOf="@+id/tvMrpCourseTag"
+            android:text="10000"
+            android:textColor="@color/transparent_70_black"
+            android:background="@drawable/cross_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/tvPriceCourseTag"
+            android:layout_below="@+id/tvMrpCourseTag"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:textStyle="bold"
+            android:text="Price: Rs. "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/tvPriceCourse"
+            android:layout_below="@+id/tvMrpCourse"
+            android:layout_toEndOf="@+id/tvPriceCourseTag"
+            android:textStyle="italic"
+            android:text="3000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/tvDiscountCourse"
+            android:layout_toEndOf="@+id/tvPriceCourse"
+            android:layout_below="@+id/tvMrpCourse"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:textStyle="italic"
+            android:text="70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/tvDiscountCourseTag"
+            android:layout_toEndOf="@+id/tvDiscountCourse"
+            android:layout_below="@+id/tvMrpCourse"
+            android:textStyle="italic"
+            android:text="% off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:visibility="visible"
+            android:id="@+id/btnBuyCourse"
+            android:layout_alignParentEnd="true"
+            style="@style/button_main_"
+            android:text="Buy Now"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:visibility="gone"
+            android:id="@+id/btnViewCourse"
+            android:layout_alignParentEnd="true"
+            style="@style/button_main_"
+            android:text="View Course"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            />
+    </RelativeLayout>
 
-</FrameLayout>
+            <TextView
+                android:textSize="@dimen/dimen_14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:layout_marginEnd="@dimen/dimen_8dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+
+                android:text="Course Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/tvCourseDescriptionShort"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:textSize="@dimen/dimen_12sp"
+                    android:textColor="@color/logo"
+                    android:text="@string/work_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnShowMoreDescription"
+                    android:drawableEnd="@drawable/ic_arrow_down"
+                    android:text="Show More"
+                    style="@style/button_white_"
+                  />
+            <TextView
+
+                android:id="@+id/tvCourseDescription"
+                android:textSize="@dimen/dimen_12sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:layout_marginEnd="@dimen/dimen_8dp"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:text="Course Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_gravity="end"
+                android:id="@+id/btnShowLessDescription"
+                android:drawableEnd="@drawable/ic_arrow_up"
+                android:text="Show Less"
+                style="@style/button_white_"
+                />
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvChapter"
+    tools:listitem="@layout/item_chapter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

@@ -3,8 +3,13 @@ package com.indianjourno.indianjourno.utils;
 public class Constant {
 
 
-    public static final String DEVELOPER_KEY = "AIzaSyDrIqw2nIaZ1JfDGB7lyeZ2XFjzEQ1d2So";
-//    public static final String DEVELOPER_KEY = "AIzaSyABYoczeHg4XABx_jMRfv-CqmA2YMsIY4A";
+    public static final String DEVELOPER_KEY = "AIzaSyBFsd45fjmNF__WJUrMzIYipZS4CtEhl5w";
+    public static final String IMAGE_CATEGORY_IJ = "https://indianjourno.com/upload/cat_image/";
+    public static final String ICON_CATEGORY_IJ = "https://indianjourno.com/upload/category_icon/";
+    public static final String IMAGE_NEWS_IJ = "https://indianjourno.com/upload/news/";
+    public static final String IMAGE_SLIDER_IJ = "https://indianjourno.com/upload/slidder/";
+    public static final String IMAGE_VIDEO_IJ = "https://indianjourno.com/upload/video_gallery/";
+
 
     // YouTube video id
     public static final String YOUTUBE_VIDEO_CODE = "_oEA18Y8gM0";

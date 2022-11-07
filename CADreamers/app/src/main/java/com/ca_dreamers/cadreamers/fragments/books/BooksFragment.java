@@ -1,29 +1,38 @@
-package com.ca_dreamers.cadreamers.ui.books;
+package com.ca_dreamers.cadreamers.fragments.books;
 
-import androidx.lifecycle.ViewModelProvider;
-
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.ca_dreamers.cadreamers.R;
+import com.ca_dreamers.cadreamers.activity.LoginActivity;
 import com.ca_dreamers.cadreamers.adapter.books.AdapterBooksBanner;
 import com.ca_dreamers.cadreamers.adapter.books.AdapterBooksList;
-import com.ca_dreamers.cadreamers.adapter.courses.AdapterCourseList;
 import com.ca_dreamers.cadreamers.api.Api;
 import com.ca_dreamers.cadreamers.api.RetrofitClient;
 import com.ca_dreamers.cadreamers.models.books.ModelBooksList;
 import com.ca_dreamers.cadreamers.models.books.banners.ModelBooksBanners;
-import com.ca_dreamers.cadreamers.models.courses.ModelCourse;
+import com.ca_dreamers.cadreamers.models.logged_out.ModelLogout;
+import com.ca_dreamers.cadreamers.models.user_token.ModelToken;
+import com.ca_dreamers.cadreamers.storage.SharedPrefManager;
 import com.ca_dreamers.cadreamers.utils.AutoScrollViewPager;
 import com.ca_dreamers.cadreamers.utils.Constant;
 import com.google.android.material.tabs.TabLayout;
@@ -35,18 +44,24 @@ import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BooksFragment extends Fragment {
 
-    private BooksViewModel mViewModel;
-
+    private Context context;
+    private String strUserId;
+    private String strToken;
+    private SharedPrefManager sharedPrefManager;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.sliderBooks)
     protected AutoScrollViewPager sliderBooks;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.tabsBooks)
     protected TabLayout tabsBooks;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rvBooksList)
     protected RecyclerView rvBooksList;
 
@@ -56,17 +71,20 @@ public class BooksFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_books, container, false);
         ButterKnife.bind(this, view);
+        context = (Activity)view.getContext();
+        sharedPrefManager = new SharedPrefManager(getContext());
+        strUserId = sharedPrefManager.getUserId();
         rvBooksList.setLayoutManager(new LinearLayoutManager(getContext()));
+        callTokenApi();
         callBannersApi();
         callBooksListApi();
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(BooksViewModel.class);
-        // TODO: Use the ViewModel
+    @SuppressLint("NonConstantResourceId")
+    @OnClick(R.id.btnMyBooksBrows)
+    public void btnMyBooksBrowsClicked(){
+        Navigation.findNavController(requireView()).navigate(R.id.nav_my_books);
     }
 
     private void callBannersApi(){
@@ -74,22 +92,20 @@ public class BooksFragment extends Fragment {
         Call<ModelBooksBanners> bannersCall = api.getBooksBanner();
         bannersCall.enqueue(new Callback<ModelBooksBanners>() {
             @Override
-            public void onResponse(Call<ModelBooksBanners> call, Response<ModelBooksBanners> response) {
+            public void onResponse(@NonNull Call<ModelBooksBanners> call, @NonNull Response<ModelBooksBanners> response) {
                 ModelBooksBanners modelBanners = response.body();
+                assert modelBanners != null;
                 AdapterBooksBanner adapterCoursesBanner =
                         new AdapterBooksBanner(modelBanners.getData(), getContext());
                 sliderBooks.setAdapter(adapterCoursesBanner);
                 tabsBooks.setupWithViewPager(sliderBooks);
-                // start auto scroll
                 sliderBooks.startAutoScroll();
-                // set auto scroll time in mili
                 sliderBooks.setInterval(Constant.SLIDER_SPEED);
-                // enable recycling using true
                 sliderBooks.setCycle(true);
             }
 
             @Override
-            public void onFailure(Call<ModelBooksBanners> call, Throwable t) {
+            public void onFailure(@NonNull Call<ModelBooksBanners> call, @NonNull Throwable t) {
 
             }
         });
@@ -98,24 +114,24 @@ public class BooksFragment extends Fragment {
 
     private void callBooksListApi(){
         Api api = RetrofitClient.createService(Api.class, "cadreamers", "cadreamers@123");
-        JsonObject gsonObject = new JsonObject();
+        JsonObject gsonObject;
         try {
             JSONObject paramObject = new JSONObject();
-            paramObject.put("user_id", "4");
+            paramObject.put("user_id", strUserId);
 
-            JsonParser jsonParser = new JsonParser();
-            gsonObject = (JsonObject) jsonParser.parse(paramObject.toString());
+            gsonObject = (JsonObject) JsonParser.parseString(paramObject.toString());
             Call<ModelBooksList> call = api.getBooksList(gsonObject);
             call.enqueue(new Callback<ModelBooksList>() {
                 @Override
-                public void onResponse(Call<ModelBooksList> call, Response<ModelBooksList> response) {
+                public void onResponse(@NonNull Call<ModelBooksList> call, @NonNull Response<ModelBooksList> response) {
                     ModelBooksList modelBooksList = response.body();
-                    AdapterBooksList adapterBooksList = new AdapterBooksList(modelBooksList.getData(), getActivity().getApplicationContext());
+                    assert modelBooksList != null;
+                    AdapterBooksList adapterBooksList = new AdapterBooksList(modelBooksList.getData(), getContext());
                     rvBooksList.setAdapter(adapterBooksList);
                 }
 
                 @Override
-                public void onFailure(Call<ModelBooksList> call, Throwable t) {
+                public void onFailure(@NonNull Call<ModelBooksList> call, @NonNull Throwable t) {
 
                 }
             });
@@ -125,6 +141,84 @@ public class BooksFragment extends Fragment {
         }
     }
 
+    public void callTokenApi(){
+        Api api = RetrofitClient.createService(Api.class, "cadreamers", "cadreamers@123");
+        JsonObject gsonObject;
+        try {
+            JSONObject paramObject = new JSONObject();
+            paramObject.put("user_id", strUserId);
+            gsonObject = (JsonObject) JsonParser.parseString(paramObject.toString());
+            Call<ModelToken> call = api.getTokenApi(gsonObject);
+            call.enqueue(new Callback<ModelToken>() {
+                @Override
+                public void onResponse(@NonNull Call<ModelToken> call, @NonNull Response<ModelToken> response) {
+                    ModelToken modelToken = response.body();
+                    assert modelToken != null;
+                    strToken = modelToken.getData().getToken();
+                    if (! strToken.equals(getUserDeviceId())){
+                        callLogoutApi();
+                        Toast.makeText(context, "Some on logged in with your credentials.", Toast.LENGTH_SHORT).show();
+                    }
 
+                }
 
+                @Override
+                public void onFailure(@NonNull Call<ModelToken> call, @NonNull Throwable t) {
+                    Log.d("TSF_APPS", "TOKEN Error: "+t);
+
+                }
+            });
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void callLogoutApi(){
+        Api api = RetrofitClient.createService(Api.class, "cadreamers", "cadreamers@123");
+        JsonObject gsonObject;
+        try {
+            JSONObject paramObject = new JSONObject();
+            paramObject.put("user_id", strUserId);
+            gsonObject = (JsonObject) JsonParser.parseString(paramObject.toString());
+            Call<ModelLogout> call = api.getLogout(gsonObject);
+            call.enqueue(new Callback<ModelLogout>() {
+                @Override
+                public void onResponse(@NonNull Call<ModelLogout> call, @NonNull Response<ModelLogout> response) {
+                    sharedPrefManager.clearUserData();
+                    startActivity(new Intent(context, LoginActivity.class));
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<ModelLogout> call, @NonNull Throwable t) {
+
+                }
+            });
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint("HardwareIds")
+    public String getUserDeviceId() {
+        String deviceId;
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            deviceId = Settings.Secure.getString(
+                    context.getContentResolver(),
+                    Settings.Secure.ANDROID_ID);
+        } else {
+            final TelephonyManager mTelephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            if (mTelephony.getDeviceId() != null) {
+                deviceId = mTelephony.getDeviceId();
+            } else {
+                deviceId = Settings.Secure.getString(
+                        context.getContentResolver(),
+                        Settings.Secure.ANDROID_ID);
+            }
+        }
+
+        return deviceId;
+    }
 }

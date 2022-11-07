@@ -62,6 +62,7 @@
                  />
 
             <TextView
+                android:visibility="gone"
                 android:layout_centerVertical="true"
                 android:id="@+id/tvPurchasedBookDescription"
                 android:layout_marginStart="@dimen/dimen_8dp"

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.indianjourno.indianjourno.activity.CategoryActivity;
+import com.indianjourno.indianjourno.activity.VideoPlayActivity;
 import com.indianjourno.indianjourno.model.video_cat.VideoCategory;
 import com.indianjourno.indianjourno.utils.Constant;
 
@@ -36,7 +37,7 @@ public class AdapterVideoCatList extends RecyclerView.Adapter<AdapterVideoCatLis
     @NonNull
     @Override
     public MenuCategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frag_news_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_video_list, viewGroup, false);
         return new MenuCategoryViewHolder(view);
     }
     @Override
@@ -49,18 +50,15 @@ public class AdapterVideoCatList extends RecyclerView.Adapter<AdapterVideoCatLis
                 .load(Constant.IMG_URL_CATEGORY_IMAGES+strImgUrl)
                 .skipMemoryCache(true)
                 .into(menuCategoryViewHolder.ivNewsImage);
-        menuCategoryViewHolder.ivNewsImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             final String  strCatId = tModel.getVidCatId();
-             final String  strCatName = tModel.getVidCatName();
-                Intent tIntent = new Intent(tContext, CategoryActivity.class);
-                tIntent.putExtra(Constant.CAT_ID, tContext.getString(R.string.call_video_api));
-                tIntent.putExtra(Constant.VIDEO_ID, strCatId);
-                tIntent.putExtra(Constant.CAT_NAME, strCatName);
-                tIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                tContext.startActivity(tIntent);
-            }
+        menuCategoryViewHolder.ivNewsImage.setOnClickListener(v -> {
+         final String  strCatId = tModel.getVidCatId();
+         final String  strCatName = tModel.getVidCatName();
+            Intent tIntent = new Intent(tContext, VideoPlayActivity.class);
+            tIntent.putExtra(Constant.CAT_ID, tContext.getString(R.string.call_video_api));
+            tIntent.putExtra(Constant.VIDEO_ID, strCatId);
+            tIntent.putExtra(Constant.CAT_NAME, strCatName);
+            tIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            tContext.startActivity(tIntent);
         });
     }
 
@@ -70,11 +68,11 @@ public class AdapterVideoCatList extends RecyclerView.Adapter<AdapterVideoCatLis
         return tModels.size();
     }
 
-    public class MenuCategoryViewHolder extends RecyclerView.ViewHolder {
+    public static class MenuCategoryViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.ivNewsImage)
+        @BindView(R.id.ivVideoListImage)
         protected ImageView ivNewsImage;
-        @BindView(R.id.tvNewsTitle)
+        @BindView(R.id.tvVideoListTitle)
         protected TextView tvNewsTitle;
         public MenuCategoryViewHolder(@NonNull View itemView) {
             super(itemView);

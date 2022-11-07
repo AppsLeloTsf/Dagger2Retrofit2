@@ -13,7 +13,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 <RelativeLayout
-    android:layout_margin="@dimen/_8dp"
+    android:layout_margin="@dimen/dimen_4dp"
     android:gravity="center_vertical"
     android:id="@+id/llCart"
     android:orientation="horizontal"
@@ -21,65 +21,44 @@
     android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         android:id="@+id/cvCartIcon"
-        app:cardCornerRadius="@dimen/dimen_4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dimen_80dp">
+        app:cardCornerRadius="@dimen/dimen_30dp"
+        android:layout_width="@dimen/dimen_60dp"
+        android:layout_height="@dimen/dimen_60dp">
         <ImageView
-            android:id="@+id/ivCartProdIcon"
+            android:id="@+id/ivFeedbackIcon"
             android:scaleType="fitXY"
-            android:background="@mipmap/ic_launcher"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
     </androidx.cardview.widget.CardView>
     <LinearLayout
-        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginStart="@dimen/dimen_8dp"
         android:layout_toEndOf="@+id/cvCartIcon"
-        android:gravity="center_vertical"
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <TextView
-        android:id="@+id/tvCartProdTitle"
+        android:id="@+id/tvFeedbackTitle"
         android:layout_alignParentBottom="true"
-        android:textColor="@color/black"
+        android:textColor="@color/logo"
         android:textStyle="bold"
-        android:textSize="@dimen/dimen_12sp"
+        android:textSize="@dimen/dimen_14sp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:padding="4dp"
         android:gravity="center"
         android:text="Prod Title"/>
     <TextView
-        android:id="@+id/tvCartProdMode"
+        android:id="@+id/tvFeedbackDescription"
         android:layout_alignParentBottom="true"
-        android:textColor="@color/logo"
-        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textStyle="italic"
         android:textSize="@dimen/dimen_12sp"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:padding="4dp"
-        android:gravity="center"
         android:text="Prod Mode"/>
-        <TextView
-            android:id="@+id/tvCartProdPrice"
-            android:layout_alignParentBottom="true"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:textSize="@dimen/dimen_12sp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:padding="4dp"
-            android:gravity="center"
-            android:text="Prod Price"/>
 
     </LinearLayout>
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivCartProdDelete"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
 </RelativeLayout>
 </androidx.cardview.widget.CardView>

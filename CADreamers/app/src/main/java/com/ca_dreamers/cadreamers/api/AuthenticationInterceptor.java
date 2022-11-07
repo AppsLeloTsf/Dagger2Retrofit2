@@ -1,5 +1,7 @@
 package com.ca_dreamers.cadreamers.api;
 
+import androidx.annotation.NonNull;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -9,12 +11,13 @@ import okhttp3.Response;
 
 public class AuthenticationInterceptor implements Interceptor {
 
-    private String authToken;
+    private final String authToken;
 
     public AuthenticationInterceptor(String token) {
         this.authToken = token;
     }
 
+    @NonNull
     @Override
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Request original = chain.request();

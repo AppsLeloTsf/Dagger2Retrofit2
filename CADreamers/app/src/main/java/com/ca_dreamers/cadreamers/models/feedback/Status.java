@@ -1,4 +1,4 @@
-package com.ca_dreamers.cadreamers.models.free_videos;
+package com.ca_dreamers.cadreamers.models.feedback;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

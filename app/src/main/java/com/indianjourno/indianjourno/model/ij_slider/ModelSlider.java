@@ -1,4 +1,4 @@
-package com.indianjourno.indianjourno.ij_slider;
+package com.indianjourno.indianjourno.model.ij_slider;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -11,201 +12,216 @@
             type="com.molitics.molitician.ui.dashboard.register.register.viewModel.RegisterViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:paddingLeft="@dimen/dim_20dp"
-        android:paddingRight="@dimen/dim_20dp">
+        android:background="@color/white">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dim_20dp"
-            android:src="@drawable/ic_back"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.molitics.molitician.customView.molitics.PoppinsSemiBoldTextView
-            android:id="@+id/createHeaderTV"
-            android:layout_width="@dimen/dim_0dp"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/dim_20dp"
-            android:text="@string/create_account"
-            android:textSize="@dimen/xlarge_txt_20"
-            app:layout_constraintBottom_toBottomOf="@+id/backButton"
-            app:layout_constraintLeft_toRightOf="@+id/backButton"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/backButton" />
-
-        <ScrollView
+        <RelativeLayout
+            android:id="@+id/rl_menuBar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dim_0dp"
-            android:scrollbars="none"
-            app:layout_constraintBottom_toTopOf="@+id/nextButton"
-            app:layout_constraintTop_toBottomOf="@+id/createHeaderTV">
+            android:layout_height="@dimen/dim_50dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBackCreateAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:fontFamily="@font/poppins_bold"
+                android:id="@+id/createHeaderTV"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingStart="@dimen/dim_10dp"
+                android:layout_toRightOf="@+id/ivBackCreateAccount"
+                android:text="@string/create_account"
+                android:textSize="@dimen/xlarge_txt_20"
+                 />
+        </RelativeLayout>
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/nameEV"
+
+
+            <ScrollView
+                android:layout_below="@+id/rl_menuBar"
+                android:layout_marginTop="@dimen/dim_5dp"
+                android:layout_above="@+id/nextButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="vertical">
+
+                <LinearLayout
+                    android:paddingLeft="@dimen/dim_20dp"
+                    android:paddingRight="@dimen/dim_20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_40dp"
-                    android:drawableRight="@drawable/ic_name"
-                    android:drawablePadding="@dimen/dim_10dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:hint="@string/enter_your_full_name"
-                    android:text="@={registerViewModel.userName}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/uniqNameET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_40dp"
-                    android:drawableRight="@drawable/ic_name"
-                    android:drawablePadding="@dimen/dim_10dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:hint="@string/enter_name"
-                    android:text="@={registerViewModel.userUniqueName}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nameEV" />
-
-                <ImageView
-                    android:id="@+id/validUserName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/dim_30dp"
-                    android:src="@drawable/ic_green_tick"
-                    android:visibility="@{registerViewModel.uniqueUserNameValid ? View.VISIBLE : View.GONE}"
-                    app:layout_constraintBottom_toBottomOf="@+id/uniqNameET"
-                    app:layout_constraintEnd_toEndOf="@+id/uniqNameET"
-                    app:layout_constraintTop_toTopOf="@+id/uniqNameET" />
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/emailET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_40dp"
-                    android:drawableRight="@drawable/ic_mail"
-                    android:drawablePadding="@dimen/dim_10dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:hint="@string/email_id"
-                    android:text="@={registerViewModel.userEmail}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/uniqNameET" />
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/dobET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_40dp"
-                    android:clickable="false"
-                    android:cursorVisible="false"
-                    android:drawableEnd="@drawable/ic_calendar"
-                    android:drawablePadding="@dimen/dim_10dp"
-                    android:focusable="false"
-                    android:fontFamily="@font/poppins_regular"
-                    android:hint="@string/dob"
-                    android:text="@={registerViewModel.dateOfBirth}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/emailET" />
-
-                <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
-                    android:id="@+id/genderTV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_30dp"
-                    android:text="@string/gender_asterisk"
-                    android:textSize="@dimen/short_text_12"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/dobET" />
-
-                <RadioGroup
-                    android:id="@+id/gender_radio_group"
-                    android:layout_width="match_parent"
-
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginTop="@dimen/dim_10dp"
-                    android:orientation="horizontal"
-                    android:checkedButton="@={registerViewModel.genderRadioChecked}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/genderTV">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/nameEV"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/male" />
+                        android:drawableEnd="@drawable/ic_name"
+                        android:drawablePadding="@dimen/dim_10dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="@string/enter_your_full_name"
+                        android:text="@={registerViewModel.userName}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/uniqNameET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_40dp"
+                            android:drawableEnd="@drawable/ic_name"
+                            android:drawablePadding="@dimen/dim_10dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="@string/enter_name"
+                            android:text="@={registerViewModel.userUniqueName}" />
+
+                        <ImageView
+                            android:id="@+id/validUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="@dimen/dim_60dp"
+                            android:layout_marginEnd="@dimen/dim_30dp"
+                            android:src="@drawable/ic_green_tick"
+
+                            android:visibility="@{registerViewModel.uniqueUserNameValid ? View.VISIBLE : View.GONE}" />
+                    </RelativeLayout>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/emailET"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/female" />
+                        android:layout_marginTop="@dimen/dim_40dp"
+                        android:drawableEnd="@drawable/ic_mail"
+                        android:drawablePadding="@dimen/dim_10dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="@string/email_id"
+                        android:text="@={registerViewModel.userEmail}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/uniqNameET" />
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/dobET"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/other" />
+                        android:layout_marginTop="@dimen/dim_40dp"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawablePadding="@dimen/dim_10dp"
+                        android:focusable="false"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="@string/dob"
+                        android:text="@={registerViewModel.dateOfBirth}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/emailET" />
 
-                </RadioGroup>
+                    <com.molitics.molitician.customView.molitics.PoppinsRegularTextView
+                        android:id="@+id/genderTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_30dp"
+                        android:text="@string/gender_asterisk"
+                        android:textSize="@dimen/short_text_12"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dobET" />
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/passwordET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_40dp"
-                    android:drawableRight="@drawable/ic_password"
-                    android:drawablePadding="@dimen/dim_10dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:hint="@string/password"
-                    android:text="@={registerViewModel.userPassword}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/gender_radio_group" />
+                    <RadioGroup
+                        android:id="@+id/gender_radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10dp"
+                        android:checkedButton="@={registerViewModel.genderRadioChecked}"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/genderTV">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/confirmPasswordET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dim_40dp"
-                    android:drawableRight="@drawable/ic_password"
-                    android:drawablePadding="@dimen/dim_10dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:hint="@string/confirm_password"
-                    android:text="@={registerViewModel.userConfirmPassword}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/passwordET" />
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/male" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/female" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/other" />
+
+                    </RadioGroup>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/passwordET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_40dp"
+                        android:drawablePadding="@dimen/dim_10dp"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="#4E74DA">
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/password"
+                            android:text="@={registerViewModel.userPassword}"
+                            android:fontFamily="@font/poppins_regular"
+                            android:inputType="textPassword" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/confirmPasswordET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_40dp"
+                        android:drawablePadding="@dimen/dim_10dp"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="#4E74DA">
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/confirm_password"
+                            android:text="@={registerViewModel.userConfirmPassword}"
+                            android:fontFamily="@font/poppins_regular"
+                            android:inputType="textPassword" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </ScrollView>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextButton"
             style="@style/SignInButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dim_10dp"
             android:onClick="@{() -> registerViewModel.onRegisterNextClick()}"
             android:text="@string/next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginBottom="@dimen/dim_10dp"
+            android:layout_alignParentBottom="true"
+           />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 </layout>

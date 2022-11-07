@@ -1,3 +1,7 @@
 package com.tsfapps.hiltpractice.di.network
 
-data class RecyclerList()
+
+
+data class RecyclerList(val items: List<RecyclerData>)
+data class RecyclerData(val name: String?, val description: String?, val owner: Owner? )
+data class Owner(val avatar_url: String)

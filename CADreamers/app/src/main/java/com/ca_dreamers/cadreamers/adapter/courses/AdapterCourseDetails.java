@@ -1,5 +1,6 @@
-package com.ca_dreamers.cadreamers.adapter.top_20;
+package com.ca_dreamers.cadreamers.adapter.courses;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,20 +28,18 @@ import butterknife.ButterKnife;
 
 public class AdapterCourseDetails extends RecyclerView.Adapter<AdapterCourseDetails.CourseDetailsViewHolder> {
 
-    private Context tContext;
-    private List<Course> tModels;
-    private String strCatId;
+    private final Context tContext;
+    private final List<Course> tModels;
 
     public AdapterCourseDetails(List<Course> tModels, Context tContext) {
         this.tModels = tModels;
         this.tContext = tContext;
-        this.strCatId = strCatId;
     }
 
     @NonNull
     @Override
     public CourseDetailsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.course_details_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_course_details, viewGroup, false);
 
         return new CourseDetailsViewHolder(view);
     }
@@ -48,7 +47,6 @@ public class AdapterCourseDetails extends RecyclerView.Adapter<AdapterCourseDeta
     @Override
     public void onBindViewHolder(@NonNull CourseDetailsViewHolder courseDetailsViewHolder, final int i) {
         final Course tModel = tModels.get(i);
-        final String strCourseId = tModel.getId();
         final String strCourseTitle = tModel.getName();
         final String strImage = tModel.getImage();
 
@@ -67,6 +65,7 @@ public class AdapterCourseDetails extends RecyclerView.Adapter<AdapterCourseDeta
                 bundle.putString(Constant.COURSE_PRICE, tModel.getPrice());
                 bundle.putString(Constant.COURSE_MRP, tModel.getMrp());
                 bundle.putString(Constant.COURSE_DISCOUNT, tModel.getDiscount());
+                bundle.putString(Constant.COURSE_PURCHASED, tModel.getPurchaseStatus());
                 Navigation.findNavController(courseDetailsViewHolder.itemView).navigate(R.id.nav_course_detail, bundle);
             });
 
@@ -77,11 +76,14 @@ public class AdapterCourseDetails extends RecyclerView.Adapter<AdapterCourseDeta
         return tModels.size();
     }
 
-    public class CourseDetailsViewHolder extends RecyclerView.ViewHolder{
+    public static class CourseDetailsViewHolder extends RecyclerView.ViewHolder{
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.tvCourseDetailTitle)
         protected TextView tvCourseDetailTitle;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.ivCourseDetails)
         protected ImageView ivCourseDetails;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.llCourseDetail)
         protected RelativeLayout llCourseDetail;
         public CourseDetailsViewHolder(@NonNull View itemView) {
